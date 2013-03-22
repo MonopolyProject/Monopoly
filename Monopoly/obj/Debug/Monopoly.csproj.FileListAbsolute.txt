@@ -19,3 +19,4 @@ C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\Monopoly\obj\Deb
 C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\Monopoly\obj\Debug\Monopoly.pdb
 C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\Monopoly\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache

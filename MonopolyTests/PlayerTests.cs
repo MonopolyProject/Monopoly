@@ -27,7 +27,7 @@ namespace PlayerTests
             for (int distance = 2; distance <= 12; distance++)
             {
                 correctPosition += distance;
-                correctPosition = correctPosition % 39;
+                correctPosition = correctPosition % 40;
                 player1.move(distance);
                 Assert.AreEqual(correctPosition, player1.getLocation());
             }

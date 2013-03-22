@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1004]C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\PlayerTests\bin\Debug\PlayerTests.dll</TopNode>
-  <SelectedNode>[0-1000]PlayerTests.PlayerTests</SelectedNode>
+  <TopNode>[0-1011]C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll</TopNode>
+  <SelectedNode>[0-1011]C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1004]C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\PlayerTests\bin\Debug\PlayerTests.dll" Expanded="true" />
-    <Node UniqueName="[0-1005]PlayerTests" Expanded="true" />
+    <Node UniqueName="[0-1011]C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll" Expanded="true" />
+    <Node UniqueName="[0-1013]MonopolyTests" Expanded="true" />
+    <Node UniqueName="[0-1004]MonopolyTests.BoardTests" Expanded="true" />
+    <Node UniqueName="[0-1012]PlayerTests" Expanded="true" />
     <Node UniqueName="[0-1000]PlayerTests.PlayerTests" Expanded="true" />
   </Nodes>
 </VisualState>

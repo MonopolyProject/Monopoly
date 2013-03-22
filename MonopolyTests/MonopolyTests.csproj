@@ -35,8 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Choose>
@@ -54,7 +56,7 @@
   <ItemGroup>
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BoardTest.cs" />
+    <Compile Include="BoardTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monopoly\Monopoly.csproj">
