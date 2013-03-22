@@ -15,7 +15,7 @@ namespace Monopoly
         }
         public int move(int distance) {
             this.location += distance;
-            this.location = this.location % 39;
+            this.location = this.location % 40;
             return this.location;
         }
         public int getLocation() {

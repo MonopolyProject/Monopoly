@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using WindowsFormsApplication2;
 
-namespace PlayerTests
+namespace MonopolyTests
 {
     [TestFixture()]
     public class BoardTest

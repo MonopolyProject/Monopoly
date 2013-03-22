@@ -36,5 +36,11 @@ namespace WindowsFormsApplication2
         {
 
         }
+
+        private void rollDie_Click_1(object sender, EventArgs e)
+        {
+            this.movePlayer();
+        }
+       
     }
 }

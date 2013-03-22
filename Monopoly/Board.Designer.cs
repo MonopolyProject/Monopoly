@@ -1,12 +1,15 @@
 ﻿using Monopoly;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 namespace WindowsFormsApplication2
 {
     public partial class Board
     {
 
         private Player player = new Player();
+        private List<Point> locations = populateLocations();
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -30,12 +33,102 @@ namespace WindowsFormsApplication2
             return this.player;
         }
 
+        private static List<Point> populateLocations() {
+            List<Point> locationSet = new List<Point>();
+            int x = 50;
+            int y = 840;
+            int i;
+            locationSet.Add(new Point(x, y));
+            for(i = 0; i<10; i++) {
+                if (i %10 ==  0)
+                {
+                    y -= 80;
+                    locationSet.Add(new Point(x, y));
+                }
+                else
+                {
+                    y -= 70;
+                    locationSet.Add(new Point(x, y));
+                    
+                }
+            }
+            x = 120;
+            y = 50;
+            for (i = 10; i < 20; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    x += 80;
+                    locationSet.Add(new Point(x, y));
+                }
+                else
+                {
+                    x += 70;
+                    locationSet.Add(new Point(x, y));
+
+                }
+            }
+            x = 910;
+            y = 120;
+            for (i = 20; i < 30; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    y += 80;
+                    locationSet.Add(new Point(x, y));
+                }
+                else
+                {
+                    y += 70;
+                    locationSet.Add(new Point(x, y));
+
+                }
+            }
+
+            x = 840;
+            y = 910;
+            for (i = 10; i < 19; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    x -= 80;
+                    locationSet.Add(new Point(x, y));
+                }
+                else
+                {
+                    x -= 70;
+                    locationSet.Add(new Point(x, y));
+
+                }
+            }
+
+            for (i = 0; i < locationSet.Count; i++)
+            {
+                Console.WriteLine("(" + locationSet[i].X + "," + locationSet[i].Y+")");
+            }
+            return locationSet;
+        }
+
         public List<int> roll()
         {
-            List<int> die = new List<int>();
-            die.Add(new Random().Next(6));
-            die.Add(new Random().Next(6));
-            return die;
+            List<int> dice = new List<int>();
+            Random die = new Random();
+            dice.Add(die.Next(5) + 1);
+            dice.Add(die.Next(5) + 1);
+            return dice;
+        }
+
+        public void movePlayer()
+        {
+            List<int> die = this.roll();
+            int newPosition = this.getPlayer().move(die[0] + die[1]);
+            System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + " New Location: " + newPosition + "\n");
+            this.updatePlayerPosition();
+        }
+
+        public void updatePlayerPosition()
+        {
+            this.ovalShape2.Location = this.locations[this.getPlayer().getLocation()];
         }
 
         
@@ -48,6 +141,7 @@ namespace WindowsFormsApplication2
         private void InitializeComponent()
         {
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ovalShape2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.marvinGardens = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ventnorAvenue = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.illinoisAvenue = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
@@ -115,6 +209,7 @@ namespace WindowsFormsApplication2
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.ovalShape2,
             this.marvinGardens,
             this.ventnorAvenue,
             this.illinoisAvenue,
@@ -158,6 +253,20 @@ namespace WindowsFormsApplication2
             this.shapeContainer1.Size = new System.Drawing.Size(984, 962);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
+            // 
+            // ovalShape2
+            // 
+            this.ovalShape2.AccessibleDescription = "Player";
+            this.ovalShape2.AccessibleName = "Player";
+            this.ovalShape2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ovalShape2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape2.FillColor = System.Drawing.Color.Blue;
+            this.ovalShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent60;
+            this.ovalShape2.Location = new System.Drawing.Point(50, 840);
+            this.ovalShape2.Name = "ovalShape2";
+            this.ovalShape2.Size = new System.Drawing.Size(30, 30);
             // 
             // marvinGardens
             // 
@@ -668,6 +777,7 @@ namespace WindowsFormsApplication2
             this.rollDie.TabIndex = 19;
             this.rollDie.Text = "Roll";
             this.rollDie.UseVisualStyleBackColor = true;
+            this.rollDie.Click += new System.EventHandler(this.rollDie_Click_1);
             // 
             // Board
             // 
@@ -702,8 +812,17 @@ namespace WindowsFormsApplication2
 
         }
 
+        private void rollDie_Click(object sender, EventArgs e)
+        {
+            List<int> die = this.roll();
+            int steps = die[0] + die[1];
+            this.player.move(steps);
+        }
+
+
         #endregion
 
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape illinoisAvenue;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape indianaAvenue;
