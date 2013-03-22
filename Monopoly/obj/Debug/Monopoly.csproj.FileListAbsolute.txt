@@ -1,20 +1,10 @@
-C:\Users\Francis\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
-C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
-<<<<<<< HEAD
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\nunit.framework.dll
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\bin\Debug\nunit.framework.xml
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Board.resources
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\obj\Debug\Monopoly.csproj.GenerateResource.Cache
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.pdb
-=======
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.config
->>>>>>> c36e57cd07c5b60537cb20864504e0a1cfb719af
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\WindowsFormsApplication2.exe.config
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\WindowsFormsApplication2.exe
-C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\WindowsFormsApplication2.pdb
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\Monopoly.exe.config
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\Monopoly.exe
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\Monopoly.pdb
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\nunit.framework.dll
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\nunit.framework.xml
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\WindowsFormsApplication2.Board.resources
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.Properties.Resources.resources
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.csproj.GenerateResource.Cache
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.exe
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.pdb

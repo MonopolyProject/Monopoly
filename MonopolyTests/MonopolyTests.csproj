@@ -55,7 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WindowsFormsApplication2\Monopoly.csproj">
+    <ProjectReference Include="..\Monopoly\Monopoly.csproj">
       <Project>{1f4b6d61-f7e8-49f9-97bd-a1bc3eea7a57}</Project>
       <Name>Monopoly</Name>
     </ProjectReference>

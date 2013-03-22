@@ -1,7 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly", "Monopoly\Monopoly.csproj", "{1F4B6D61-F7E8-49F9-97BD-A1BC3EEA7A57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonopolyTests", "MonopolyTests\MonopolyTests.csproj", "{C0F1B1AD-83B5-4C0E-9907-7617BA3FC30D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F4B6D61-F7E8-49F9-97BD-A1BC3EEA7A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4B6D61-F7E8-49F9-97BD-A1BC3EEA7A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4B6D61-F7E8-49F9-97BD-A1BC3EEA7A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4B6D61-F7E8-49F9-97BD-A1BC3EEA7A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F1B1AD-83B5-4C0E-9907-7617BA3FC30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F1B1AD-83B5-4C0E-9907-7617BA3FC30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F1B1AD-83B5-4C0E-9907-7617BA3FC30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F1B1AD-83B5-4C0E-9907-7617BA3FC30D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

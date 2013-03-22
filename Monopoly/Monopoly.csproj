@@ -7,8 +7,8 @@
     <ProjectGuid>{1F4B6D61-F7E8-49F9-97BD-A1BC3EEA7A57}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsFormsApplication2</RootNamespace>
-    <AssemblyName>WindowsFormsApplication2</AssemblyName>
+    <RootNamespace>Monopoly</RootNamespace>
+    <AssemblyName>Monopoly</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
