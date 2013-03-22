@@ -16,3 +16,12 @@ C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\obj\Debug\Pl
 C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\obj\Debug\PlayerTests.pdb
 C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\bin\Debug\Monopoly.exe
 C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\MonopolyTests\bin\Debug\Monopoly.pdb
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\bin\Debug\PlayerTests.pdb
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\bin\Debug\Monopoly.exe
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\bin\Debug\nunit.framework.dll
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\bin\Debug\Monopoly.pdb
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\bin\Debug\nunit.framework.xml
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\obj\Debug\MonopolyTests.csprojResolveAssemblyReference.cache
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\obj\Debug\PlayerTests.dll
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\Monopoly\MonopolyTests\obj\Debug\PlayerTests.pdb
