@@ -777,6 +777,7 @@ namespace WindowsFormsApplication2
             // 
             // rollDie
             // 
+            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rollDie.Location = new System.Drawing.Point(366, 367);
             this.rollDie.Name = "rollDie";
             this.rollDie.Size = new System.Drawing.Size(268, 131);
