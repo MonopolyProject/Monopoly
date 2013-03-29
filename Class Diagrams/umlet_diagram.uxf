@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="12.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>1152</x>
-      <y>280</y>
-      <w>192</w>
-      <h>120</h>
+      <x>1143</x>
+      <y>171</y>
+      <w>216</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>_Player_
 --
@@ -25,10 +25,10 @@ boolean ownsProperty(Property prop)
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>544</x>
-      <y>768</y>
-      <w>184</w>
-      <h>80</h>
+      <x>459</x>
+      <y>720</y>
+      <w>207</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>_IncomeTax_
 --
@@ -42,10 +42,10 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>928</x>
-      <y>496</y>
-      <w>152</w>
-      <h>120</h>
+      <x>891</x>
+      <y>414</y>
+      <w>171</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>_Utilities_
 --
@@ -62,21 +62,21 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>520</x>
-      <y>504</y>
-      <w>128</w>
-      <h>280</h>
+      <x>432</x>
+      <y>423</y>
+      <w>143</w>
+      <h>314</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>112;24;24;264</additional_attributes>
+    <additional_attributes>126;27;27;297</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>272</x>
-      <y>736</y>
-      <w>224</w>
-      <h>160</h>
+      <x>153</x>
+      <y>684</y>
+      <w>252</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>_Property_
 --
@@ -96,10 +96,10 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>136</x>
-      <y>632</y>
-      <w>160</w>
-      <h>80</h>
+      <x>0</x>
+      <y>567</y>
+      <w>180</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>_Jail_
 --
@@ -113,32 +113,32 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>592</x>
-      <y>504</y>
-      <w>72</w>
-      <h>144</h>
+      <x>513</x>
+      <y>423</y>
+      <w>80</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>56;24;24;128</additional_attributes>
+    <additional_attributes>63;27;27;144</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>472</x>
-      <y>496</y>
-      <w>160</w>
-      <h>256</h>
+      <x>378</x>
+      <y>414</y>
+      <w>179</w>
+      <h>287</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>144;24;24;240</additional_attributes>
+    <additional_attributes>162;27;27;270</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>920</x>
-      <y>648</y>
-      <w>184</w>
-      <h>80</h>
+      <x>882</x>
+      <y>585</y>
+      <w>207</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>_LuxaryTax_
 --
@@ -152,10 +152,10 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>320</x>
-      <y>632</y>
-      <w>184</w>
-      <h>72</h>
+      <x>207</x>
+      <y>567</y>
+      <w>207</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>_GoToJail_
 --
@@ -168,32 +168,32 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>944</x>
-      <y>192</y>
-      <w>224</w>
-      <h>104</h>
+      <x>909</x>
+      <y>72</y>
+      <w>251</w>
+      <h>116</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>24;24;208;88</additional_attributes>
+    <additional_attributes>27;27;234;99</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>480</x>
-      <y>472</y>
-      <w>152</w>
-      <h>176</h>
+      <x>387</x>
+      <y>387</y>
+      <w>170</w>
+      <h>197</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>136;24;24;160</additional_attributes>
+    <additional_attributes>153;27;27;180</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>776</x>
-      <y>800</y>
-      <w>184</w>
-      <h>80</h>
+      <x>720</x>
+      <y>756</y>
+      <w>207</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>_Go_
 --
@@ -207,21 +207,21 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>272</x>
-      <y>456</y>
-      <w>360</w>
-      <h>192</h>
+      <x>153</x>
+      <y>369</y>
+      <w>404</w>
+      <h>215</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>344;24;24;176</additional_attributes>
+    <additional_attributes>387;27;27;198</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>616</x>
-      <y>464</y>
-      <w>168</w>
-      <h>64</h>
+      <x>540</x>
+      <y>378</y>
+      <w>189</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>_Cell_
 --
@@ -234,10 +234,10 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>616</x>
-      <y>632</y>
-      <w>184</w>
-      <h>80</h>
+      <x>540</x>
+      <y>567</y>
+      <w>207</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>_DrawCard_
 --
@@ -251,32 +251,32 @@ List&lt;Card&gt; effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>760</x>
-      <y>496</y>
-      <w>176</w>
-      <h>168</h>
+      <x>702</x>
+      <y>414</y>
+      <w>197</w>
+      <h>188</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;160;152</additional_attributes>
+    <additional_attributes>27;27;180;171</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>744</x>
-      <y>504</y>
-      <w>232</w>
-      <h>312</h>
+      <x>684</x>
+      <y>423</y>
+      <w>260</w>
+      <h>350</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;216;296</additional_attributes>
+    <additional_attributes>27;27;243;333</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>800</x>
-      <y>128</y>
-      <w>168</w>
-      <h>96</h>
+      <x>747</x>
+      <y>0</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>_Board_
 --
@@ -291,23 +291,23 @@ void updatePlayerPositions()</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>688</x>
-      <y>200</y>
-      <w>200</w>
-      <h>280</h>
+      <x>621</x>
+      <y>81</y>
+      <w>224</w>
+      <h>314</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>184;24;24;264</additional_attributes>
+    <additional_attributes>207;27;27;297</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>760</x>
-      <y>464</y>
-      <w>184</w>
-      <h>48</h>
+      <x>702</x>
+      <y>378</y>
+      <w>206</w>
+      <h>53</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;168;32</additional_attributes>
+    <additional_attributes>27;27;189;36</additional_attributes>
   </element>
 </diagram>
