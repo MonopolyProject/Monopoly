@@ -12,6 +12,7 @@ namespace WindowsFormsApplication2
         private List<Cell> cells = populateCells(banker);
         private List<System.Windows.Forms.TextBox> houseNumbers;
         private int activePlayer;
+        Property propertyToAdd;
         
         /// <summary>
         /// Required designer variable.
@@ -38,7 +39,10 @@ namespace WindowsFormsApplication2
 
         public Microsoft.VisualBasic.PowerPacks.OvalShape getPlayerShape()
         {
+            if(this.getPlayer().Equals(players[0]))
             return this.ovalShape2;
+            else
+            return this.ovalShape1;
         }
 
         private static List<Player> populatePlayers()
@@ -53,8 +57,8 @@ namespace WindowsFormsApplication2
 
         private static List<Point> populateLocations() {
             List<Point> locationSet = new List<Point>();
-            int x = 50;
-            int y = 840;
+            int x = 58;
+            int y = 848;
             int i;
             locationSet.Add(new Point(x, y));
             for(i = 0; i<10; i++) {
@@ -221,26 +225,42 @@ namespace WindowsFormsApplication2
             Cell cell = this.cells[position];
             if (cell is Property)
             {
-                
-            }
+
+                this.buyDisplay();
+            }else{
+                this.endTurn();
+                }
         }
 
         public void buyProperty()
         {
-            Property propertyToAdd = (Property) this.cells[this.getPlayer().getLocation()];
-            if (this.getPlayer().getMoney() >= propertyToAdd.getHouseCost())
+            propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
+            if (propertyToAdd.getOwner().getName() == "banker" && this.getPlayer().getMoney() >= propertyToAdd.getBuy())
+            {
+                propertyToAdd.addHouse();
+                propertyToAdd.changeOwner(this.getPlayer());
+                this.getPlayer().addMoney(-propertyToAdd.getBuy());
+                
+            }
+            else if (this.getPlayer().getMoney() >= propertyToAdd.getHouseCost()&&this.getPlayer().hasDeed(propertyToAdd))
             {
                 int newHouseNum = propertyToAdd.addHouse();
                 if (newHouseNum > 0)
                 {
-                    if (newHouseNum == 1)
-                    {
-                        this.getPlayer().addDeed(propertyToAdd);
-                    }
                     this.getPlayer().addMoney(-propertyToAdd.getHouseCost());
                     //this.houseNumbers[this.getPlayer().getLocation()].Text = newHouseNum.ToString();
                 }
             }
+            else if (this.getPlayer().getMoney() >= propertyToAdd.getHouseCost())
+            {
+                System.Diagnostics.Debug.Write(this.getPlayer().getName() + " doesnt have enough money\n");
+            }
+            if (this.getPlayer().deeds.Count > 0)
+            {
+                System.Diagnostics.Debug.Write(this.getPlayer().getName() + " has " + this.getPlayer().deeds[this.getPlayer().deeds.Count - 1].getName() + "\n");
+            }
+            System.Diagnostics.Debug.Write(this.getPlayer().getName() + " has " + this.getPlayer().getMoney() + "dollars\n");
+            System.Diagnostics.Debug.Write(propertyToAdd +" has " + propertyToAdd.getNumHouses() + "houses\n");
         }
 
         public void endTurn()
@@ -248,20 +268,36 @@ namespace WindowsFormsApplication2
             this.activePlayer++;
             this.activePlayer = this.activePlayer % (this.players.Count);
             this.rollDie.Enabled = true;
-            this.buy.Enabled = false;
-            this.endTurnButton.Enabled = false;
+            this.button2.Enabled = false;
+            this.button3.Enabled = false;
         }
 
         public void updatePlayerPosition()
         {
-            this.ovalShape2.Location = this.locations[this.getPlayer().getLocation()];
+                            
+            if (this.getPlayer().getName() == "Ed")
+            {
+                this.ovalShape2.Location = this.locations[this.getPlayer().getLocation()];
+            }
+            else
+            {
+                this.ovalShape1.Location = this.locations[this.getPlayer().getLocation()];
+            }
+
         }
 
         public void buyDisplay()
         {
             this.rollDie.Enabled = false;
-            this.buy.Enabled = true;
-            this.endTurnButton.Enabled = true;
+            this.button2.Enabled = true;
+            this.button3.Enabled = true;
+            propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
+            System.Diagnostics.Debug.Write(banker.hasDeed(propertyToAdd));
+            if (!banker.hasDeed(propertyToAdd))
+            {
+                this.button2.Enabled = false;
+            }
+           
         }
 
         public System.Windows.Forms.Button getRollDie()
@@ -271,12 +307,12 @@ namespace WindowsFormsApplication2
 
         public System.Windows.Forms.Button getBuy()
         {
-            return this.buy;
+            return this.button2;
         }
 
         public System.Windows.Forms.Button getEndTurn()
         {
-            return this.endTurnButton;
+            return this.button2;
         }
 
         public int getActivePlayer()
@@ -298,6 +334,7 @@ namespace WindowsFormsApplication2
         private void InitializeComponent()
         {
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalShape2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.marvinGardens = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ventnorAvenue = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
@@ -361,6 +398,9 @@ namespace WindowsFormsApplication2
             this.buy = new System.Windows.Forms.Button();
             this.endTurnButton = new System.Windows.Forms.Button();
             this.payText = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shapeContainer1
@@ -369,6 +409,7 @@ namespace WindowsFormsApplication2
             this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.ovalShape1,
             this.ovalShape2,
             this.marvinGardens,
             this.ventnorAvenue,
@@ -410,9 +451,22 @@ namespace WindowsFormsApplication2
             this.stCharlesPlace,
             this.freeParkingYOLO,
             this.jailYOLO});
-            this.shapeContainer1.Size = new System.Drawing.Size(984, 1042);
+            this.shapeContainer1.Size = new System.Drawing.Size(984, 962);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
+            // 
+            // ovalShape1
+            // 
+            this.ovalShape1.AccessibleDescription = "Player";
+            this.ovalShape1.AccessibleName = "Player";
+            this.ovalShape1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ovalShape1.FillColor = System.Drawing.Color.DarkViolet;
+            this.ovalShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent60;
+            this.ovalShape1.Location = new System.Drawing.Point(58, 848);
+            this.ovalShape1.Name = "ovalShape1";
+            this.ovalShape1.Size = new System.Drawing.Size(22, 22);
             // 
             // ovalShape2
             // 
@@ -423,10 +477,10 @@ namespace WindowsFormsApplication2
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ovalShape2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.ovalShape2.FillColor = System.Drawing.Color.Blue;
-            this.ovalShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent60;
-            this.ovalShape2.Location = new System.Drawing.Point(50, 840);
+            this.ovalShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent90;
+            this.ovalShape2.Location = new System.Drawing.Point(58, 848);
             this.ovalShape2.Name = "ovalShape2";
-            this.ovalShape2.Size = new System.Drawing.Size(30, 30);
+            this.ovalShape2.Size = new System.Drawing.Size(22, 22);
             // 
             // marvinGardens
             // 
@@ -721,7 +775,7 @@ namespace WindowsFormsApplication2
             // 
             this.goLabel.AutoSize = true;
             this.goLabel.Font = new System.Drawing.Font("Comic Sans MS", 20F);
-            this.goLabel.Location = new System.Drawing.Point(111, 833);
+            this.goLabel.Location = new System.Drawing.Point(111, 769);
             this.goLabel.Name = "goLabel";
             this.goLabel.Size = new System.Drawing.Size(57, 38);
             this.goLabel.TabIndex = 1;
@@ -731,7 +785,7 @@ namespace WindowsFormsApplication2
             // 
             this.parkingLabel.AutoSize = true;
             this.parkingLabel.Font = new System.Drawing.Font("Comic Sans MS", 16F);
-            this.parkingLabel.Location = new System.Drawing.Point(812, 107);
+            this.parkingLabel.Location = new System.Drawing.Point(812, 99);
             this.parkingLabel.Name = "parkingLabel";
             this.parkingLabel.Size = new System.Drawing.Size(88, 60);
             this.parkingLabel.TabIndex = 2;
@@ -743,7 +797,7 @@ namespace WindowsFormsApplication2
             this.chestLabel1.AutoSize = true;
             this.chestLabel1.BackColor = System.Drawing.Color.Transparent;
             this.chestLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chestLabel1.Location = new System.Drawing.Point(98, 689);
+            this.chestLabel1.Location = new System.Drawing.Point(98, 636);
             this.chestLabel1.Name = "chestLabel1";
             this.chestLabel1.Size = new System.Drawing.Size(78, 38);
             this.chestLabel1.TabIndex = 3;
@@ -755,7 +809,7 @@ namespace WindowsFormsApplication2
             this.chestLabel2.AutoSize = true;
             this.chestLabel2.BackColor = System.Drawing.Color.Transparent;
             this.chestLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chestLabel2.Location = new System.Drawing.Point(596, 119);
+            this.chestLabel2.Location = new System.Drawing.Point(596, 110);
             this.chestLabel2.Name = "chestLabel2";
             this.chestLabel2.Size = new System.Drawing.Size(78, 38);
             this.chestLabel2.TabIndex = 4;
@@ -767,7 +821,7 @@ namespace WindowsFormsApplication2
             this.chestLabel3.AutoSize = true;
             this.chestLabel3.BackColor = System.Drawing.Color.Transparent;
             this.chestLabel3.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chestLabel3.Location = new System.Drawing.Point(596, 840);
+            this.chestLabel3.Location = new System.Drawing.Point(596, 775);
             this.chestLabel3.Name = "chestLabel3";
             this.chestLabel3.Size = new System.Drawing.Size(78, 38);
             this.chestLabel3.TabIndex = 5;
@@ -779,7 +833,7 @@ namespace WindowsFormsApplication2
             this.waterWorksLabel.AutoSize = true;
             this.waterWorksLabel.BackColor = System.Drawing.Color.Transparent;
             this.waterWorksLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.waterWorksLabel.Location = new System.Drawing.Point(828, 689);
+            this.waterWorksLabel.Location = new System.Drawing.Point(828, 636);
             this.waterWorksLabel.Name = "waterWorksLabel";
             this.waterWorksLabel.Size = new System.Drawing.Size(52, 38);
             this.waterWorksLabel.TabIndex = 6;
@@ -791,7 +845,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel1.AutoSize = true;
             this.chanceLabel1.BackColor = System.Drawing.Color.Transparent;
             this.chanceLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chanceLabel1.Location = new System.Drawing.Point(115, 345);
+            this.chanceLabel1.Location = new System.Drawing.Point(115, 318);
             this.chanceLabel1.Name = "chanceLabel1";
             this.chanceLabel1.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel1.TabIndex = 7;
@@ -803,7 +857,7 @@ namespace WindowsFormsApplication2
             this.railReadLabel.AutoSize = true;
             this.railReadLabel.BackColor = System.Drawing.Color.Transparent;
             this.railReadLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railReadLabel.Location = new System.Drawing.Point(107, 478);
+            this.railReadLabel.Location = new System.Drawing.Point(107, 441);
             this.railReadLabel.Name = "railReadLabel";
             this.railReadLabel.Size = new System.Drawing.Size(62, 38);
             this.railReadLabel.TabIndex = 8;
@@ -815,7 +869,7 @@ namespace WindowsFormsApplication2
             this.taxLabel1.AutoSize = true;
             this.taxLabel1.BackColor = System.Drawing.Color.Transparent;
             this.taxLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.taxLabel1.Location = new System.Drawing.Point(111, 544);
+            this.taxLabel1.Location = new System.Drawing.Point(111, 502);
             this.taxLabel1.Name = "taxLabel1";
             this.taxLabel1.Size = new System.Drawing.Size(57, 38);
             this.taxLabel1.TabIndex = 9;
@@ -826,7 +880,7 @@ namespace WindowsFormsApplication2
             // 
             this.jailLabel.AutoSize = true;
             this.jailLabel.Font = new System.Drawing.Font("Comic Sans MS", 20F);
-            this.jailLabel.Location = new System.Drawing.Point(105, 111);
+            this.jailLabel.Location = new System.Drawing.Point(105, 102);
             this.jailLabel.Name = "jailLabel";
             this.jailLabel.Size = new System.Drawing.Size(63, 38);
             this.jailLabel.TabIndex = 10;
@@ -838,7 +892,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel2.AutoSize = true;
             this.chanceLabel2.BackColor = System.Drawing.Color.Transparent;
             this.chanceLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chanceLabel2.Location = new System.Drawing.Point(828, 280);
+            this.chanceLabel2.Location = new System.Drawing.Point(828, 258);
             this.chanceLabel2.Name = "chanceLabel2";
             this.chanceLabel2.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel2.TabIndex = 11;
@@ -850,7 +904,7 @@ namespace WindowsFormsApplication2
             this.eCompanyLabel.AutoSize = true;
             this.eCompanyLabel.BackColor = System.Drawing.Color.Transparent;
             this.eCompanyLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.eCompanyLabel.Location = new System.Drawing.Point(253, 118);
+            this.eCompanyLabel.Location = new System.Drawing.Point(253, 109);
             this.eCompanyLabel.Name = "eCompanyLabel";
             this.eCompanyLabel.Size = new System.Drawing.Size(63, 38);
             this.eCompanyLabel.TabIndex = 12;
@@ -862,7 +916,7 @@ namespace WindowsFormsApplication2
             this.railPennLabel.AutoSize = true;
             this.railPennLabel.BackColor = System.Drawing.Color.Transparent;
             this.railPennLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railPennLabel.Location = new System.Drawing.Point(453, 116);
+            this.railPennLabel.Location = new System.Drawing.Point(453, 107);
             this.railPennLabel.Name = "railPennLabel";
             this.railPennLabel.Size = new System.Drawing.Size(88, 38);
             this.railPennLabel.TabIndex = 13;
@@ -874,7 +928,7 @@ namespace WindowsFormsApplication2
             this.railBOLabel.AutoSize = true;
             this.railBOLabel.BackColor = System.Drawing.Color.Transparent;
             this.railBOLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railBOLabel.Location = new System.Drawing.Point(819, 478);
+            this.railBOLabel.Location = new System.Drawing.Point(819, 441);
             this.railBOLabel.Name = "railBOLabel";
             this.railBOLabel.Size = new System.Drawing.Size(62, 38);
             this.railBOLabel.TabIndex = 14;
@@ -886,7 +940,7 @@ namespace WindowsFormsApplication2
             this.goToJailLabel.AutoSize = true;
             this.goToJailLabel.BackColor = System.Drawing.Color.Transparent;
             this.goToJailLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F);
-            this.goToJailLabel.Location = new System.Drawing.Point(827, 828);
+            this.goToJailLabel.Location = new System.Drawing.Point(827, 764);
             this.goToJailLabel.Name = "goToJailLabel";
             this.goToJailLabel.Size = new System.Drawing.Size(62, 56);
             this.goToJailLabel.TabIndex = 15;
@@ -898,7 +952,7 @@ namespace WindowsFormsApplication2
             this.railShortLabel.AutoSize = true;
             this.railShortLabel.BackColor = System.Drawing.Color.Transparent;
             this.railShortLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railShortLabel.Location = new System.Drawing.Point(473, 836);
+            this.railShortLabel.Location = new System.Drawing.Point(473, 772);
             this.railShortLabel.Name = "railShortLabel";
             this.railShortLabel.Size = new System.Drawing.Size(47, 38);
             this.railShortLabel.TabIndex = 16;
@@ -910,7 +964,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel3.AutoSize = true;
             this.chanceLabel3.BackColor = System.Drawing.Color.Transparent;
             this.chanceLabel3.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chanceLabel3.Location = new System.Drawing.Point(398, 852);
+            this.chanceLabel3.Location = new System.Drawing.Point(398, 786);
             this.chanceLabel3.Name = "chanceLabel3";
             this.chanceLabel3.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel3.TabIndex = 17;
@@ -922,7 +976,7 @@ namespace WindowsFormsApplication2
             this.taxLabel2.AutoSize = true;
             this.taxLabel2.BackColor = System.Drawing.Color.Transparent;
             this.taxLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.taxLabel2.Location = new System.Drawing.Point(259, 840);
+            this.taxLabel2.Location = new System.Drawing.Point(259, 775);
             this.taxLabel2.Name = "taxLabel2";
             this.taxLabel2.Size = new System.Drawing.Size(57, 38);
             this.taxLabel2.TabIndex = 18;
@@ -932,45 +986,74 @@ namespace WindowsFormsApplication2
             // rollDie
             // 
             this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollDie.Location = new System.Drawing.Point(366, 467);
+            this.rollDie.Location = new System.Drawing.Point(311, 281);
             this.rollDie.Name = "rollDie";
-            this.rollDie.Size = new System.Drawing.Size(268, 131);
+            this.rollDie.Size = new System.Drawing.Size(395, 88);
             this.rollDie.TabIndex = 19;
-            this.rollDie.Text = "ROLL";
+            this.rollDie.Text = "Roll";
             this.rollDie.UseVisualStyleBackColor = true;
             this.rollDie.Click += new System.EventHandler(this.rollDie_Click_1);
-
             // 
             // buy
             // 
-            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollDie.Location = new System.Drawing.Point(366, 367);
-            this.rollDie.Name = "buy";
-            this.rollDie.Size = new System.Drawing.Size(268, 131);
-            this.rollDie.TabIndex = 19;
-            this.rollDie.Text = "BUY";
-            this.rollDie.UseVisualStyleBackColor = true;
-            this.rollDie.Click += new System.EventHandler(this.buy_Click_1);
-
+            this.buy.Location = new System.Drawing.Point(0, 0);
+            this.buy.Name = "buy";
+            this.buy.Size = new System.Drawing.Size(75, 21);
+            this.buy.TabIndex = 20;
             // 
-            // endTurn
+            // endTurnButton
             // 
-            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollDie.Location = new System.Drawing.Point(366, 567);
-            this.rollDie.Name = "endTurn";
-            this.rollDie.Size = new System.Drawing.Size(268, 131);
-            this.rollDie.TabIndex = 19;
-            this.rollDie.Text = "END TURN";
-            this.rollDie.UseVisualStyleBackColor = true;
-            this.rollDie.Click += new System.EventHandler(this.endTurn_Click_1);
-
-
+            this.endTurnButton.Location = new System.Drawing.Point(0, 0);
+            this.endTurnButton.Name = "endTurnButton";
+            this.endTurnButton.Size = new System.Drawing.Size(75, 21);
+            this.endTurnButton.TabIndex = 21;
+            // 
+            // payText
+            // 
+            this.payText.Location = new System.Drawing.Point(0, 0);
+            this.payText.Name = "payText";
+            this.payText.Size = new System.Drawing.Size(100, 21);
+            this.payText.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(311, 452);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(395, 88);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Buy";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buy_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(311, 609);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(395, 88);
+            this.button3.TabIndex = 24;
+            this.button3.Text = "End Turn";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.endTurn_Click_1);
             // 
             // Board
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 1042);
+            this.ClientSize = new System.Drawing.Size(984, 962);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rollDie);
             this.Controls.Add(this.buy);
             this.Controls.Add(this.endTurnButton);
@@ -994,7 +1077,7 @@ namespace WindowsFormsApplication2
             this.Controls.Add(this.goLabel);
             this.Controls.Add(this.shapeContainer1);
             this.Name = "Board";
-            this.Text = "Form1";
+            this.Text = "GameBoard";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1075,6 +1158,10 @@ namespace WindowsFormsApplication2
         private System.Windows.Forms.Button buy;
         private System.Windows.Forms.Button endTurnButton;
         private System.Windows.Forms.TextBox payText;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape1;
     }
 
 }

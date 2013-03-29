@@ -44,7 +44,10 @@ namespace WindowsFormsApplication2
 
         private void buy_Click_1(object sender, EventArgs e)
         {
+
             this.buyProperty();
+            this.button2.Enabled = false;
+
         }
 
         private void endTurn_Click_1(object sender, EventArgs e)

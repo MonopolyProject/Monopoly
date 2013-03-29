@@ -12,7 +12,7 @@ namespace Monopoly
         int money;
         int location;
         int payForRound;
-        List<Property> deeds = new List<Property>();
+        public List<Property> deeds = new List<Property>();
 
         public Player(string Name)
         {

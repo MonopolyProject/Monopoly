@@ -94,7 +94,7 @@ namespace MonopolyTests
             Property prop = (Property) board.getCellAt(p.getLocation());
 
             Assert.False(p.getDeeds().Contains(prop));
-            int houseCost = prop.getHouseCost();
+            int houseCost = prop.getBuy();
             board.buyProperty();
             Assert.True(p.getDeeds().Contains(prop));
             int newMoney = 1500 - houseCost;

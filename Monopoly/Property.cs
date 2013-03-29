@@ -24,6 +24,7 @@ namespace Monopoly
         {
             this.buy = cost;
             this.owner = owner;
+            this.owner.addDeed(this);
             this.rents = rents;
             this.sell = mortgage;
             this.name = name;
@@ -36,7 +37,12 @@ namespace Monopoly
 
         public Player getOwner() { return this.owner; }
 
-        public void changeOwner(Player newOwner) { this.owner = newOwner; }
+        public void changeOwner(Player newOwner) 
+        {
+            this.owner.removeDeed(this);
+            this.owner = newOwner;
+            this.owner.addDeed(this);
+        }
        
         public int getPos() { return this.position; }
 
