@@ -25,7 +25,7 @@ namespace Monopoly
         }
 
         public bool hasDeed(Property lookFor) { return this.deeds.Contains(lookFor); }
-        public bool haveDeeds(List<Property> possibleDeeds)
+        public bool hasDeeds(List<Property> possibleDeeds)
         {
             foreach (Property prop in possibleDeeds)
             {

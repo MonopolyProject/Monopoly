@@ -1,6 +1,7 @@
 ﻿using System;
 using Monopoly;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace MonopolyTests
 {
@@ -34,19 +35,43 @@ namespace MonopolyTests
         }
 
         [Test()]
-        public void TestPlayerDeeds()
+        public void TestPlayerDeedsIndividual()
         {
             var p = new Player();
-            Property prop1 = new Property("Board Walk", 39, p, 500, 200, new int[] { 100 });
-            Property prop2 = new Property("Park Place", 37, p, 450, 150, new int[] { 75 });
-            Property prop3 = new Property("Short Line", 35, p, 200, 100, new int[] { 25 });
+            Property prop1 = new Property("Board Walk", 39, p, 500, 200, new int[] { 100 }, 3);
+            Property prop2 = new Property("Park Place", 37, p, 450, 150, new int[] { 75 }, 2);
+            Property prop3 = new Property("Short Line", 35, p, 200, 100, new int[] { 25 }, 1);
             p.addDeed(prop1);
             p.addDeed(prop2);
             p.addDeed(prop3);
             Assert.True(p.hasDeed(prop1));
             Assert.True(p.hasDeed(prop2));
             Assert.True(p.hasDeed(prop3));
-            
+
+
+        }
+
+        [Test()]
+        public void TestPlayerDeedsLists()
+        {
+            var p = new Player();
+            Property prop1 = new Property("Board Walk", 39, p, 500, 200, new int[] { 100 }, 3);
+            Property prop2 = new Property("Park Place", 37, p, 450, 150, new int[] { 75 }, 2);
+            Property prop3 = new Property("Short Line", 35, p, 200, 100, new int[] { 25 }, 1);
+            p.addDeed(prop1);
+            p.addDeed(prop2);
+            p.addDeed(prop3);
+
+            List<Property> testProps = new List<Property>();
+            testProps.Add(prop1);
+            testProps.Add(prop2);
+            testProps.Add(prop3);
+            CollectionAssert.AreEqual(testProps, p.getDeeds());
+            Assert.True(p.hasDeeds(testProps));
+
+            Property badProp = new Property("Done Messed Up", 1, p, 2, 3, new int[] { 4 }, 5);
+            testProps.Add(badProp);
+            Assert.False(p.hasDeeds(testProps));
 
         }
     }

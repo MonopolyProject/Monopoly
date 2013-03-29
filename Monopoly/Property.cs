@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
+    //site with all property information we need
+    //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
     public class Property: Cell
     {
         private String name;
@@ -13,10 +15,11 @@ namespace Monopoly
         private int buy;
         private int sell;
         private int[] rents;
-        private int numHouses = 0;
+        private int numHouses = 0;//5 houses = 1 hotel on a normal property
+        private int houseCost;
         private Player owner;
 
-        public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents)
+        public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents, int houseCost)
         {
             this.buy = cost;
             this.owner = owner;
@@ -24,6 +27,7 @@ namespace Monopoly
             this.sell = mortgage;
             this.name = name;
             this.position = position;
+            this.houseCost = houseCost;
 
         }
 
@@ -54,6 +58,8 @@ namespace Monopoly
         }
 
         public int getNumHouses() { return this.numHouses; }
+
+        public int getHouseCost() { return this.houseCost; }
 
     }
 }
