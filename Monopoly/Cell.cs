@@ -8,9 +8,7 @@ namespace Monopoly
 {
     public interface Cell
     {
-
-        void effect(Player landedOn);
-        
+           
 
     }
 }

@@ -14,7 +14,7 @@ namespace MonopolyTests
         [Test()]
         public void testInitializes()
         {
-            Player p1 = new Player();
+            Player p1 = new Player("Ed");
             var prop = new Property("Board Walk", 39, p1, 1, 2, new int[] {1}, 1);
             Assert.NotNull(prop);
         }
@@ -22,7 +22,7 @@ namespace MonopolyTests
         [Test()]
         public void testValuesStore()
         {
-            Player p1 = new Player();
+            Player p1 = new Player("Ed");
             var prop = new Property("Board Walk", 39, p1, 1, 2, new int[] {1}, 1);
             Assert.AreEqual("Board Walk", prop.getName());
             Assert.AreEqual(39, prop.getPos());
@@ -38,11 +38,11 @@ namespace MonopolyTests
         [Test()]
         public void testChangingPlayer()
         {
-            Player p1 = new Player();
+            Player p1 = new Player("Ed");
             var prop = new Property("Board Walk", 39, p1, 1, 2, new int[] { 1 }, 1); 
             Assert.AreEqual(p1, prop.getOwner());
 
-            Player p2 = new Player();
+            Player p2 = new Player("Tomato");
             prop.changeOwner(p2);
             Assert.AreEqual(p2, prop.getOwner());
             Assert.AreNotSame(p1, prop.getOwner());
@@ -52,7 +52,7 @@ namespace MonopolyTests
         public void testAddingHouses()
         {
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
-            var boardwalk = new Property("Board Walk", 39, new Player(), 400, 200, rents, 200);
+            var boardwalk = new Property("Board Walk", 39, new Player("Ed"), 400, 200, rents, 200);
             Assert.AreEqual(0, boardwalk.getNumHouses());
 
             boardwalk.addHouse();
@@ -70,8 +70,5 @@ namespace MonopolyTests
             Assert.AreEqual(5, boardwalk.getNumHouses());
             Assert.AreEqual(rents[5], boardwalk.getRent());
         }
-
-
-
     }
 }

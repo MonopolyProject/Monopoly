@@ -59,5 +59,57 @@ namespace MonopolyTests
                 Assert.AreEqual(board.getPlayerShape().Location, board.locations[board.getPlayer().getLocation()]);
             }
         }
+
+        [Test()]
+        public void TestBuyDisplay()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            board.buyDisplay();
+            Assert.True(board.getBuy().Enabled);
+            Assert.True(board.getEndTurn().Enabled);
+            Assert.False(board.getRollDie().Enabled);
+        }
+
+        [Test()]
+        public void TestEndTurn()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            int active = board.getActivePlayer();
+            board.endTurn();
+            Assert.AreEqual(active + 1, board.getActivePlayer());
+            board.endTurn();
+            Assert.AreEqual(0, board.getActivePlayer());
+            Assert.False(board.getBuy().Enabled);
+            Assert.False(board.getEndTurn().Enabled);
+            Assert.True(board.getRollDie().Enabled);
+        }
+        
+        [Test()]
+        public void TestBuyProperty()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var p = board.getPlayer();
+            p.move(6);
+            Assert.AreEqual(6, p.getLocation());
+            Property prop = (Property) board.getCellAt(p.getLocation());
+
+            Assert.False(p.getDeeds().Contains(prop));
+            int houseCost = prop.getHouseCost();
+            board.buyProperty();
+            Assert.True(p.getDeeds().Contains(prop));
+            int newMoney = 1500 - houseCost;
+            Assert.AreEqual(newMoney, p.getMoney());
+            Assert.AreEqual(1, prop.getNumHouses());
+
+            houseCost = prop.getHouseCost();
+            board.buyProperty();
+            Assert.AreEqual(newMoney - houseCost, p.getMoney());
+            Assert.AreEqual(2, prop.getNumHouses());
+
+            p.addMoney(-p.getMoney());
+            board.buyProperty();
+            Assert.AreEqual(0, p.getMoney());
+            Assert.AreEqual(2, prop.getNumHouses());
+        }
     }
 }

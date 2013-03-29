@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApplication2;
 
 namespace Monopoly
 {
@@ -30,14 +31,7 @@ namespace Monopoly
             this.houseCost = houseCost;
 
         }
-
-        public void effect (Player landedOn)
-        {
-
-
-
-        }
-
+        
         public String getName() { return this.name; }
 
         public Player getOwner() { return this.owner; }
@@ -52,9 +46,14 @@ namespace Monopoly
 
         public int getRent() { return this.rents[this.numHouses]; }
 
-        public void addHouse()
+        public int addHouse()
         {
-            if (numHouses < 5) numHouses++;
+            if (this.numHouses < 5)
+            {
+                this.numHouses++;
+                return this.numHouses;
+            }
+            return -1;
         }
 
         public int getNumHouses() { return this.numHouses; }

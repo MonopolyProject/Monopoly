@@ -11,19 +11,19 @@ namespace MonopolyTests
         [Test()]
         public void TestThatPlayerInitializes()
         {
-            var player1 = new Player();
+            var player1 = new Player("Ed");
             Assert.IsNotNull(player1);
         }
         [Test()]
         public void TestPlayerStartPosition()
         {
-            var player1 = new Player();
+            var player1 = new Player("Ed");
             Assert.AreEqual(0, player1.getLocation());
         }
         [Test()]
         public void TestPlayerMoves()
         {
-            var player1 = new Player();
+            var player1 = new Player("Ed");
             int correctPosition = 0;
             for (int distance = 2; distance <= 12; distance++)
             {
@@ -37,7 +37,7 @@ namespace MonopolyTests
         [Test()]
         public void TestPlayerDeedsIndividual()
         {
-            var p = new Player();
+            var p = new Player("Ed");
             Property prop1 = new Property("Board Walk", 39, p, 500, 200, new int[] { 100 }, 3);
             Property prop2 = new Property("Park Place", 37, p, 450, 150, new int[] { 75 }, 2);
             Property prop3 = new Property("Short Line", 35, p, 200, 100, new int[] { 25 }, 1);
@@ -54,7 +54,7 @@ namespace MonopolyTests
         [Test()]
         public void TestPlayerDeedsLists()
         {
-            var p = new Player();
+            var p = new Player("Ed");
             Property prop1 = new Property("Board Walk", 39, p, 500, 200, new int[] { 100 }, 3);
             Property prop2 = new Property("Park Place", 37, p, 450, 150, new int[] { 75 }, 2);
             Property prop3 = new Property("Short Line", 35, p, 200, 100, new int[] { 25 }, 1);

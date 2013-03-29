@@ -6,10 +6,13 @@ namespace WindowsFormsApplication2
 {
     public partial class Board
     {
-
-        private Player player = new Player();
+        private static Player banker = new Player("banker");
         public List<Point> locations = populateLocations();
-
+        private List<Player> players = populatePlayers();
+        private List<Cell> cells = populateCells(banker);
+        private List<System.Windows.Forms.TextBox> houseNumbers;
+        private int activePlayer;
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -27,15 +30,25 @@ namespace WindowsFormsApplication2
             }
             base.Dispose(disposing);
         }
-
+        
         public Player getPlayer()
         {
-            return this.player;
+            return this.players[this.activePlayer];
         }
 
         public Microsoft.VisualBasic.PowerPacks.OvalShape getPlayerShape()
         {
             return this.ovalShape2;
+        }
+
+        private static List<Player> populatePlayers()
+        {
+            Player player0 = new Player("Ed");
+            Player player1 = new Player("Tomato");
+            List<Player> players = new List<Player>();
+            players.Add(player0);
+            players.Add(player1);
+            return players;
         }
 
         private static List<Point> populateLocations() {
@@ -114,6 +127,76 @@ namespace WindowsFormsApplication2
             return locationSet;
         }
 
+        private static List<Cell> populateCells(Player banker)
+        {
+            List<Cell> cells = new List<Cell>();
+            List<Cell> orderedCells = new List<Cell>();
+
+            Property mediterr = new Property("Mediterranean Avenue", 1, banker, 60, 30, new int[] { 2, 10, 30, 90, 160, 250 }, 50);
+            Property baltic = new Property("Baltic Avenue", 3, banker, 60, 30, new int[] { 4, 20, 60, 180, 320, 450 }, 50);
+
+            Property oriental = new Property("Oriental Avenue", 6, banker, 100, 50, new int[] { 6, 30, 90, 270, 400, 550 }, 50);
+            Property vermont = new Property("Vermont Avenue", 8, banker, 100, 50, new int[] { 6, 30, 90, 270, 400, 550 }, 50);
+            Property connecticut = new Property("Connecticut Avenue", 9, banker, 120, 60, new int[] { 8, 40, 100, 300, 450, 600 }, 50);
+
+            Property charles = new Property("St. Charles Place", 11, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100);
+            Property states = new Property("States Avenue", 13, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100);
+            Property virginia = new Property("Virginia Avenue", 14, banker, 160, 80, new int[] { 12, 60, 180, 500, 700, 900 }, 100);
+
+            Property james = new Property("St. James Place", 16, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100);
+            Property tennessee = new Property("Tennessee Avenue", 18, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100);
+            Property newyork = new Property("New York Avenue", 19, banker, 200, 100, new int[] { 16, 80, 220, 600, 800, 1000 }, 100);
+
+            Property kentucky = new Property("Kentucky Avenue", 21, banker, 220, 110, new int[] { 18, 90, 250, 700, 875, 1050 }, 150);
+            Property indiana = new Property("Indiana Avenue", 23, banker, 220, 110, new int[] { 18, 90, 250, 700, 875, 1050 }, 150);
+            Property illinois = new Property("Illinois Avenue", 24, banker, 240, 120, new int[] { 20, 100, 300, 750, 925, 1100 }, 150);
+
+
+            Property atlantic = new Property("Atlantic Avenue", 26, banker, 260, 130, new int[] { 22, 110, 330, 800, 975, 1150 }, 150);
+            Property ventnor = new Property("Ventnor Avenue", 27, banker, 260, 130, new int[] { 22, 110, 330, 800, 975, 1150 }, 150);
+            Property marvin = new Property("Marvin Gardens", 29, banker, 280, 140, new int[] { 24, 120, 360, 850, 1025, 1200 }, 150);
+
+            Property pacific = new Property("Pacific Avenue", 31, banker, 300, 150, new int[] { 26, 130, 390, 900, 1100, 1275 }, 200);
+            Property carolina = new Property("North Carolina Avenue", 32, banker, 300, 150, new int[] { 26, 130, 390, 900, 1100, 1275 }, 200);
+            Property penn = new Property("Pennsylvania Avenue", 34, banker, 320, 160, new int[] { 28, 150, 450, 1000, 1200, 1400 }, 200);
+
+            Property park = new Property("Park Place", 37, banker, 350, 175, new int[] { 35, 175, 500, 1100, 1300, 1500 }, 200);
+            Property boardwalk = new Property("Boardwalk", 39, banker, 400, 200, new int[] { 50, 200, 600, 1400, 1700, 2000 }, 200);
+
+            Railroad readingRR = new Railroad("Reading Railroad", 5, banker, 200, 100, new int[] { 25, 50, 100, 200 });
+            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, banker, 200, 100, new int[] { 25, 50, 100, 200 });
+            Railroad boRR = new Railroad("B&O Railroad", 25, banker, 200, 100, new int[] { 25, 50, 100, 200 });
+            Railroad shortRR = new Railroad("Short Line", 35, banker, 200, 100, new int[] { 25, 50, 100, 200 });
+
+            Utility electric = new Utility("Electric Company", 12, banker, 150, 75);
+            Utility water = new Utility("Water Works", 28, banker, 150, 75);
+
+            Property temp0 = new Property("Placeholder", 0, banker, 0, 0, new int[] { 0,0,0,0,0}, 0);
+            Property temp2 = new Property("Placeholder", 2, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp4 = new Property("Placeholder", 4, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp7 = new Property("Placeholder", 7, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp10 = new Property("Placeholder", 10, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp17 = new Property("Placeholder", 17, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp20 = new Property("Placeholder", 20, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp22 = new Property("Placeholder", 22, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp30 = new Property("Placeholder", 30, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp33 = new Property("Placeholder", 33, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp36 = new Property("Placeholder", 36, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            Property temp38 = new Property("Placeholder", 38, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+
+            cells.Add(temp0); cells.Add(mediterr); cells.Add(temp2); cells.Add(baltic); cells.Add(temp4); cells.Add(readingRR); cells.Add(oriental); cells.Add(temp7); cells.Add(vermont);
+            cells.Add(connecticut); cells.Add(temp10); cells.Add(charles); cells.Add(electric); cells.Add(states); cells.Add(virginia); cells.Add(pennRR); cells.Add(james); cells.Add(temp17);
+            cells.Add(tennessee); cells.Add(newyork); cells.Add(temp20); cells.Add(kentucky); cells.Add(temp22); cells.Add(indiana); cells.Add(illinois); cells.Add(boRR); cells.Add(atlantic);
+            cells.Add(ventnor); cells.Add(water); cells.Add(marvin); cells.Add(temp30); cells.Add(pacific); cells.Add(carolina); cells.Add(temp33); cells.Add(penn); cells.Add(shortRR);
+            cells.Add(temp36); cells.Add(park); cells.Add(temp38); cells.Add(boardwalk); 
+                        
+            return cells;
+        }
+
+        private void updateHouseNumbers()
+        {
+        }
+
         public List<int> roll()
         {
             List<int> dice = new List<int>();
@@ -129,7 +212,44 @@ namespace WindowsFormsApplication2
             int newPosition = this.getPlayer().move(die[0] + die[1]);
             System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + " New Location: " + newPosition + "\n");
             this.updatePlayerPosition();
+            this.cellEffect(newPosition);
             return newPosition;
+        }
+
+        public void cellEffect(int position)
+        {
+            Cell cell = this.cells[position];
+            if (cell is Property)
+            {
+                
+            }
+        }
+
+        public void buyProperty()
+        {
+            Property propertyToAdd = (Property) this.cells[this.getPlayer().getLocation()];
+            if (this.getPlayer().getMoney() >= propertyToAdd.getHouseCost())
+            {
+                int newHouseNum = propertyToAdd.addHouse();
+                if (newHouseNum > 0)
+                {
+                    if (newHouseNum == 1)
+                    {
+                        this.getPlayer().addDeed(propertyToAdd);
+                    }
+                    this.getPlayer().addMoney(-propertyToAdd.getHouseCost());
+                    //this.houseNumbers[this.getPlayer().getLocation()].Text = newHouseNum.ToString();
+                }
+            }
+        }
+
+        public void endTurn()
+        {
+            this.activePlayer++;
+            this.activePlayer = this.activePlayer % (this.players.Count);
+            this.rollDie.Enabled = true;
+            this.buy.Enabled = false;
+            this.endTurnButton.Enabled = false;
         }
 
         public void updatePlayerPosition()
@@ -137,6 +257,37 @@ namespace WindowsFormsApplication2
             this.ovalShape2.Location = this.locations[this.getPlayer().getLocation()];
         }
 
+        public void buyDisplay()
+        {
+            this.rollDie.Enabled = false;
+            this.buy.Enabled = true;
+            this.endTurnButton.Enabled = true;
+        }
+
+        public System.Windows.Forms.Button getRollDie()
+        {
+            return this.rollDie;
+        }
+
+        public System.Windows.Forms.Button getBuy()
+        {
+            return this.buy;
+        }
+
+        public System.Windows.Forms.Button getEndTurn()
+        {
+            return this.endTurnButton;
+        }
+
+        public int getActivePlayer()
+        {
+            return this.activePlayer;
+        }
+
+        public Cell getCellAt(int location)
+        {
+            return this.cells[location];
+        }
         
         #region Windows Form Designer generated code
 
@@ -207,6 +358,9 @@ namespace WindowsFormsApplication2
             this.chanceLabel3 = new System.Windows.Forms.Label();
             this.taxLabel2 = new System.Windows.Forms.Label();
             this.rollDie = new System.Windows.Forms.Button();
+            this.buy = new System.Windows.Forms.Button();
+            this.endTurnButton = new System.Windows.Forms.Button();
+            this.payText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // shapeContainer1
@@ -778,13 +932,39 @@ namespace WindowsFormsApplication2
             // rollDie
             // 
             this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollDie.Location = new System.Drawing.Point(366, 367);
+            this.rollDie.Location = new System.Drawing.Point(366, 467);
             this.rollDie.Name = "rollDie";
             this.rollDie.Size = new System.Drawing.Size(268, 131);
             this.rollDie.TabIndex = 19;
-            this.rollDie.Text = "Roll";
+            this.rollDie.Text = "ROLL";
             this.rollDie.UseVisualStyleBackColor = true;
             this.rollDie.Click += new System.EventHandler(this.rollDie_Click_1);
+
+            // 
+            // buy
+            // 
+            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollDie.Location = new System.Drawing.Point(366, 367);
+            this.rollDie.Name = "buy";
+            this.rollDie.Size = new System.Drawing.Size(268, 131);
+            this.rollDie.TabIndex = 19;
+            this.rollDie.Text = "BUY";
+            this.rollDie.UseVisualStyleBackColor = true;
+            this.rollDie.Click += new System.EventHandler(this.buy_Click_1);
+
+            // 
+            // endTurn
+            // 
+            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollDie.Location = new System.Drawing.Point(366, 567);
+            this.rollDie.Name = "endTurn";
+            this.rollDie.Size = new System.Drawing.Size(268, 131);
+            this.rollDie.TabIndex = 19;
+            this.rollDie.Text = "END TURN";
+            this.rollDie.UseVisualStyleBackColor = true;
+            this.rollDie.Click += new System.EventHandler(this.endTurn_Click_1);
+
+
             // 
             // Board
             // 
@@ -792,6 +972,8 @@ namespace WindowsFormsApplication2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 1042);
             this.Controls.Add(this.rollDie);
+            this.Controls.Add(this.buy);
+            this.Controls.Add(this.endTurnButton);
             this.Controls.Add(this.taxLabel2);
             this.Controls.Add(this.chanceLabel3);
             this.Controls.Add(this.railShortLabel);
@@ -823,7 +1005,7 @@ namespace WindowsFormsApplication2
         {
             List<int> die = this.roll();
             int steps = die[0] + die[1];
-            this.player.move(steps);
+            this.getPlayer().move(steps);
         }
 
 
@@ -890,7 +1072,9 @@ namespace WindowsFormsApplication2
         private System.Windows.Forms.Label chanceLabel3;
         private System.Windows.Forms.Label taxLabel2;
         private System.Windows.Forms.Button rollDie;
-
+        private System.Windows.Forms.Button buy;
+        private System.Windows.Forms.Button endTurnButton;
+        private System.Windows.Forms.TextBox payText;
     }
 
 }

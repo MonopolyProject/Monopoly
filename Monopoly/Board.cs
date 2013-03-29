@@ -41,6 +41,15 @@ namespace WindowsFormsApplication2
         {
             this.movePlayer();
         }
-       
+
+        private void buy_Click_1(object sender, EventArgs e)
+        {
+            this.buyProperty();
+        }
+
+        private void endTurn_Click_1(object sender, EventArgs e)
+        {
+            this.endTurn();
+        }
     }
 }
