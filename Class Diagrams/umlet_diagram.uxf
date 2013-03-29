@@ -2,39 +2,29 @@
 <diagram program="umlet" version="12.0">
   <zoom_level>9</zoom_level>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>1143</x>
-      <y>171</y>
-      <w>216</w>
-      <h>135</h>
+      <x>495</x>
+      <y>324</y>
+      <w>215</w>
+      <h>143</h>
     </coordinates>
-    <panel_attributes>_Player_
---
-int location
-List&lt;Property&gt; properties
-int[] bills
-boolean inJail
---
-int move(int distance)
-void payTo(Player catcher)
-boolean ownsProperty(Property prop)
-</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>198;27;27;126</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>459</x>
-      <y>720</y>
-      <w>207</w>
+      <x>873</x>
+      <y>684</y>
+      <w>198</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>_IncomeTax_
+    <panel_attributes>_Go_
 --
 String name
 int position
-int defaultTax
+readonly int collectionAmmount
 --
 void effect(Player landedOn)</panel_attributes>
     <additional_attributes/>
@@ -42,18 +32,63 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>891</x>
-      <y>414</y>
-      <w>171</w>
-      <h>135</h>
+      <x>1035</x>
+      <y>522</y>
+      <w>207</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_LuxaryTax_
+--
+String name
+int position
+int tax
+--
+void effect(Player landedOn)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>171</x>
+      <y>765</y>
+      <w>134</w>
+      <h>107</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>117;27;27;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>693</x>
+      <y>315</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>interface : Cell
+--
+String name
+int position
+--
+void effect(Player landedOn)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>459</x>
+      <y>846</y>
+      <w>261</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>_Utilities_
 --
+readonly int OWN_ONE_MULTIPLIER = 4
+readonly int OWN_TWO_MULTIPLIER = 10
 int position
 String name
 int cost
 int mortgage
-int rents
 int owner
 --
 void effect(Player landedOn)</panel_attributes>
@@ -62,19 +97,52 @@ void effect(Player landedOn)</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>432</x>
-      <y>423</y>
-      <w>143</w>
-      <h>314</h>
+      <x>774</x>
+      <y>144</y>
+      <w>233</w>
+      <h>188</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>216;27;27;171</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>837</x>
+      <y>360</y>
+      <w>188</w>
+      <h>341</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>126;27;27;297</additional_attributes>
+    <additional_attributes>27;27;171;324</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1071</x>
+      <y>135</y>
+      <w>116</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>27;27;99;153</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>369</x>
+      <y>297</y>
+      <w>341</w>
+      <h>53</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>324;36;27;27</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>153</x>
-      <y>684</y>
+      <x>288</x>
+      <y>612</y>
       <w>252</w>
       <h>180</h>
     </coordinates>
@@ -94,10 +162,38 @@ void effect(Player landedOn)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>675</x>
+      <y>360</y>
+      <w>71</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>54;27;27;126</additional_attributes>
+  </element>
+  <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>0</x>
-      <y>567</y>
+      <x>630</x>
+      <y>639</y>
+      <w>207</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_IncomeTax_
+--
+String name
+int position
+int defaultTax
+--
+void effect(Player landedOn)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>216</x>
+      <y>324</y>
       <w>180</w>
       <h>90</h>
     </coordinates>
@@ -111,170 +207,10 @@ void effect(Player landedOn)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>513</x>
-      <y>423</y>
-      <w>80</w>
-      <h>161</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>63;27;27;144</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>378</x>
-      <y>414</y>
-      <w>179</w>
-      <h>287</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>162;27;27;270</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>882</x>
-      <y>585</y>
-      <w>207</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>_LuxaryTax_
---
-String name
-int position
-int tax
---
-void effect(Player landedOn)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>207</x>
-      <y>567</y>
-      <w>207</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>_GoToJail_
---
-String name
-int position
---
-void effect(Player landedOn)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>909</x>
-      <y>72</y>
-      <w>251</w>
-      <h>116</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>27;27;234;99</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>387</x>
-      <y>387</y>
-      <w>170</w>
-      <h>197</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>153;27;27;180</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>720</x>
-      <y>756</y>
-      <w>207</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>_Go_
---
-String name
-int position
-readonly int collectionAmmount
---
-void effect(Player landedOn)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>153</x>
-      <y>369</y>
-      <w>404</w>
-      <h>215</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>387;27;27;198</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>540</x>
-      <y>378</y>
-      <w>189</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes>_Cell_
---
-String name
-int position
---
-void effect(Player landedOn)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>540</x>
-      <y>567</y>
-      <w>207</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>_DrawCard_
---
-String name
-int position
-List&lt;Card&gt; cards
---
-List&lt;Card&gt; effect(Player landedOn)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>702</x>
-      <y>414</y>
-      <w>197</w>
-      <h>188</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>27;27;180;171</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>684</x>
-      <y>423</y>
-      <w>260</w>
-      <h>350</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>27;27;243;333</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>747</x>
-      <y>0</y>
+      <y>63</y>
       <w>189</w>
       <h>108</h>
     </coordinates>
@@ -289,25 +225,121 @@ void updatePlayerPositions()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>621</x>
-      <y>81</y>
-      <w>224</w>
-      <h>314</h>
+      <x>1170</x>
+      <y>288</y>
+      <w>225</w>
+      <h>135</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>207;27;27;297</additional_attributes>
+    <panel_attributes>_Player_
+--
+int location
+List&lt;Property&gt; properties
+int[] bills
+boolean inJail
+--
+int move(int distance)
+void payTo(Player catcher)
+boolean ownsProperty(Property prop)
+</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>702</x>
-      <y>378</y>
-      <w>206</w>
-      <h>53</h>
+      <x>513</x>
+      <y>351</y>
+      <w>197</w>
+      <h>278</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>27;27;189;36</additional_attributes>
+    <additional_attributes>180;27;27;261</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>702</x>
+      <y>486</y>
+      <w>207</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_DrawCard_
+--
+String name
+int position
+List&lt;Card&gt; cards
+--
+List&lt;Card&gt; effect(Player landedOn)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>198</x>
+      <y>855</y>
+      <w>171</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>_Railroad_
+--
+int position
+String name
+int cost
+int mortgage
+int rents
+int owner
+--
+void effect(Player landedOn)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>855</x>
+      <y>351</y>
+      <w>197</w>
+      <h>188</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>27;27;180;171</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>603</x>
+      <y>360</y>
+      <w>125</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>108;27;27;279</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>432</x>
+      <y>765</y>
+      <w>125</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>108;27;27;81</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>315</x>
+      <y>450</y>
+      <w>207</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>_GoToJail_
+--
+String name
+int position
+--
+void effect(Player landedOn)</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
