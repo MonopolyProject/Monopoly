@@ -6,7 +6,7 @@
     <ProjectGuid>{C0F1B1AD-83B5-4C0E-9907-7617BA3FC30D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlayerTests</RootNamespace>
+    <RootNamespace>MonopolyTests</RootNamespace>
     <AssemblyName>PlayerTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -57,6 +57,7 @@
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BoardTests.cs" />
+    <Compile Include="PropertyTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monopoly\Monopoly.csproj">
