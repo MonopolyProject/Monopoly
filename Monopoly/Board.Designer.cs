@@ -290,6 +290,22 @@ namespace WindowsFormsApplication2
 
         }
 
+        public void trade(Player from, Player to, List<Property> propertySelected, int price)
+        {
+            if (price < 0 || price > from.getMoney()) { return; }
+            for (int j = 0; j < propertySelected.Count; j++)
+            {
+                if (!from.getDeeds().Contains(propertySelected[j])) { return; }
+            }
+            for (int k = 0; k < propertySelected.Count; k++)
+            {
+                propertySelected[k].changeOwner(to);
+                from.deeds.Remove(propertySelected[k]);
+            }
+            to.addMoney(price);
+            from.addMoney(-price);
+        }
+
         public void tradeProperties()
         {
             propertyList = new Form();

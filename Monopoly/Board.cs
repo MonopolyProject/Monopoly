@@ -68,21 +68,13 @@ namespace WindowsFormsApplication2
             {
                 if (this.properties.GetSelected(i)) indexSelected.Add(i);
             }
-
             int price = Convert.ToInt32(this.tradePrice.Text);
             List<Property> propertySelected = new List<Property>();
             for (int k = 0; k < indexSelected.Count; k++)
             {
                 propertySelected.Add(this.players[this.activePlayer].deeds[indexSelected[k]]);
             }
-
-            this.players[this.players.Count - this.activePlayer - 1].addMoney(price);
-            for (int j = 0; j < indexSelected.Count; j++)
-            {
-                propertySelected[j].changeOwner(this.players[this.players.Count - this.activePlayer - 1]);
-                this.players[this.activePlayer].deeds.Remove(propertySelected[j]);
-            }
-            this.players[this.activePlayer].addMoney(-price);
+            this.trade(this.getPlayer(), this.players[this.players.Count - this.activePlayer - 1], propertySelected, price);
             this.propertyList.Close();
         }
         private void cancel_Click_1(object sender, EventArgs e)
