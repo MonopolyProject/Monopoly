@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 namespace WindowsFormsApplication2
 {
     public partial class Board
@@ -12,6 +13,9 @@ namespace WindowsFormsApplication2
         private List<Cell> cells = populateCells(banker);
         private List<System.Windows.Forms.TextBox> houseNumbers;
         private int activePlayer;
+        CheckedListBox properties;
+        Form propertyList;
+        TextBox tradePrice = new TextBox();
         Property propertyToAdd;
         
         /// <summary>
@@ -285,6 +289,50 @@ namespace WindowsFormsApplication2
             }
 
         }
+
+        public void tradeProperties()
+        {
+            propertyList = new Form();
+            propertyList.Width = 300;
+            propertyList.Height = 600;
+            propertyList.Text = "Select Properties.";
+            List<Property> initialList = this.players[this.activePlayer].deeds;
+            properties = new CheckedListBox();
+            properties.Width = 300;
+            properties.Height = 300;
+            for (int i = 0; i < initialList.Count; i++)
+            { 
+                properties.Items.Add(initialList[i].getName());
+            }
+            propertyList.Controls.Add(properties);
+            tradePrice.Text = "Enter the price you offer.";
+            tradePrice.Location = new System.Drawing.Point(5,305);
+            tradePrice.Size = new System.Drawing.Size(290, 350);
+            Button confirm = new Button();
+            confirm.Text = "Confirm";
+            confirm.Location = new System.Drawing.Point(5, 450);
+            
+            confirm.Click += new System.EventHandler(confirm_Click_1);
+            Button cancel = new Button();
+            cancel.Text = "Cancel";
+            cancel.Location = new System.Drawing.Point(150, 450);
+            cancel.Click += new System.EventHandler(cancel_Click_1);
+            Label player1Money = new Label();
+            Label player2Money = new Label();
+            player1Money.Text = "Player1: " + this.players[0].getMoney();
+            player2Money.Text = "Player2: " + this.players[1].getMoney();
+            player1Money.Location = new System.Drawing.Point(50, 370);
+            player2Money.Location = new System.Drawing.Point(50, 400);
+
+            propertyList.Controls.Add(tradePrice);
+            propertyList.Controls.Add(confirm);
+            propertyList.Controls.Add(cancel);
+            propertyList.Controls.Add(player1Money);
+            propertyList.Controls.Add(player2Money);
+            propertyList.ShowDialog();
+
+        }
+
 
         public void buyDisplay()
         {
@@ -1059,6 +1107,7 @@ namespace WindowsFormsApplication2
             this.Trade.TabIndex = 25;
             this.Trade.Text = "Trade";
             this.Trade.UseVisualStyleBackColor = true;
+            this.Trade.Click += new System.EventHandler(this.trade_Click_1);
             // 
             // button4
             // 

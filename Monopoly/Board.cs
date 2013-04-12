@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Monopoly;
 
 namespace WindowsFormsApplication2
 {
@@ -53,6 +54,40 @@ namespace WindowsFormsApplication2
         private void endTurn_Click_1(object sender, EventArgs e)
         {
             this.endTurn();
+        }
+
+        private void trade_Click_1(object sender, EventArgs e) 
+        {
+            this.tradeProperties();
+        }
+
+        private void confirm_Click_1(object sender, EventArgs e)
+        {
+            List<int> indexSelected = new List<int>();
+            for (int i = 0; i < this.properties.Items.Count; i++)
+            {
+                if (this.properties.GetSelected(i)) indexSelected.Add(i);
+            }
+
+            int price = Convert.ToInt32(this.tradePrice.Text);
+            List<Property> propertySelected = new List<Property>();
+            for (int k = 0; k < indexSelected.Count; k++)
+            {
+                propertySelected.Add(this.players[this.activePlayer].deeds[indexSelected[k]]);
+            }
+
+            this.players[this.players.Count - this.activePlayer - 1].addMoney(price);
+            for (int j = 0; j < indexSelected.Count; j++)
+            {
+                propertySelected[j].changeOwner(this.players[this.players.Count - this.activePlayer - 1]);
+                this.players[this.activePlayer].deeds.Remove(propertySelected[j]);
+            }
+            this.players[this.activePlayer].addMoney(-price);
+            this.propertyList.Close();
+        }
+        private void cancel_Click_1(object sender, EventArgs e)
+        {
+            this.propertyList.Close();
         }
     }
 }
