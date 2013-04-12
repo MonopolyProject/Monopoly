@@ -775,7 +775,7 @@ namespace WindowsFormsApplication2
             // 
             this.goLabel.AutoSize = true;
             this.goLabel.Font = new System.Drawing.Font("Comic Sans MS", 20F);
-            this.goLabel.Location = new System.Drawing.Point(111, 769);
+            this.goLabel.Location = new System.Drawing.Point(104, 845);
             this.goLabel.Name = "goLabel";
             this.goLabel.Size = new System.Drawing.Size(57, 38);
             this.goLabel.TabIndex = 1;
@@ -797,7 +797,7 @@ namespace WindowsFormsApplication2
             this.chestLabel1.AutoSize = true;
             this.chestLabel1.BackColor = System.Drawing.Color.Transparent;
             this.chestLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chestLabel1.Location = new System.Drawing.Point(98, 636);
+            this.chestLabel1.Location = new System.Drawing.Point(103, 684);
             this.chestLabel1.Name = "chestLabel1";
             this.chestLabel1.Size = new System.Drawing.Size(78, 38);
             this.chestLabel1.TabIndex = 3;
@@ -821,7 +821,7 @@ namespace WindowsFormsApplication2
             this.chestLabel3.AutoSize = true;
             this.chestLabel3.BackColor = System.Drawing.Color.Transparent;
             this.chestLabel3.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chestLabel3.Location = new System.Drawing.Point(596, 775);
+            this.chestLabel3.Location = new System.Drawing.Point(593, 835);
             this.chestLabel3.Name = "chestLabel3";
             this.chestLabel3.Size = new System.Drawing.Size(78, 38);
             this.chestLabel3.TabIndex = 5;
@@ -833,7 +833,7 @@ namespace WindowsFormsApplication2
             this.waterWorksLabel.AutoSize = true;
             this.waterWorksLabel.BackColor = System.Drawing.Color.Transparent;
             this.waterWorksLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.waterWorksLabel.Location = new System.Drawing.Point(828, 636);
+            this.waterWorksLabel.Location = new System.Drawing.Point(829, 684);
             this.waterWorksLabel.Name = "waterWorksLabel";
             this.waterWorksLabel.Size = new System.Drawing.Size(52, 38);
             this.waterWorksLabel.TabIndex = 6;
@@ -845,7 +845,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel1.AutoSize = true;
             this.chanceLabel1.BackColor = System.Drawing.Color.Transparent;
             this.chanceLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chanceLabel1.Location = new System.Drawing.Point(115, 318);
+            this.chanceLabel1.Location = new System.Drawing.Point(111, 350);
             this.chanceLabel1.Name = "chanceLabel1";
             this.chanceLabel1.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel1.TabIndex = 7;
@@ -857,7 +857,7 @@ namespace WindowsFormsApplication2
             this.railReadLabel.AutoSize = true;
             this.railReadLabel.BackColor = System.Drawing.Color.Transparent;
             this.railReadLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railReadLabel.Location = new System.Drawing.Point(107, 441);
+            this.railReadLabel.Location = new System.Drawing.Point(106, 471);
             this.railReadLabel.Name = "railReadLabel";
             this.railReadLabel.Size = new System.Drawing.Size(62, 38);
             this.railReadLabel.TabIndex = 8;
@@ -869,7 +869,7 @@ namespace WindowsFormsApplication2
             this.taxLabel1.AutoSize = true;
             this.taxLabel1.BackColor = System.Drawing.Color.Transparent;
             this.taxLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.taxLabel1.Location = new System.Drawing.Point(111, 502);
+            this.taxLabel1.Location = new System.Drawing.Point(107, 547);
             this.taxLabel1.Name = "taxLabel1";
             this.taxLabel1.Size = new System.Drawing.Size(57, 38);
             this.taxLabel1.TabIndex = 9;
@@ -892,7 +892,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel2.AutoSize = true;
             this.chanceLabel2.BackColor = System.Drawing.Color.Transparent;
             this.chanceLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chanceLabel2.Location = new System.Drawing.Point(828, 258);
+            this.chanceLabel2.Location = new System.Drawing.Point(828, 271);
             this.chanceLabel2.Name = "chanceLabel2";
             this.chanceLabel2.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel2.TabIndex = 11;
@@ -928,7 +928,7 @@ namespace WindowsFormsApplication2
             this.railBOLabel.AutoSize = true;
             this.railBOLabel.BackColor = System.Drawing.Color.Transparent;
             this.railBOLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railBOLabel.Location = new System.Drawing.Point(819, 441);
+            this.railBOLabel.Location = new System.Drawing.Point(827, 471);
             this.railBOLabel.Name = "railBOLabel";
             this.railBOLabel.Size = new System.Drawing.Size(62, 38);
             this.railBOLabel.TabIndex = 14;
@@ -940,7 +940,7 @@ namespace WindowsFormsApplication2
             this.goToJailLabel.AutoSize = true;
             this.goToJailLabel.BackColor = System.Drawing.Color.Transparent;
             this.goToJailLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F);
-            this.goToJailLabel.Location = new System.Drawing.Point(827, 764);
+            this.goToJailLabel.Location = new System.Drawing.Point(826, 827);
             this.goToJailLabel.Name = "goToJailLabel";
             this.goToJailLabel.Size = new System.Drawing.Size(62, 56);
             this.goToJailLabel.TabIndex = 15;
@@ -952,7 +952,7 @@ namespace WindowsFormsApplication2
             this.railShortLabel.AutoSize = true;
             this.railShortLabel.BackColor = System.Drawing.Color.Transparent;
             this.railShortLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.railShortLabel.Location = new System.Drawing.Point(473, 772);
+            this.railShortLabel.Location = new System.Drawing.Point(475, 835);
             this.railShortLabel.Name = "railShortLabel";
             this.railShortLabel.Size = new System.Drawing.Size(47, 38);
             this.railShortLabel.TabIndex = 16;
@@ -964,7 +964,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel3.AutoSize = true;
             this.chanceLabel3.BackColor = System.Drawing.Color.Transparent;
             this.chanceLabel3.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.chanceLabel3.Location = new System.Drawing.Point(398, 786);
+            this.chanceLabel3.Location = new System.Drawing.Point(399, 848);
             this.chanceLabel3.Name = "chanceLabel3";
             this.chanceLabel3.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel3.TabIndex = 17;
@@ -976,7 +976,7 @@ namespace WindowsFormsApplication2
             this.taxLabel2.AutoSize = true;
             this.taxLabel2.BackColor = System.Drawing.Color.Transparent;
             this.taxLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
-            this.taxLabel2.Location = new System.Drawing.Point(259, 775);
+            this.taxLabel2.Location = new System.Drawing.Point(259, 833);
             this.taxLabel2.Name = "taxLabel2";
             this.taxLabel2.Size = new System.Drawing.Size(57, 38);
             this.taxLabel2.TabIndex = 18;
