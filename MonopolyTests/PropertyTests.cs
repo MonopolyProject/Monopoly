@@ -28,7 +28,7 @@ namespace MonopolyTests
             Assert.AreEqual(39, prop.getPos());
             Assert.AreEqual(p1, prop.getOwner());
             Assert.AreEqual(1, prop.getBuy());
-            Assert.AreEqual(2, prop.getSell());
+            Assert.AreEqual(2, prop.getMortgage());
             Assert.AreEqual(1, prop.getRent());
             Assert.AreEqual(0, prop.getNumHouses());
             Assert.AreEqual(1, prop.getHouseCost());
@@ -69,6 +69,49 @@ namespace MonopolyTests
             boardwalk.addHouse();
             Assert.AreEqual(5, boardwalk.getNumHouses());
             Assert.AreEqual(rents[5], boardwalk.getRent());
+        }
+
+
+        [Test()]
+        public void testRemovingHouses()
+        {
+            int[] rents = { 50, 200, 600, 1400, 1700, 200 };
+            var boardwalk = new Property("Board Walk", 39, new Player("Ed"), 400, 200, rents, 200);
+            Assert.AreEqual(0, boardwalk.getNumHouses());
+
+            Assert.AreEqual(99, boardwalk.removeHouse());
+
+
+            boardwalk.addHouse();
+            Assert.AreEqual(0, boardwalk.removeHouse());
+        }
+
+
+        [Test()]
+        public void testPlacingAndLiftingMortgage()
+        {
+            int[] rents = { 50, 200, 600, 1400, 1700, 200 };
+            var boardwalk = new Property("Board Walk", 39, new Player("Ed"), 400, 200, rents, 200);
+            Assert.IsFalse(boardwalk.isMortgaged());
+            Assert.IsTrue(boardwalk.mortgageProperty());
+            Assert.IsTrue(boardwalk.isMortgaged());
+
+            Assert.IsFalse(boardwalk.mortgageProperty());
+
+            Assert.AreEqual(0, boardwalk.getRent());
+
+            boardwalk.liftMortgage();
+            Assert.IsFalse(boardwalk.isMortgaged());
+
+            
+        }
+
+        [Test()]
+        public void testMorgagePayment()
+        {
+            int[] rents = { 50, 200, 600, 1400, 1700, 200 };
+            var boardwalk = new Property("Board Walk", 39, new Player("Ed"), 400, 200, rents, 200);
+            Assert.AreEqual((int) (200 * 1.1), boardwalk.getPayMortgage());
         }
     }
 }

@@ -14,11 +14,14 @@ namespace Monopoly
         private String name;
         private int position;
         private int buy;
-        private int sell;
+        private int mortgage;
         private int[] rents;
         private int numHouses = 0;//5 houses = 1 hotel on a normal property
         private int houseCost;
         private Player owner;
+        private bool mortgaged = false;
+
+        public Property() { }
 
         public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents, int houseCost)
         {
@@ -26,7 +29,7 @@ namespace Monopoly
             this.owner = owner;
             this.owner.addDeed(this);
             this.rents = rents;
-            this.sell = mortgage;
+            this.mortgage = mortgage;
             this.name = name;
             this.position = position;
             this.houseCost = houseCost;
@@ -48,13 +51,17 @@ namespace Monopoly
 
         public int getBuy() { return this.buy; }
 
-        public int getSell() { return this.sell; }
+        public int getMortgage() { return this.mortgage; }
 
-        public int getRent() { return this.rents[this.numHouses]; }
+        public int getRent() { 
+            if(!this.mortgaged)
+                return this.rents[this.numHouses];
+            return 0;
+        }
 
         public int addHouse()
         {
-            if (this.numHouses < 5)
+            if (this.numHouses < 5 && !this.mortgaged)
             {
                 this.numHouses++;
                 return this.numHouses;
@@ -62,9 +69,36 @@ namespace Monopoly
             return -1;
         }
 
+        public int removeHouse()
+        {
+            if(this.numHouses != 0){
+                this.numHouses--;
+                return this.numHouses;
+            }
+            return 99;
+        }
+
         public int getNumHouses() { return this.numHouses; }
 
         public int getHouseCost() { return this.houseCost; }
+
+        public bool mortgageProperty() {
+            if (this.numHouses == 0 && !this.mortgaged)
+            {
+                this.mortgaged = true;
+                return true;
+            }
+            return false;
+        }
+
+        public void liftMortgage()
+        {
+            this.mortgaged = false;
+        }
+
+        public bool isMortgaged() { return this.mortgaged; }
+
+        public int getPayMortgage() { return (int) (this.mortgage *1.1); }
 
     }
 }

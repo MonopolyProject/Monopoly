@@ -61,6 +61,23 @@ namespace WindowsFormsApplication2
             this.tradeProperties();
         }
 
+
+
+        private void manage_Click_1(object sender, EventArgs e)
+        {
+            this.manageProperties();
+        }
+
+        private void manageConfirm_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void manageCancel_Click_1(object sender, EventArgs e)
+        {
+            this.manageList.Close();
+        }
+
         private void confirm_Click_1(object sender, EventArgs e)
         {
             List<int> indexSelected = new List<int>();
