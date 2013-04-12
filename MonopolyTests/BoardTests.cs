@@ -111,5 +111,139 @@ namespace MonopolyTests
             Assert.AreEqual(0, p.getMoney());
             Assert.AreEqual(2, prop.getNumHouses());
         }
+
+        [Test()]
+        public void TestTradeOneProperty()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+            Property prop = (Property) board.getCellAt(6);
+            Tomato.addDeed(prop);
+            List<Property> toTrade = new List<Property>();
+            toTrade.Add(prop);
+            board.trade(Tomato, MPU, toTrade, 0);
+            Assert.True(Tomato.deeds.Count == 0);
+            Assert.True(MPU.deeds.Contains(prop));
+            }
+
+        [Test()]
+        public void TestTradeTwoProperties()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+            Property prop = (Property)board.getCellAt(6);
+            Property prop2 = (Property)board.getCellAt(11);
+            Tomato.addDeed(prop);
+            Tomato.addDeed(prop2);
+            List<Property> toTrade = new List<Property>();
+            toTrade.Add(prop);
+            toTrade.Add(prop2);
+            board.trade(Tomato, MPU, toTrade, 0);
+            Assert.True(Tomato.deeds.Count == 0);
+            Assert.True(MPU.deeds.Contains(prop) && MPU.deeds.Contains(prop2));
+        }
+
+        [Test()]
+        public void TestTradeUnownedProperty()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+            Property prop = (Property)board.getCellAt(6);
+            Property prop2 = (Property)board.getCellAt(11);
+            Tomato.addDeed(prop);
+            List<Property> toTrade = new List<Property>();
+            toTrade.Add(prop);
+            toTrade.Add(prop2);
+            board.trade(Tomato, MPU, toTrade, 0);
+            Assert.True(Tomato.getDeeds().Count == 1 && Tomato.getDeeds().Contains(prop));
+            Assert.True(MPU.getDeeds().Count==0);
+        }
+
+        [Test()]
+        public void TestTradeEmptyPropertyList()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+            List<Property> toTrade = new List<Property>();
+            board.trade(Tomato, MPU, toTrade, 0);
+            Assert.True(Tomato.getDeeds().Count == 0);
+            Assert.True(MPU.getDeeds().Count == 0);
+        }
+
+        [Test()]
+        public void TestTrade1()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+
+            int TomatoInitialMoney = Tomato.getMoney();
+            int MPUInitialMoney = MPU.getMoney();
+            int moneyToTrade = 1;
+
+            List<Property> toTrade = new List<Property>();
+
+            board.trade(Tomato, MPU, toTrade, moneyToTrade);
+            Assert.AreEqual(Tomato.getMoney(), TomatoInitialMoney - moneyToTrade);
+            Assert.AreEqual(MPU.getMoney(), MPUInitialMoney + moneyToTrade);
+        }
+
+        [Test()]
+        public void TestTradeAllMoney()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+
+            int TomatoInitialMoney = Tomato.getMoney();
+            int MPUInitialMoney = MPU.getMoney();
+            int moneyToTrade = Tomato.getMoney();
+
+            List<Property> toTrade = new List<Property>();
+
+            board.trade(Tomato, MPU, toTrade, moneyToTrade);
+            Assert.AreEqual(Tomato.getMoney(), TomatoInitialMoney - moneyToTrade);
+            Assert.AreEqual(MPU.getMoney(), MPUInitialMoney + moneyToTrade);
+        }
+
+        [Test()]
+        public void TestTradeNegativeMoneyDoesNotTrade()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+
+            int TomatoInitialMoney = Tomato.getMoney();
+            int MPUInitialMoney = MPU.getMoney();
+            int moneyToTrade = -1;
+
+            List<Property> toTrade = new List<Property>();
+
+            board.trade(Tomato, MPU, toTrade, moneyToTrade);
+            Assert.AreEqual(Tomato.getMoney(), TomatoInitialMoney);
+            Assert.AreEqual(MPU.getMoney(), MPUInitialMoney);
+        }
+
+        [Test()]
+        public void TestTradeExcessiveMoneyDoesNotTrade()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            var Tomato = board.getPlayer();
+            var MPU = new Player("MPU");
+
+            int TomatoInitialMoney = Tomato.getMoney();
+            int MPUInitialMoney = MPU.getMoney();
+            int moneyToTrade = Tomato.getMoney()+1;
+
+            List<Property> toTrade = new List<Property>();
+
+            board.trade(Tomato, MPU, toTrade, moneyToTrade);
+            Assert.AreEqual(Tomato.getMoney(), TomatoInitialMoney);
+            Assert.AreEqual(MPU.getMoney(), MPUInitialMoney);
+        }
     }
 }
