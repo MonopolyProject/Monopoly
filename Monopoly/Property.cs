@@ -82,13 +82,16 @@ namespace Monopoly
 
         public int getHouseCost() { return this.houseCost; }
 
-        public bool mortgageProperty() {
-            if (this.numHouses == 0 && !this.mortgaged)
+        public void mortgageProperty() {
+            if (this.canMortgage())
             {
                 this.mortgaged = true;
-                return true;
             }
-            return false;
+        }
+
+        public bool canMortgage()
+        {
+            return this.numHouses == 0 && !this.mortgaged;
         }
 
         public void liftMortgage()

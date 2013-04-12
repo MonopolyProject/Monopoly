@@ -70,6 +70,19 @@ namespace WindowsFormsApplication2
 
         private void manageConfirm_Click_1(object sender, EventArgs e)
         {
+            List<Property> props = new List<Property>();
+            Player currentPlayer = this.players[this.activePlayer];
+            for (int i = 0; i < this.properties.Items.Count; i++)
+            {
+                if (this.properties.GetSelected(i)) { props.Add(currentPlayer.deeds[i]); }
+                
+            }
+
+
+            String message = this.mortgageProperties(currentPlayer, props);
+            MessageBox.Show(message, "Mortgaging", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.properties.ClearSelected();
+            this.manageList.Close();
             
         }
 

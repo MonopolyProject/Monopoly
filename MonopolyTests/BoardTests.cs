@@ -99,17 +99,17 @@ namespace MonopolyTests
             Assert.True(p.getDeeds().Contains(prop));
             int newMoney = 1500 - houseCost;
             Assert.AreEqual(newMoney, p.getMoney());
-            Assert.AreEqual(1, prop.getNumHouses());
+            Assert.AreEqual(0, prop.getNumHouses());
 
             houseCost = prop.getHouseCost();
             board.buyProperty();
             Assert.AreEqual(newMoney - houseCost, p.getMoney());
-            Assert.AreEqual(2, prop.getNumHouses());
+            Assert.AreEqual(1, prop.getNumHouses());
 
             p.addMoney(-p.getMoney());
             board.buyProperty();
             Assert.AreEqual(0, p.getMoney());
-            Assert.AreEqual(2, prop.getNumHouses());
+            Assert.AreEqual(1, prop.getNumHouses());
         }
 
         [Test()]
@@ -244,6 +244,92 @@ namespace MonopolyTests
             board.trade(Tomato, MPU, toTrade, moneyToTrade);
             Assert.AreEqual(Tomato.getMoney(), TomatoInitialMoney);
             Assert.AreEqual(MPU.getMoney(), MPUInitialMoney);
+        }
+
+        [Test()]
+        public void TestOneMortgagePropertiesMoneyChanges()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] {1, 2, 3, 4, 5, 6}, 10);
+            Tomato.addDeed(haute);
+
+            List<Property> props = new List<Property>();
+            props.Add(haute);
+
+            Assert.AreEqual(1500, Tomato.getMoney());
+            b.mortgageProperties(Tomato, props);
+            Assert.AreEqual(1550, Tomato.getMoney());
+
+        }
+
+
+        [Test()]
+        public void TestMultipleMortgagePropertiesMoneyChanges()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            var chitown = new Property("Chi Town", 0, Tomato, 100, 100, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            var norleans = new Property("Norleans", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            Tomato.addDeed(haute);
+            Tomato.addDeed(chitown);
+            Tomato.addDeed(norleans);
+
+            List<Property> props = new List<Property>();
+            props.Add(haute);
+            props.Add(chitown);
+            props.Add(norleans);
+
+            Assert.AreEqual(1500, Tomato.getMoney());
+            b.mortgageProperties(Tomato, props);
+            Assert.AreEqual(1700, Tomato.getMoney());
+
+        }
+
+        [Test()]
+        public void TestMortgageThrowsNoHousesErrors()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            haute.addHouse();
+            Tomato.addDeed(haute);
+            
+
+            List<Property> props = new List<Property>();
+            props.Add(haute);
+
+            String result = b.mortgageProperties(Tomato,props);
+            Assert.AreEqual("ERROR: You have too many houses on " + haute.getName() + ", sell them off before mortgaging", result);
+        }
+
+        [Test()]
+        public void TestMortgageThrowsAlreadyMortgagedErrors()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            haute.mortgageProperty();
+            Tomato.addDeed(haute);
+
+            List<Property> props = new List<Property>();
+            props.Add(haute);
+
+            String result = b.mortgageProperties(Tomato, props);
+            Assert.AreEqual("ERROR: You have already mortgaged " + haute.getName(), result);
+        }
+
+        [Test()]
+        public void TestMortgageThrowsNoneSelectedErrors()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+
+            List<Property> props = new List<Property>();
+
+            String result = b.mortgageProperties(Tomato, props);
+            Assert.AreEqual("ERROR: You did not select any properties", result);
         }
     }
 }

@@ -242,7 +242,7 @@ namespace WindowsFormsApplication2
             propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
             if (propertyToAdd.getOwner().getName() == "banker" && this.getPlayer().getMoney() >= propertyToAdd.getBuy())
             {
-                propertyToAdd.addHouse();
+         
                 propertyToAdd.changeOwner(this.getPlayer());
                 this.getPlayer().addMoney(-propertyToAdd.getBuy());
                 
@@ -306,6 +306,38 @@ namespace WindowsFormsApplication2
             to.addMoney(price);
             from.addMoney(-price);
         }
+
+        public String mortgageProperties(Player currentPlayer, List<Property> selected)
+        {
+            int totalMortgage = 0;
+            Property problem = new Property("ERROR", -1, new Player("ERROR"), -1, -1, null, -1);
+            foreach (Property p in selected)
+            {
+                if (p.getNumHouses() != 0)
+                {
+                    return "ERROR: You have too many houses on " + p.getName() + ", sell them off before mortgaging";
+                } if (p.isMortgaged())
+                {
+                    return "ERROR: You have already mortgaged " + p.getName();
+                }
+                totalMortgage += p.getMortgage();
+            }
+
+            if (selected.Count == 0)
+                return "ERROR: You did not select any properties";
+            else
+            {
+                currentPlayer.addMoney(totalMortgage);
+                for (int i = 0; i < selected.Count; i++)
+                {
+                    currentPlayer.deeds[i].mortgageProperty();
+                }
+                return "SUCCESS: You now have $" + currentPlayer.getMoney();
+            }
+
+
+        }
+
 
         public void tradeProperties()
         {
@@ -554,7 +586,7 @@ namespace WindowsFormsApplication2
             this.stCharlesPlace,
             this.freeParkingYOLO,
             this.jailYOLO});
-            this.shapeContainer1.Size = new System.Drawing.Size(984, 1042);
+            this.shapeContainer1.Size = new System.Drawing.Size(984, 964);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -569,7 +601,7 @@ namespace WindowsFormsApplication2
             this.ovalShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent60;
             this.ovalShape1.Location = new System.Drawing.Point(58, 848);
             this.ovalShape1.Name = "ovalShape1";
-            this.ovalShape1.Size = new System.Drawing.Size(22, 102);
+            this.ovalShape1.Size = new System.Drawing.Size(22, 24);
             // 
             // ovalShape2
             // 
@@ -583,7 +615,7 @@ namespace WindowsFormsApplication2
             this.ovalShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent90;
             this.ovalShape2.Location = new System.Drawing.Point(58, 848);
             this.ovalShape2.Name = "ovalShape2";
-            this.ovalShape2.Size = new System.Drawing.Size(22, 102);
+            this.ovalShape2.Size = new System.Drawing.Size(22, 24);
             // 
             // marvinGardens
             // 
@@ -1185,7 +1217,7 @@ namespace WindowsFormsApplication2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 1042);
+            this.ClientSize = new System.Drawing.Size(984, 964);
             this.Controls.Add(this.MagProper);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.Trade);

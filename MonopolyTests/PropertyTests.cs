@@ -91,12 +91,14 @@ namespace MonopolyTests
         public void testPlacingAndLiftingMortgage()
         {
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
-            var boardwalk = new Property("Board Walk", 39, new Player("Ed"), 400, 200, rents, 200);
+            Player ed = new Player("Ed");
+            var boardwalk = new Property("Board Walk", 39, ed, 400, 200, rents, 200);
+            ed.addMoney(500);
             Assert.IsFalse(boardwalk.isMortgaged());
-            Assert.IsTrue(boardwalk.mortgageProperty());
+            Assert.IsTrue(boardwalk.canMortgage());
+            boardwalk.mortgageProperty();
             Assert.IsTrue(boardwalk.isMortgaged());
-
-            Assert.IsFalse(boardwalk.mortgageProperty());
+            Assert.IsFalse(boardwalk.canMortgage());
 
             Assert.AreEqual(0, boardwalk.getRent());
 
