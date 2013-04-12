@@ -46,7 +46,7 @@ namespace WindowsFormsApplication2
         {
 
             this.buyProperty();
-            this.button2.Enabled = false;
+            this.BuyProper.Enabled = false;
 
         }
 

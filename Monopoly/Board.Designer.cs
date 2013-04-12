@@ -268,8 +268,8 @@ namespace WindowsFormsApplication2
             this.activePlayer++;
             this.activePlayer = this.activePlayer % (this.players.Count);
             this.rollDie.Enabled = true;
-            this.button2.Enabled = false;
-            this.button3.Enabled = false;
+            this.BuyProper.Enabled = false;
+            this.TurnEnds.Enabled = false;
         }
 
         public void updatePlayerPosition()
@@ -289,13 +289,13 @@ namespace WindowsFormsApplication2
         public void buyDisplay()
         {
             this.rollDie.Enabled = false;
-            this.button2.Enabled = true;
-            this.button3.Enabled = true;
+            this.BuyProper.Enabled = true;
+            this.TurnEnds.Enabled = true;
             propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
             System.Diagnostics.Debug.Write(banker.hasDeed(propertyToAdd));
             if (!banker.hasDeed(propertyToAdd))
             {
-                this.button2.Enabled = false;
+                this.BuyProper.Enabled = false;
             }
            
         }
@@ -307,12 +307,12 @@ namespace WindowsFormsApplication2
 
         public System.Windows.Forms.Button getBuy()
         {
-            return this.button2;
+            return this.BuyProper;
         }
 
         public System.Windows.Forms.Button getEndTurn()
         {
-            return this.button2;
+            return this.BuyProper;
         }
 
         public int getActivePlayer()
@@ -399,8 +399,11 @@ namespace WindowsFormsApplication2
             this.endTurnButton = new System.Windows.Forms.Button();
             this.payText = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BuyProper = new System.Windows.Forms.Button();
+            this.TurnEnds = new System.Windows.Forms.Button();
+            this.Trade = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.MagProper = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shapeContainer1
@@ -985,10 +988,11 @@ namespace WindowsFormsApplication2
             // 
             // rollDie
             // 
-            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rollDie.Location = new System.Drawing.Point(311, 281);
+            this.rollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollDie.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rollDie.Location = new System.Drawing.Point(240, 220);
             this.rollDie.Name = "rollDie";
-            this.rollDie.Size = new System.Drawing.Size(395, 88);
+            this.rollDie.Size = new System.Drawing.Size(220, 70);
             this.rollDie.TabIndex = 19;
             this.rollDie.Text = "Roll";
             this.rollDie.UseVisualStyleBackColor = true;
@@ -1024,35 +1028,67 @@ namespace WindowsFormsApplication2
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BuyProper
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(311, 452);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(395, 88);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Buy";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.buy_Click_1);
+            this.BuyProper.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyProper.Location = new System.Drawing.Point(530, 220);
+            this.BuyProper.Name = "BuyProper";
+            this.BuyProper.Size = new System.Drawing.Size(220, 70);
+            this.BuyProper.TabIndex = 23;
+            this.BuyProper.Text = "Buy";
+            this.BuyProper.UseVisualStyleBackColor = true;
+            this.BuyProper.Click += new System.EventHandler(this.buy_Click_1);
             // 
-            // button3
+            // TurnEnds
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(311, 609);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(395, 88);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "End Turn";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.endTurn_Click_1);
+            this.TurnEnds.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TurnEnds.Location = new System.Drawing.Point(309, 659);
+            this.TurnEnds.Name = "TurnEnds";
+            this.TurnEnds.Size = new System.Drawing.Size(395, 88);
+            this.TurnEnds.TabIndex = 24;
+            this.TurnEnds.Text = "End Turn";
+            this.TurnEnds.UseVisualStyleBackColor = true;
+            this.TurnEnds.Click += new System.EventHandler(this.endTurn_Click_1);
+            // 
+            // Trade
+            // 
+            this.Trade.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Trade.Location = new System.Drawing.Point(240, 347);
+            this.Trade.Name = "Trade";
+            this.Trade.Size = new System.Drawing.Size(220, 70);
+            this.Trade.TabIndex = 25;
+            this.Trade.Text = "Trade";
+            this.Trade.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 26;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // MagProper
+            // 
+            this.MagProper.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MagProper.Location = new System.Drawing.Point(530, 347);
+            this.MagProper.Name = "MagProper";
+            this.MagProper.Size = new System.Drawing.Size(220, 70);
+            this.MagProper.TabIndex = 27;
+            this.MagProper.Text = "Manage";
+            this.MagProper.UseVisualStyleBackColor = true;
             // 
             // Board
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 962);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.MagProper);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.Trade);
+            this.Controls.Add(this.TurnEnds);
+            this.Controls.Add(this.BuyProper);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rollDie);
             this.Controls.Add(this.buy);
@@ -1159,9 +1195,12 @@ namespace WindowsFormsApplication2
         private System.Windows.Forms.Button endTurnButton;
         private System.Windows.Forms.TextBox payText;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BuyProper;
+        private System.Windows.Forms.Button TurnEnds;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape1;
+        private System.Windows.Forms.Button Trade;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button MagProper;
     }
 
 }
