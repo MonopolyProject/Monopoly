@@ -72,5 +72,51 @@ namespace MonopolyTests
             Assert.False(p.hasDeeds(testProps));
 
         }
+
+        [Test()]
+        public void TestPassGoFromAverageDistance()
+        {
+            var p = new Player("Ed");
+            p.move(35);
+            p.move(10);
+            Assert.AreEqual(1700, p.getMoney());
+        }
+
+        [Test()]
+        public void TestPassGoFromAdjacent()
+        {
+            var p = new Player("Ed");
+            p.move(39);
+            p.move(2);
+            Assert.AreEqual(1700, p.getMoney());
+        }
+
+        [Test()]
+        public void TestPassLandOnGo()
+        {
+            var p = new Player("Ed");
+            p.move(40);
+            Assert.AreEqual(1500, p.getMoney());
+            p.move(1);
+            Assert.AreEqual(1700, p.getMoney());
+        }
+
+        [Test()]
+        public void TestPassWithFlagTrue()
+        {
+            var p = new Player("Ed");
+            p.move(38);
+            p.move(5, true);
+            Assert.AreEqual(1700, p.getMoney());
+        }
+
+        [Test()]
+        public void TestPassWithFlagFalse()
+        {
+            var p = new Player("Ed");
+            p.move(38);
+            p.move(5, false);
+            Assert.AreEqual(1500, p.getMoney());
+        }
     }
 }
