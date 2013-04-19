@@ -19,3 +19,14 @@ C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopo
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.csproj.GenerateResource.Cache
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.pdb
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\Monopoly.exe.config
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.exe
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.pdb
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\WindowsFormsApplication2.Board.resources
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.Properties.Resources.resources
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.csproj.GenerateResource.Cache
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\Monopoly.exe
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\Monopoly.pdb
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\nunit.framework.dll
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\nunit.framework.xml

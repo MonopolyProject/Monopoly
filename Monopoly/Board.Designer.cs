@@ -12,10 +12,11 @@ namespace WindowsFormsApplication2
         private List<Player> players = populatePlayers();
         private List<Cell> cells = populateCells(banker);
         private List<System.Windows.Forms.TextBox> houseNumbers;
-        private int activePlayer;
+        private int activePlayer = 0;
         CheckedListBox properties;
         Form propertyList;
         Form manageList;
+        List<int> diceRoll = new List<int>();
         TextBox tradePrice = new TextBox();
         Property propertyToAdd;
         
@@ -141,36 +142,36 @@ namespace WindowsFormsApplication2
             List<Cell> cells = new List<Cell>();
             List<Cell> orderedCells = new List<Cell>();
 
-            Property mediterr = new Property("Mediterranean Avenue", 1, banker, 60, 30, new int[] { 2, 10, 30, 90, 160, 250 }, 50);
-            Property baltic = new Property("Baltic Avenue", 3, banker, 60, 30, new int[] { 4, 20, 60, 180, 320, 450 }, 50);
+            Property mediterr = new Property("Mediterranean Avenue", 1, banker, 60, 30, new int[] { 2, 10, 30, 90, 160, 250 }, 50, 1);
+            Property baltic = new Property("Baltic Avenue", 3, banker, 60, 30, new int[] { 4, 20, 60, 180, 320, 450 }, 50, 1);
 
-            Property oriental = new Property("Oriental Avenue", 6, banker, 100, 50, new int[] { 6, 30, 90, 270, 400, 550 }, 50);
-            Property vermont = new Property("Vermont Avenue", 8, banker, 100, 50, new int[] { 6, 30, 90, 270, 400, 550 }, 50);
-            Property connecticut = new Property("Connecticut Avenue", 9, banker, 120, 60, new int[] { 8, 40, 100, 300, 450, 600 }, 50);
+            Property oriental = new Property("Oriental Avenue", 6, banker, 100, 50, new int[] { 6, 30, 90, 270, 400, 550 }, 50, 2);
+            Property vermont = new Property("Vermont Avenue", 8, banker, 100, 50, new int[] { 6, 30, 90, 270, 400, 550 }, 50, 2);
+            Property connecticut = new Property("Connecticut Avenue", 9, banker, 120, 60, new int[] { 8, 40, 100, 300, 450, 600 }, 50, 2);
 
-            Property charles = new Property("St. Charles Place", 11, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100);
-            Property states = new Property("States Avenue", 13, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100);
-            Property virginia = new Property("Virginia Avenue", 14, banker, 160, 80, new int[] { 12, 60, 180, 500, 700, 900 }, 100);
+            Property charles = new Property("St. Charles Place", 11, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100, 3);
+            Property states = new Property("States Avenue", 13, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100, 3);
+            Property virginia = new Property("Virginia Avenue", 14, banker, 160, 80, new int[] { 12, 60, 180, 500, 700, 900 }, 100, 3);
 
-            Property james = new Property("St. James Place", 16, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100);
-            Property tennessee = new Property("Tennessee Avenue", 18, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100);
-            Property newyork = new Property("New York Avenue", 19, banker, 200, 100, new int[] { 16, 80, 220, 600, 800, 1000 }, 100);
+            Property james = new Property("St. James Place", 16, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100, 4);
+            Property tennessee = new Property("Tennessee Avenue", 18, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100, 4);
+            Property newyork = new Property("New York Avenue", 19, banker, 200, 100, new int[] { 16, 80, 220, 600, 800, 1000 }, 100, 4);
 
-            Property kentucky = new Property("Kentucky Avenue", 21, banker, 220, 110, new int[] { 18, 90, 250, 700, 875, 1050 }, 150);
-            Property indiana = new Property("Indiana Avenue", 23, banker, 220, 110, new int[] { 18, 90, 250, 700, 875, 1050 }, 150);
-            Property illinois = new Property("Illinois Avenue", 24, banker, 240, 120, new int[] { 20, 100, 300, 750, 925, 1100 }, 150);
+            Property kentucky = new Property("Kentucky Avenue", 21, banker, 220, 110, new int[] { 18, 90, 250, 700, 875, 1050 }, 150, 5);
+            Property indiana = new Property("Indiana Avenue", 23, banker, 220, 110, new int[] { 18, 90, 250, 700, 875, 1050 }, 150, 5);
+            Property illinois = new Property("Illinois Avenue", 24, banker, 240, 120, new int[] { 20, 100, 300, 750, 925, 1100 }, 150, 5);
 
 
-            Property atlantic = new Property("Atlantic Avenue", 26, banker, 260, 130, new int[] { 22, 110, 330, 800, 975, 1150 }, 150);
-            Property ventnor = new Property("Ventnor Avenue", 27, banker, 260, 130, new int[] { 22, 110, 330, 800, 975, 1150 }, 150);
-            Property marvin = new Property("Marvin Gardens", 29, banker, 280, 140, new int[] { 24, 120, 360, 850, 1025, 1200 }, 150);
+            Property atlantic = new Property("Atlantic Avenue", 26, banker, 260, 130, new int[] { 22, 110, 330, 800, 975, 1150 }, 150, 6);
+            Property ventnor = new Property("Ventnor Avenue", 27, banker, 260, 130, new int[] { 22, 110, 330, 800, 975, 1150 }, 150, 6);
+            Property marvin = new Property("Marvin Gardens", 29, banker, 280, 140, new int[] { 24, 120, 360, 850, 1025, 1200 }, 150, 6);
 
-            Property pacific = new Property("Pacific Avenue", 31, banker, 300, 150, new int[] { 26, 130, 390, 900, 1100, 1275 }, 200);
-            Property carolina = new Property("North Carolina Avenue", 32, banker, 300, 150, new int[] { 26, 130, 390, 900, 1100, 1275 }, 200);
-            Property penn = new Property("Pennsylvania Avenue", 34, banker, 320, 160, new int[] { 28, 150, 450, 1000, 1200, 1400 }, 200);
+            Property pacific = new Property("Pacific Avenue", 31, banker, 300, 150, new int[] { 26, 130, 390, 900, 1100, 1275 }, 200, 7);
+            Property carolina = new Property("North Carolina Avenue", 32, banker, 300, 150, new int[] { 26, 130, 390, 900, 1100, 1275 }, 200, 7);
+            Property penn = new Property("Pennsylvania Avenue", 34, banker, 320, 160, new int[] { 28, 150, 450, 1000, 1200, 1400 }, 200, 7);
 
-            Property park = new Property("Park Place", 37, banker, 350, 175, new int[] { 35, 175, 500, 1100, 1300, 1500 }, 200);
-            Property boardwalk = new Property("Boardwalk", 39, banker, 400, 200, new int[] { 50, 200, 600, 1400, 1700, 2000 }, 200);
+            Property park = new Property("Park Place", 37, banker, 350, 175, new int[] { 35, 175, 500, 1100, 1300, 1500 }, 200, 8);
+            Property boardwalk = new Property("Boardwalk", 39, banker, 400, 200, new int[] { 50, 200, 600, 1400, 1700, 2000 }, 200, 8);
 
             Railroad readingRR = new Railroad("Reading Railroad", 5, banker, 200, 100);
             Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, banker, 200, 100);
@@ -203,10 +204,6 @@ namespace WindowsFormsApplication2
             return cells;
         }
 
-        private void updateHouseNumbers()
-        {
-        }
-
         public List<int> roll()
         {
             List<int> dice = new List<int>();
@@ -219,6 +216,7 @@ namespace WindowsFormsApplication2
         public int movePlayer()
         {
             List<int> die = this.roll();
+            this.diceRoll = die;
             int newPosition = this.getPlayer().move(die[0] + die[1]);
             System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + " New Location: " + newPosition + "\n");
             this.updatePlayerPosition();
@@ -234,10 +232,7 @@ namespace WindowsFormsApplication2
             {
 
                 this.buyDisplay();
-            }else{
-                this.endTurn();
             }
-
         }
 
         private void updatePlayerLabels()
@@ -252,11 +247,14 @@ namespace WindowsFormsApplication2
             this.rollDie.Enabled = false;
             this.BuyProper.Enabled = true;
             this.TurnEnds.Enabled = true;
-            propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
-            System.Diagnostics.Debug.Write(banker.hasDeed(propertyToAdd));
+            if (this.cells[this.getPlayer().getLocation()].GetType() != typeof(Special) && this.cells[this.getPlayer().getLocation()].GetType() != typeof(FreeParking))
+            {
+                propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
+                System.Diagnostics.Debug.Write(banker.hasDeed(propertyToAdd));
             if (!banker.hasDeed(propertyToAdd))
             {
                 this.BuyProper.Enabled = false;
+            }
             }
 
         }
@@ -294,12 +292,65 @@ namespace WindowsFormsApplication2
 
         public void endTurn()
         {
+            this.rent();
             this.activePlayer++;
             this.activePlayer = this.activePlayer % (this.players.Count);
             this.rollDie.Enabled = true;
             this.BuyProper.Enabled = false;
             this.TurnEnds.Enabled = false;
             updatePlayerLabels();
+        }
+
+        public void rent()
+        {
+            var cell = this.getCellAt(this.getPlayer().getLocation());
+            if (cell.GetType() == typeof(Property) || cell.GetType() == typeof(Railroad))
+            {
+                Property prop = (Property) cell;
+                Console.WriteLine(prop.getName());
+                if (!(banker.hasDeed(prop) || this.getPlayer().hasDeed(prop)))
+                {
+                    Player owner = prop.getOwner();
+                    Console.WriteLine(owner.getName());
+                    if (owner.Equals(banker)) { return; }
+                    int rent = prop.getRent();
+                    Console.WriteLine(rent);
+                    if(prop.getNumHouses() ==  0 && this.hasMonopoly(prop) && cell.GetType() == typeof(Property)) { rent = rent*2;}
+                    owner.addMoney(rent);
+                    this.getPlayer().addMoney(-rent);
+                    return;
+                }
+            } else if(cell.GetType() == typeof(Utility)) {
+                Utility util = (Utility) cell;
+                int rent = (this.diceRoll[0] + this.diceRoll[1]) * util.getRent();
+                util.getOwner().addMoney(rent);
+                this.getPlayer().addMoney(-rent);
+                return;
+            }
+        }
+
+        public void setDiceRoll(List<int> roll)
+        {
+            this.diceRoll = roll;
+        }
+
+        public Player getBanker() { return banker; }
+
+        public bool hasMonopoly(Property prop)
+        {
+            Property temp;
+            int color = prop.getColor();
+            Player owner = prop.getOwner();
+            if(owner.Equals(banker)) return false;
+            for (int i = 0; i < 40; i++)
+            {
+                if (this.getCellAt(i).GetType() == typeof(Property))
+                {
+                    temp = (Property) this.getCellAt(i);
+                    if (color == temp.getColor() && !owner.Equals(temp.getOwner())) return false;
+                }
+            }
+            return true;
         }
 
         public void updatePlayerPosition()

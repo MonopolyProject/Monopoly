@@ -78,6 +78,12 @@ namespace Monopoly
         public void removeDeed(Property prop) { this.deeds.Remove(prop); }
         public List<Property> getDeeds() { return this.deeds; }
 
+        public bool Equals(Player p)
+        {
+            if (this.getName() == p.getName()) return true;
+            return false;
+        }
+
         public int countType(Type t)
         {
             int count = 0;

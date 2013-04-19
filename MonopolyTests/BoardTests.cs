@@ -331,5 +331,146 @@ namespace MonopolyTests
             String result = b.mortgageProperties(Tomato, props);
             Assert.AreEqual("ERROR: You did not select any properties", result);
         }
+
+        [Test()]
+        public void TestHasMonopolyWorks()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var banker = b.getBanker();
+            Property p1 = (Property)b.getCellAt(1);
+            Property p3 = (Property)b.getCellAt(3);
+            Property p8 = (Property)b.getCellAt(8);
+            Property p9 = (Property)b.getCellAt(9);
+            p1.changeOwner(Tomato);
+            p3.changeOwner(Tomato);
+            p8.changeOwner(Tomato);
+            Assert.True(b.hasMonopoly((Property)b.getCellAt(1)));
+            Assert.False(b.hasMonopoly((Property)b.getCellAt(8)));
+            Assert.False(b.hasMonopoly((Property)b.getCellAt(9)));
+        }
+
+        [Test()]
+        public void TestRentWorks()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop = (Property)b.getCellAt(1);
+            prop.changeOwner(Hex);
+            Tomato.move(1);
+            int startMoney = Tomato.getMoney();
+            b.rent();
+            Assert.AreEqual(startMoney - prop.getRent(), Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestNoRentOnMortgagedProperty()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop = (Property)b.getCellAt(1);
+            prop.changeOwner(Hex);
+            Tomato.move(1);
+            int startMoney = Tomato.getMoney();
+            prop.mortgageProperty();
+            b.rent();
+            Assert.AreEqual(startMoney, Tomato.getMoney());
+            prop.liftMortgage();
+            b.rent();
+            Assert.AreEqual(startMoney - prop.getRent(), Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestRentWith2Houses()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop = (Property)b.getCellAt(1);
+            prop.changeOwner(Hex);
+            prop.addHouse();
+            prop.addHouse();
+            Tomato.move(1);
+            int startMoney = Tomato.getMoney();
+            b.rent();
+            Assert.AreEqual(startMoney - prop.getRent(), Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestRentMonopolyNoHouses()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop0 = (Property)b.getCellAt(1);
+            prop0.changeOwner(Hex);
+            int initialRent = prop0.getRent();
+            Property prop1 = (Property)b.getCellAt(3);
+            prop1.changeOwner(Hex);
+            Tomato.move(1);
+            int startMoney = Tomato.getMoney();
+            b.rent();
+            Assert.AreEqual(startMoney - initialRent*2, Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestRentMonopoly3Houses()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop0 = (Property)b.getCellAt(1);
+            prop0.changeOwner(Hex);
+            Property prop1 = (Property)b.getCellAt(3);
+            prop1.changeOwner(Hex);
+            prop0.addHouse();
+            prop0.addHouse();
+            prop0.addHouse();
+            Tomato.move(1);
+            int startMoney = Tomato.getMoney();
+            b.rent();
+            Assert.AreEqual(startMoney - prop0.getRent(), Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestRentRailroad()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop0 = (Property)b.getCellAt(5);
+            prop0.changeOwner(Hex);
+            Tomato.move(5);
+            int startMoney = Tomato.getMoney();
+            b.rent();
+            Assert.AreEqual(startMoney - prop0.getRent(), Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestRentUtility()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            var Hex = new Player("Hex");
+
+            Property prop0 = (Property)b.getCellAt(12);
+            prop0.changeOwner(Hex);
+            Tomato.move(12);
+            List<int> roll = new List<int>();
+            roll.Add(6);
+            roll.Add(6);
+            b.setDiceRoll(roll);
+            int startMoney = Tomato.getMoney();
+            b.rent();
+            Assert.AreEqual(startMoney - 12*prop0.getRent(), Tomato.getMoney());
+        }
     }
 }

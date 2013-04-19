@@ -16,12 +16,13 @@ namespace Monopoly
         protected int[] rents;
         protected int numHouses = 0;//5 houses = 1 hotel on a normal property
         protected int houseCost;
+        protected int color;
         protected Player owner;
         protected bool mortgaged = false;
 
         public Property() { }
 
-        public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents, int houseCost)
+        public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents, int houseCost, int color = 0)
         {
             this.buy = cost;
             this.owner = owner;
@@ -31,6 +32,7 @@ namespace Monopoly
             this.name = name;
             this.position = position;
             this.houseCost = houseCost;
+            this.color = color;
 
         }
 
@@ -44,7 +46,7 @@ namespace Monopoly
             this.owner.addDeed(this);
         }
 
-
+        public int getColor() { return this.color; }
         public int getBuy() { return this.buy; }
 
         public int getMortgage() { return this.mortgage; }
