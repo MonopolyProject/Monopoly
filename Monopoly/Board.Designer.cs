@@ -180,22 +180,23 @@ namespace WindowsFormsApplication2
             Utility electric = new Utility("Electric Company", 12, banker, 150, 75);
             Utility water = new Utility("Water Works", 28, banker, 150, 75);
 
-            Property temp0 = new Property("Placeholder", 0, banker, 0, 0, new int[] { 0,0,0,0,0}, 0);
-            Property temp2 = new Property("Placeholder", 2, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp4 = new Property("Placeholder", 4, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp7 = new Property("Placeholder", 7, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp10 = new Property("Placeholder", 10, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp17 = new Property("Placeholder", 17, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp20 = new Property("Placeholder", 20, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp22 = new Property("Placeholder", 22, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp30 = new Property("Placeholder", 30, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp33 = new Property("Placeholder", 33, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp36 = new Property("Placeholder", 36, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
-            Property temp38 = new Property("Placeholder", 38, banker, 0, 0, new int[] { 0, 0, 0, 0, 0 }, 0);
+            FreeParking parking = new FreeParking("Free Parking", 20);
+
+            FreeParking temp0 = new FreeParking("Placeholder", 0);
+            FreeParking temp2 = new FreeParking("Placeholder", 2);
+            FreeParking temp4 = new FreeParking("Placeholder", 4);
+            FreeParking temp7 = new FreeParking("Placeholder", 7);
+            FreeParking temp10 = new FreeParking("Placeholder", 10);
+            FreeParking temp17 = new FreeParking("Placeholder", 17);
+            FreeParking temp22 = new FreeParking("Placeholder", 22);
+            FreeParking temp30 = new FreeParking("Placeholder", 30);
+            FreeParking temp33 = new FreeParking("Placeholder", 33);
+            FreeParking temp36 = new FreeParking("Placeholder", 36);
+            FreeParking temp38 = new FreeParking("Placeholder", 38);
 
             cells.Add(temp0); cells.Add(mediterr); cells.Add(temp2); cells.Add(baltic); cells.Add(temp4); cells.Add(readingRR); cells.Add(oriental); cells.Add(temp7); cells.Add(vermont);
             cells.Add(connecticut); cells.Add(temp10); cells.Add(charles); cells.Add(electric); cells.Add(states); cells.Add(virginia); cells.Add(pennRR); cells.Add(james); cells.Add(temp17);
-            cells.Add(tennessee); cells.Add(newyork); cells.Add(temp20); cells.Add(kentucky); cells.Add(temp22); cells.Add(indiana); cells.Add(illinois); cells.Add(boRR); cells.Add(atlantic);
+            cells.Add(tennessee); cells.Add(newyork); cells.Add(parking); cells.Add(kentucky); cells.Add(temp22); cells.Add(indiana); cells.Add(illinois); cells.Add(boRR); cells.Add(atlantic);
             cells.Add(ventnor); cells.Add(water); cells.Add(marvin); cells.Add(temp30); cells.Add(pacific); cells.Add(carolina); cells.Add(temp33); cells.Add(penn); cells.Add(shortRR);
             cells.Add(temp36); cells.Add(park); cells.Add(temp38); cells.Add(boardwalk); 
                         
@@ -234,6 +235,7 @@ namespace WindowsFormsApplication2
                 this.buyDisplay();
             }else{
                 this.endTurn();
+                
                 }
         }
 
