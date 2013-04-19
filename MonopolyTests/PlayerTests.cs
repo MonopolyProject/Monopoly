@@ -74,7 +74,6 @@ namespace MonopolyTests
         }
 
         [Test()]
-<<<<<<< HEAD
         public void TestCountingTypesRailroads()
         {
             Player playah = new Player("Ben");
@@ -97,8 +96,9 @@ namespace MonopolyTests
             Assert.AreEqual(3, playah.countType(t));
 
             playah.addDeed(shortRR);
-            Assert.AreEqual(4, playah.countType(t));
-=======
+            Assert.AreEqual(4, playah.countType(t));}
+
+        [Test()]
         public void TestPassGoFromAverageDistance()
         {
             var p = new Player("Ed");
@@ -142,7 +142,6 @@ namespace MonopolyTests
             p.move(38);
             p.move(5, false);
             Assert.AreEqual(1500, p.getMoney());
->>>>>>> 5a98a290142f7a5ed948430e78da7274888443be
         }
     }
 }
