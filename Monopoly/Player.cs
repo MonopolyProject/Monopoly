@@ -68,8 +68,18 @@ namespace Monopoly
             return true;
         }
 
-        public void addDeed(Cell prop) { this.deeds.Add((Property) prop); }
+        public void addDeed(Property prop) { this.deeds.Add(prop); }
         public void removeDeed(Property prop) { this.deeds.Remove(prop); }
         public List<Property> getDeeds() { return this.deeds; }
+
+        public int countType(Type t)
+        {
+            int count = 0;
+            foreach (Property p in this.getDeeds())
+            {
+                if (p.GetType().Equals(t)) count++;
+            }
+            return count;
+        }
     }
 }

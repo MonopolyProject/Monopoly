@@ -6,22 +6,33 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class Utility: Cell
+    public class Utility: Property
     {
-        private String name;
-        private int position;
-        private int buy;
-        private int sell;
-        private int numHouses = 0;//5 houses = 1 hotel on a normal property
-        private Player owner;
+        public static readonly int OWN_ONE_UTILITY = 4;
+        public static readonly int OWN_TWO_UTILITY = 10;
+
 
         public Utility(String name, int position, Player owner, int cost, int mortgage)
         {
             this.buy = cost;
             this.owner = owner;
-            this.sell = mortgage;
+            this.mortgage = mortgage;
             this.name = name;
             this.position = position;
         }
+
+        public override int getRent()
+        {
+            int count = this.owner.countType(typeof(Utility));
+            if (count == 1)
+                return OWN_ONE_UTILITY;
+            else if (count == 2)
+                return OWN_TWO_UTILITY;
+            else
+                return 0;
+                
+        }
+
+        public override int addHouse() { return -1; }
     }
 }

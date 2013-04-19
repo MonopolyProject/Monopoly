@@ -72,5 +72,31 @@ namespace MonopolyTests
             Assert.False(p.hasDeeds(testProps));
 
         }
+
+        [Test()]
+        public void TestCountingTypesRailroads()
+        {
+            Player playah = new Player("Ben");
+            Railroad readingRR = new Railroad("Reading Railroad", 5, playah, 200, 100);
+            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, playah, 200, 100);
+            Railroad boRR = new Railroad("B&O Railroad", 25, playah, 200, 100);
+            Railroad shortRR = new Railroad("Short Line", 35, playah, 200, 100);
+
+            Type t = typeof(Railroad);
+
+            Assert.AreEqual(0, playah.countType(t));
+
+            playah.addDeed(readingRR);
+            Assert.AreEqual(1, playah.countType(t));
+
+            playah.addDeed(pennRR);
+            Assert.AreEqual(2, playah.countType(t));
+
+            playah.addDeed(boRR);
+            Assert.AreEqual(3, playah.countType(t));
+
+            playah.addDeed(shortRR);
+            Assert.AreEqual(4, playah.countType(t));
+        }
     }
 }

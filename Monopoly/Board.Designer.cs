@@ -172,10 +172,10 @@ namespace WindowsFormsApplication2
             Property park = new Property("Park Place", 37, banker, 350, 175, new int[] { 35, 175, 500, 1100, 1300, 1500 }, 200);
             Property boardwalk = new Property("Boardwalk", 39, banker, 400, 200, new int[] { 50, 200, 600, 1400, 1700, 2000 }, 200);
 
-            Railroad readingRR = new Railroad("Reading Railroad", 5, banker, 200, 100, new int[] { 25, 50, 100, 200 });
-            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, banker, 200, 100, new int[] { 25, 50, 100, 200 });
-            Railroad boRR = new Railroad("B&O Railroad", 25, banker, 200, 100, new int[] { 25, 50, 100, 200 });
-            Railroad shortRR = new Railroad("Short Line", 35, banker, 200, 100, new int[] { 25, 50, 100, 200 });
+            Railroad readingRR = new Railroad("Reading Railroad", 5, banker, 200, 100);
+            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, banker, 200, 100);
+            Railroad boRR = new Railroad("B&O Railroad", 25, banker, 200, 100);
+            Railroad shortRR = new Railroad("Short Line", 35, banker, 200, 100);
 
             Utility electric = new Utility("Electric Company", 12, banker, 150, 75);
             Utility water = new Utility("Water Works", 28, banker, 150, 75);

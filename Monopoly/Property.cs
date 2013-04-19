@@ -11,15 +11,15 @@ namespace Monopoly
     //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
     public class Property: Cell
     {
-        private String name;
-        private int position;
-        private int buy;
-        private int mortgage;
-        private int[] rents;
-        private int numHouses = 0;//5 houses = 1 hotel on a normal property
-        private int houseCost;
-        private Player owner;
-        private bool mortgaged = false;
+        protected String name;
+        protected int position;
+        protected int buy;
+        protected int mortgage;
+        protected int[] rents;
+        protected int numHouses = 0;//5 houses = 1 hotel on a normal property
+        protected int houseCost;
+        protected Player owner;
+        protected bool mortgaged = false;
 
         public Property() { }
 
@@ -53,13 +53,13 @@ namespace Monopoly
 
         public int getMortgage() { return this.mortgage; }
 
-        public int getRent() { 
+        public virtual int getRent() { 
             if(!this.mortgaged)
                 return this.rents[this.numHouses];
             return 0;
         }
 
-        public int addHouse()
+        public virtual int addHouse()
         {
             if (this.numHouses < 5 && !this.mortgaged)
             {
