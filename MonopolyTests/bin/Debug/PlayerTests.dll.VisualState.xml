@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1048]C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll</TopNode>
-  <SelectedNode>[0-1000]MonopolyTests.UtilityTests</SelectedNode>
+  <TopNode>[0-1053]C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll</TopNode>
+  <SelectedNode>[0-1053]C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1048]C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll" Expanded="true" />
-    <Node UniqueName="[0-1049]MonopolyTests" Expanded="true" />
-    <Node UniqueName="[0-1012]MonopolyTests.BoardTests" Expanded="true" />
+    <Node UniqueName="[0-1053]C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\MonopolyTests\bin\Debug\PlayerTests.dll" Expanded="true" />
+    <Node UniqueName="[0-1054]MonopolyTests" Expanded="true" />
+    <Node UniqueName="[0-1017]MonopolyTests.BoardTests" Expanded="true" />
     <Node UniqueName="[0-1005]MonopolyTests.PlayerTests" Expanded="true" />
-    <Node UniqueName="[0-1035]MonopolyTests.PropertyTests" Expanded="true" />
-    <Node UniqueName="[0-1043]MonopolyTests.RailroadTests" Expanded="true" />
+    <Node UniqueName="[0-1040]MonopolyTests.PropertyTests" Expanded="true" />
+    <Node UniqueName="[0-1048]MonopolyTests.RailroadTests" Expanded="true" />
     <Node UniqueName="[0-1000]MonopolyTests.UtilityTests" Expanded="true" />
   </Nodes>
 </VisualState>

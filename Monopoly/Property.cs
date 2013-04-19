@@ -11,8 +11,6 @@ namespace Monopoly
     //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
     public class Property: Cell
     {
-        protected String name;
-        protected int position;
         protected int buy;
         protected int mortgage;
         protected int[] rents;
@@ -35,8 +33,7 @@ namespace Monopoly
             this.houseCost = houseCost;
 
         }
-        
-        public String getName() { return this.name; }
+
 
         public Player getOwner() { return this.owner; }
 
@@ -46,8 +43,7 @@ namespace Monopoly
             this.owner = newOwner;
             this.owner.addDeed(this);
         }
-       
-        public int getPos() { return this.position; }
+
 
         public int getBuy() { return this.buy; }
 

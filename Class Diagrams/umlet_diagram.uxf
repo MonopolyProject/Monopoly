@@ -2,102 +2,65 @@
 <diagram program="umlet" version="12.0">
   <zoom_level>9</zoom_level>
   <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>36</x>
-      <y>621</y>
-      <w>80</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>63;27;27;63</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>468</x>
-      <y>144</y>
-      <w>89</w>
-      <h>107</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>27;90;72;27</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>99</x>
-      <y>441</y>
-      <w>252</w>
-      <h>207</h>
+      <x>234</x>
+      <y>855</y>
+      <w>171</w>
+      <h>72</h>
     </coordinates>
-    <panel_attributes>_Property_
+    <panel_attributes>_Railroad_
 --
-int[] rents
-int numberHouses  //5 houses = 1 hotel
-int mortgage
-int cost
-Player owner
+readonly int[] RENTS
 --
-void changeOwner(Player newOwner)
-void addHouse()
-void effect(Player landedOn)
-int getRent()
-int getNumbHouses()
-int getBuy()
-int getMortgage()
-</panel_attributes>
+override int getRent()
+override int addHouse()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>72</x>
-      <y>315</y>
-      <w>251</w>
-      <h>143</h>
+      <x>459</x>
+      <y>783</y>
+      <w>134</w>
+      <h>89</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>234;27;27;126</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>702</x>
-      <y>144</y>
-      <w>80</w>
-      <h>98</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>63;81;27;27</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>351</x>
-      <y>315</y>
-      <w>80</w>
-      <h>143</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>63;27;27;126</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>261</x>
-      <y>621</y>
-      <w>107</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>90;27;27;63</additional_attributes>
+    <additional_attributes>117;27;27;72</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>540</x>
-      <y>63</y>
+      <x>648</x>
+      <y>315</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Abstract : Cell
+--
+String name
+int position
+--
+int getPosition()
+string getName()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>207</x>
+      <y>783</y>
+      <w>134</w>
+      <h>89</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>117;27;27;72</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>873</x>
+      <y>126</y>
       <w>189</w>
       <h>108</h>
     </coordinates>
@@ -114,103 +77,186 @@ void updatePlayerPositions()</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>378</x>
-      <y>441</y>
-      <w>207</w>
-      <h>45</h>
+      <x>324</x>
+      <y>504</y>
+      <w>252</w>
+      <h>306</h>
     </coordinates>
-    <panel_attributes>_IncomeTax_
+    <panel_attributes>_Property_
 --
-int defaultTax</panel_attributes>
+int[] rents
+int numberHouses  //5 houses = 1 hotel
+int mortgage
+int buy
+Player owner
+int houseCost
+
+--
+void changeOwner(Player newOwner)
+void effect(Player landedOn)
+int getRent()
+int getNumbHouses()
+int getBuy()
+int getMortgage()
+virtual int addHouse()
+int removeHouse()
+void mortgateProperty()
+bool canMortgage()
+void liftMortgage()
+int getPayMortgage()
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>468</x>
-      <y>315</y>
-      <w>197</w>
+      <x>297</x>
+      <y>378</y>
+      <w>368</w>
       <h>143</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>27;27;180;126</additional_attributes>
+    <additional_attributes>351;27;27;126</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>288</x>
-      <y>684</y>
-      <w>261</w>
-      <h>63</h>
+      <x>720</x>
+      <y>378</y>
+      <w>71</w>
+      <h>152</h>
     </coordinates>
-    <panel_attributes>_Utilities_
---
-readonly int OWN_ONE_MULTIPLIER = 4
-readonly int OWN_TWO_MULTIPLIER = 10</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Class</type>
-    <coordinates>
-      <x>306</x>
-      <y>234</y>
-      <w>189</w>
-      <h>108</h>
-    </coordinates>
-    <panel_attributes>Abstract : Cell
---
-String name
-int position
---
-void effect(Player landedOn)
-int getPosition()
-string getName()</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>27;27;54;135</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>648</x>
-      <y>441</y>
+      <y>630</y>
       <w>207</w>
       <h>45</h>
     </coordinates>
-    <panel_attributes>_LuxaryTax_
+    <panel_attributes>_FreeParking_
 --
-int tax</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>801</x>
+      <y>207</y>
+      <w>89</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;108;72;27</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>63</x>
-      <y>684</y>
-      <w>171</w>
+      <x>486</x>
+      <y>855</y>
+      <w>261</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_Utilities_
+--
+readonly int OWN_ONE_MULTIPLIER = 4
+readonly int OWN_TWO_MULTIPLIER = 10
+--
+override getRent()
+override addHouse()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>855</x>
+      <y>531</y>
+      <w>62</w>
+      <h>116</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>45;27;27;99</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>774</x>
+      <y>513</y>
+      <w>207</w>
       <h>45</h>
     </coordinates>
-    <panel_attributes>_Railroad_
---</panel_attributes>
+    <panel_attributes>_Special_
+--
+void effect(Player landedon)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>765</x>
-      <y>225</y>
-      <w>225</w>
-      <h>135</h>
+      <x>1098</x>
+      <y>288</y>
+      <w>333</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>_Player_
 --
+String name
 int location
 List&lt;Property&gt; properties
-int[] bills
-boolean inJail
+int money
+bool collectAtGo
+it payForRound
 --
-int move(int distance)
+int move(int distance, bool passGo = true)
 void payTo(Player catcher)
 boolean ownsProperty(Property prop)
+int countType(Type t)
+void addMoney(itn amount)
+bool hasDeed(Property lookFor)
+bool hasDeeds(List&lt;Property&gt; lookFor)
+void addDeed(Property prop)
+void removeDeed(Property prop)
+List&lt;Property&gt; getDeeds()
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>882</x>
+      <y>630</y>
+      <w>207</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>_GoToJail_
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>621</x>
+      <y>531</y>
+      <w>170</w>
+      <h>116</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>153;27;27;99</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1035</x>
+      <y>207</y>
+      <w>80</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>63;81;27;27</additional_attributes>
   </element>
 </diagram>

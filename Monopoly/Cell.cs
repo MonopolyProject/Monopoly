@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    public interface Cell
+    public abstract class Cell
     {
-           
+        protected String name;
+        protected int position;
+
+
+        public int getPos() { return this.position; }
+
+        public String getName() { return this.name; }
 
     }
 }
