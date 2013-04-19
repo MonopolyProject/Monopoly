@@ -472,5 +472,13 @@ namespace MonopolyTests
             b.rent();
             Assert.AreEqual(startMoney - 12*prop0.getRent(), Tomato.getMoney());
         }
+
+        [Test()]
+        public void TestDisableBuyButton()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            Tomato.move(10);
+        }
     }
 }

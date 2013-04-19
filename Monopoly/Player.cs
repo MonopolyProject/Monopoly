@@ -14,7 +14,7 @@ namespace Monopoly
         int payForRound;
         bool collectAtGo;
         public List<Property> deeds = new List<Property>();
-
+        public int doubleCounter = 0;
         public Player(string Name)
         {
             this.Name = Name;

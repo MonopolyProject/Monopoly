@@ -54,6 +54,8 @@
       <DependentUpon>Board.cs</DependentUpon>
     </Compile>
     <Compile Include="Cell.cs" />
+    <Compile Include="CellGoToJail.cs" />
+    <Compile Include="Jail.cs" />
     <Compile Include="FreeParking.cs" />
     <Compile Include="Special.cs" />
     <Compile Include="Player.cs" />
