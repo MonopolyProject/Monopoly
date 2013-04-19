@@ -12,16 +12,22 @@ namespace Monopoly
         int money;
         int location;
         int payForRound;
+        bool collectAtGo;
         public List<Property> deeds = new List<Property>();
 
         public Player(string Name)
         {
             this.Name = Name;
             this.location = 0;
-            this.money = 1500;
+            this.money = 1300;
         }
-        public int move(int distance) {
+        public int move(int distance, bool passGo = true) {
+            if(passGo && this.location == 0 && distance > 0) {
+                this.addMoney(200);
+                passGo = false;
+            }
             this.location += distance;
+            if (passGo && this.location > 40) { this.addMoney(200); }
             this.location = this.location % 40;
             return this.location;
         }

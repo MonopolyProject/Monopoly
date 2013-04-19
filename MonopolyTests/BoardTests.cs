@@ -257,9 +257,9 @@ namespace MonopolyTests
             List<Property> props = new List<Property>();
             props.Add(haute);
 
-            Assert.AreEqual(1500, Tomato.getMoney());
+            Assert.AreEqual(1300, Tomato.getMoney());
             b.mortgageProperties(Tomato, props);
-            Assert.AreEqual(1550, Tomato.getMoney());
+            Assert.AreEqual(1350, Tomato.getMoney());
 
         }
 
@@ -281,9 +281,9 @@ namespace MonopolyTests
             props.Add(chitown);
             props.Add(norleans);
 
-            Assert.AreEqual(1500, Tomato.getMoney());
+            Assert.AreEqual(1300, Tomato.getMoney());
             b.mortgageProperties(Tomato, props);
-            Assert.AreEqual(1700, Tomato.getMoney());
+            Assert.AreEqual(1500, Tomato.getMoney());
 
         }
 
