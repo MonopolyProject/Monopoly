@@ -33,7 +33,6 @@ namespace Monopoly
             this.position = position;
             this.houseCost = houseCost;
             this.color = color;
-
         }
 
 
