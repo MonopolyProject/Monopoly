@@ -270,7 +270,7 @@ namespace WindowsFormsApplication2
             }
         }
 
-        
+
 
         public void cellEffect(int position)
         {
@@ -285,6 +285,50 @@ namespace WindowsFormsApplication2
                 CommunityChest cc = (CommunityChest)cell;
                 cc.effect(this.getPlayer(), this.CommunityChestDeck[0]);
                 this.CommunityChestDeck.RemoveAt(0);
+            }
+            else if (cell is Special)
+            {
+                if (cell is IncomeTax)
+                {
+                    IncomeTax tax = (IncomeTax)cell;
+                    Form f = new Form();
+                    Button b1 = new Button();
+                    b1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    b1.Location = new Point(21, 50);
+                    b1.Size = new Size(82, 31);
+                    b1.Text = "$200";
+                    b1.UseVisualStyleBackColor = true;
+                    b1.Click += new EventHandler(incomeTaxDefault);
+
+
+                    Button b2 = new Button();
+                    b2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    b2.Location = new Point(306, 50);
+                    b2.Size = new Size(82, 31);
+                    b2.Text = "10%";
+                    b2.Click += new EventHandler(incomeTaxTenPercent);
+
+                    Label l = new Label();
+                    l.AutoSize = true;
+                    l.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    l.Location = new Point(17, 19);
+                    l.Size = new Size(381, 20);
+                    l.Text = "Do you want to pay $200 or 10% of your total worth? ";
+
+                    f.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+                    f.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+                    f.ClientSize = new System.Drawing.Size(400, 93);
+                    f.Controls.Add(l);
+                    f.Controls.Add(b2);
+                    f.Controls.Add(b1);
+                    f.Text = "Income Tax";
+                    f.ResumeLayout(false);
+                    f.PerformLayout();
+                    f.Visible = true;
+
+                }
+                else
+                    ((Special)cell).effect(this.getPlayer());
             }
         }
 

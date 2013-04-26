@@ -41,6 +41,7 @@ namespace WindowsFormsApplication2
         private void rollDie_Click_1(object sender, EventArgs e)
         {
             this.movePlayer();
+            this.updateDieLabels();
         }
 
         private void buy_Click_1(object sender, EventArgs e)
@@ -50,6 +51,19 @@ namespace WindowsFormsApplication2
             this.BuyProper.Enabled = false;
 
         }
+
+        private void incomeTaxTenPercent(object sender, EventArgs e)
+        {
+            IncomeTax tax = (IncomeTax)this.cells[getPlayer().getLocation()];
+            tax.effect(getPlayer(), false);
+        }
+
+        private void incomeTaxDefault(object sender, EventArgs e)
+        {
+            IncomeTax tax = (IncomeTax)this.cells[getPlayer().getLocation()];
+            tax.effect(getPlayer(), true);
+        }
+
 
         private void endTurn_Click_1(object sender, EventArgs e)
         {
