@@ -52,24 +52,18 @@ namespace MonopolyTests
         public void testGettingRent()
         {
             Player playah = new Player("Ben");
+
             Railroad readingRR = new Railroad("Reading Railroad", 5, playah, 200, 100);
-            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, playah, 200, 100);
-            Railroad boRR = new Railroad("B&O Railroad", 25, playah, 200, 100);
-            Railroad shortRR = new Railroad("Short Line", 35, playah, 200, 100);
-
-            Assert.AreEqual(0, readingRR.getRent());
-
-            playah.addDeed(readingRR);
             Assert.AreEqual(25, readingRR.getRent());
-            playah.addDeed(pennRR);
+
+            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, playah, 200, 100);
             Assert.AreEqual(50, readingRR.getRent());
-            playah.addDeed(boRR);
+            Railroad boRR = new Railroad("B&O Railroad", 25, playah, 200, 100);
             Assert.AreEqual(100, readingRR.getRent());
-            playah.addDeed(boRR);
+            Railroad shortRR = new Railroad("Short Line", 35, playah, 200, 100);
             Assert.AreEqual(200, readingRR.getRent());
 
-            playah.addDeed(new Railroad("FAKE", 1, playah, 100, 100));
-            Assert.AreEqual(0, readingRR.getRent());
+
             
         }
     }

@@ -49,15 +49,13 @@ namespace MonopolyTests
         public void testGettingRent()
         {
             Player playah = new Player("Ben");
+
             Utility e = new Utility("Electric Company", 12, playah, 150, 75);
-            Utility w = new Utility("Water Works", 28, playah, 150, 75);
-
-            Assert.AreEqual(0, e.getRent());
-
-            playah.addDeed(e);
             Assert.AreEqual(Utility.OWN_ONE_UTILITY, e.getRent());
-            playah.addDeed(w);
+
+            Utility w = new Utility("Water Works", 28, playah, 150, 75);
             Assert.AreEqual(Utility.OWN_TWO_UTILITY, e.getRent());
+
 
 
         }

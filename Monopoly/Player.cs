@@ -117,7 +117,7 @@ namespace Monopoly
             int total = this.money;
             foreach (Property p in this.deeds)
             {
-                total += p.getMortgage();
+                total += p.getBuy();
                 total += p.getHouseCost() * p.getNumHouses();
             }
 
