@@ -32,6 +32,7 @@ namespace Monopoly
             this.location += distance;
             if (passGo && this.location > 40) { this.addMoney(200); }
             this.location = this.location % 40;
+            if (this.location == 10) { this.isInJail = true; } else { this.isInJail = false; }
             return this.location;
         }
 

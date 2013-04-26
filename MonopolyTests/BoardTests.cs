@@ -48,18 +48,7 @@ namespace MonopolyTests
             int position = board.movePlayer();
             Assert.AreEqual(position, board.getPlayer().getLocation());
         }
-
-        [Test()]
-        public void TestPlayerShapePosition()
-        {
-            Board board = new WindowsFormsApplication2.Board();
-            for (int i = 0; i < 12; i++)
-            {
-                int position = board.movePlayer();
-                Assert.AreEqual(board.getPlayerShape().Location, board.locations[board.getPlayer().getLocation()]);
-            }
-        }
-
+        
         [Test()]
         public void TestBuyDisplay()
         {
@@ -479,6 +468,53 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             Tomato.move(10);
+        }
+
+        [Test()]
+        public void TestBuyHouse()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            int initialMoney = Tomato.getMoney();
+            List<Property> props = new List<Property>();
+            props.Add((Property)b.getCellAt(1));
+            props.Add((Property)b.getCellAt(3));
+            b.trade(b.getBanker(), Tomato, props, 0);
+            int houseCost = ((Property)b.getCellAt(1)).getHouseCost();
+            b.buyHouse((Property)b.getCellAt(1), Tomato);
+            Assert.AreEqual(1, ((Property)b.getCellAt(1)).getNumHouses());
+            Assert.AreEqual(initialMoney-houseCost, Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestBuyHouseWithoutMonopoly()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            int initialMoney = Tomato.getMoney();
+            List<Property> props = new List<Property>();
+            props.Add((Property)b.getCellAt(1));
+            b.trade(b.getBanker(), Tomato, props, 0);
+            b.buyHouse((Property)b.getCellAt(1), Tomato);
+            Assert.AreEqual(0, ((Property)b.getCellAt(1)).getNumHouses());
+            Assert.AreEqual(initialMoney, Tomato.getMoney());
+        }
+
+        [Test()]
+        public void TestBuyHouseWithUneven()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            var Tomato = b.getPlayer();
+            int initialMoney = Tomato.getMoney();
+            List<Property> props = new List<Property>();
+            props.Add((Property)b.getCellAt(1));
+            props.Add((Property)b.getCellAt(3));
+            b.trade(b.getBanker(), Tomato, props, 0);
+            int houseCost = ((Property)b.getCellAt(1)).getHouseCost();
+            b.buyHouse((Property)b.getCellAt(1), Tomato);
+            b.buyHouse((Property)b.getCellAt(1), Tomato);
+            Assert.AreEqual(1, ((Property)b.getCellAt(1)).getNumHouses());
+            Assert.AreEqual(initialMoney-houseCost, Tomato.getMoney());
         }
     }
 }

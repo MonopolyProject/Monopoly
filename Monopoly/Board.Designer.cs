@@ -220,44 +220,54 @@ namespace WindowsFormsApplication2
             Random die = new Random();
             dice.Add(die.Next(5) + 1);
             dice.Add(die.Next(5) + 1);
+            this.diceRoll = dice;
             return dice;
         }
 
-        public int movePlayer()
+        public int movePlayer(bool setDice = false)
         {
-            List<int> die = this.roll();
-            this.diceRoll = die;
+            if (!setDice) { this.roll(); }
+            List<int> die = this.diceRoll;
 
-            updateDieLabels();
             if (die[0] == die[1])
             {
                 this.getPlayer().doubleCounter++;
             }
-//            if (this.getPlayer().getLocation() == 10)
-//            {
-//                ((Jail)this.cells[10]).effect(this.getPlayer());
-//            }
-//            if (this.getPlayer().isInJail && die[0] != die[1])
-//            {
-//                this.getPlayer().inJailCounter++;
-//                this.TurnEnds.Enabled = true;
-//                this.rollDie.Enabled = false;
-//                this.payFine.Enabled = true;
-//                return 10;
-//            }
-//            else
-//            {
+            else
+            {
+                this.getPlayer().doubleCounter = 0;
+            }
+
+            if (this.getPlayer().isInJail && this.getPlayer().doubleCounter == 0)
+            {
+                this.getPlayer().inJailCounter++;
+                this.TurnEnds.Enabled = true;
+                this.rollDie.Enabled = false;
+                this.payFine.Enabled = true;
+                ((Jail)this.cells[10]).effect(this.getPlayer());
+                this.getPlayer().isInJail = true;
+                return 10;
+            }
+            else
+            {
+                if (this.getPlayer().doubleCounter == 3)
+                {
+                    System.Diagnostics.Debug.Write("3 Doubles -> Jail");
+                    this.getPlayer().move(-this.getPlayer().getLocation() + 10);
+                    this.getPlayer().isInJail = true;
+                    return 10;
+                }
+                this.getPlayer().isInJail = false;
+                this.getPlayer().inJailCounter = 0;
                 this.getPlayer().move(die[0] + die[1]);
                 this.updatePlayerPosition();
                 int newPosition = this.getPlayer().getLocation();
                 this.cellEffect(newPosition);
                 this.TurnEnds.Enabled = true;
                 this.rollDie.Enabled = false;
-
-                System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + " New Location: " + newPosition + "\n");
+                System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + "\nNew Location: " + newPosition + "\n");
                 return newPosition;
-            
-            
+            }
         }
 
         
@@ -419,26 +429,12 @@ namespace WindowsFormsApplication2
 
         public void updatePlayerPosition()
         {
-                            
-            if (this.getPlayer().getName() == "Ed")
-            {
-                if (this.getPlayer().getLocation() == 30 || this.getPlayer().doubleCounter == 2)
+                if (this.getPlayer().getLocation() == 30 || this.getPlayer().doubleCounter == 3)
                 {
                     Monopoly.CellGoToJail.goToJail(this.getPlayer());
                     this.getPlayer().doubleCounter = 0;
                 }
-                this.ovalShape2.Location = this.locations[this.getPlayer().getLocation()];
-            }
-            else
-            {
-                if (this.getPlayer().getLocation() == 30 || this.getPlayer().doubleCounter == 2)
-                {
-                    Monopoly.CellGoToJail.goToJail(this.getPlayer());
-                    this.getPlayer().doubleCounter = 0;
-                }
-                this.ovalShape1.Location = this.locations[this.getPlayer().getLocation()];
-            }
-
+                this.getPlayerShape().Location = this.locations[this.getPlayer().getLocation()];
         }
 
         public void trade(Player from, Player to, List<Property> propertySelected, int price)
@@ -484,10 +480,7 @@ namespace WindowsFormsApplication2
                 }
                 return "SUCCESS: You now have $" + currentPlayer.getMoney();
             }
-
-
         }
-
 
         public void tradeProperties()
         {
@@ -530,6 +523,40 @@ namespace WindowsFormsApplication2
             propertyList.Controls.Add(player2Money);
             propertyList.ShowDialog();
 
+        }
+
+        public void buyHouse(Property p, Player player)
+        {
+            List<Property> props = new List<Property>();
+            Property temp;
+            for (int i = 0; i < 40; i++)
+            {
+                if (this.getCellAt(i).GetType() == typeof(Property))
+                {
+                    temp = (Property)this.getCellAt(i);
+                    if (temp.getColor() == p.getColor())
+                    {
+                        props.Add(temp);
+                    }
+                }
+            }
+            if (this.hasMonopoly(p))
+            {
+                bool canBuy = true;
+                for (int j = 0; j < props.Count; j++)
+                {
+                    if (p.getNumHouses() > props[j].getNumHouses())
+                    {
+                        canBuy = false;
+                    }
+                }
+                if (canBuy)
+                {
+                    System.Diagnostics.Debug.Write("\nBuying House\n");
+                    player.addMoney(-p.getHouseCost());
+                    p.addHouse();
+                }
+            }
         }
 
         public void payJailFine()

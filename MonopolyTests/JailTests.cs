@@ -28,10 +28,52 @@ namespace MonopolyTests
         {
             Board board = new WindowsFormsApplication2.Board();
             Player tester = board.getPlayer();
-            tester.doubleCounter = 2;
-            tester.move(2);
+            List<int> roll = new List<int>();
+            roll.Add(3);
+            roll.Add(3);
+            board.setDiceRoll(roll);
+            board.movePlayer(true);
+            board.movePlayer(true);
+            board.movePlayer(true);
             board.updatePlayerPosition();
             Assert.AreEqual(10, tester.getLocation());
+        }
+        [Test]
+        public void TestLeaveJailAfterFine()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            Player tester = board.getPlayer();
+            List<int> roll = new List<int>();
+            roll.Add(4);
+            roll.Add(6);
+            board.setDiceRoll(roll);
+            board.movePlayer(true);
+            int initialMoney = tester.getMoney();
+            board.movePlayer(true);
+            board.movePlayer(true);
+            board.movePlayer(true);
+            Assert.AreEqual(initialMoney - 50, tester.getMoney());
+            tester.move(5);
+            Assert.False(tester.isInJail);
+            Assert.AreEqual(15, tester.getLocation());
+        }
+        [Test]
+        public void TestLeaveJailAfterDouble()
+        {
+            Board board = new WindowsFormsApplication2.Board();
+            Player tester = board.getPlayer();
+            List<int> roll = new List<int>();
+            roll.Add(4);
+            roll.Add(6);
+            board.setDiceRoll(roll);
+            board.movePlayer(true);
+            roll.Clear();
+            roll.Add(1);
+            roll.Add(1);
+            board.setDiceRoll(roll);
+            board.movePlayer(true);
+            Assert.False(tester.isInJail);
+            Assert.AreEqual(12, tester.getLocation());
         }
     }
 }
