@@ -77,26 +77,24 @@ namespace MonopolyTests
         public void TestCountingTypesRailroads()
         {
             Player playah = new Player("Ben");
-            Railroad readingRR = new Railroad("Reading Railroad", 5, playah, 200, 100);
-            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, playah, 200, 100);
-            Railroad boRR = new Railroad("B&O Railroad", 25, playah, 200, 100);
-            Railroad shortRR = new Railroad("Short Line", 35, playah, 200, 100);
-
             Type t = typeof(Railroad);
-
             Assert.AreEqual(0, playah.countType(t));
 
-            playah.addDeed(readingRR);
+
+            Railroad readingRR = new Railroad("Reading Railroad", 5, playah, 200, 100);
             Assert.AreEqual(1, playah.countType(t));
 
-            playah.addDeed(pennRR);
+            Railroad pennRR = new Railroad("Pennsylvania Railroad", 15, playah, 200, 100);
             Assert.AreEqual(2, playah.countType(t));
 
-            playah.addDeed(boRR);
+            Railroad boRR = new Railroad("B&O Railroad", 25, playah, 200, 100);
             Assert.AreEqual(3, playah.countType(t));
 
-            playah.addDeed(shortRR);
-            Assert.AreEqual(4, playah.countType(t));}
+            Railroad shortRR = new Railroad("Short Line", 35, playah, 200, 100);
+            Assert.AreEqual(4, playah.countType(t));
+        }
+
+            
 
         [Test()]
         public void TestPassGoFromAverageDistance()
@@ -142,6 +140,72 @@ namespace MonopolyTests
             p.move(38);
             p.move(5, false);
             Assert.AreEqual(1500, p.getMoney());
+        }
+
+        [Test()]
+        public void TestCalculateTotalWorthNoProp()
+        {
+            var p = new Player("Eddy");
+            Assert.AreEqual(1300, p.calculateTotalWorth());
+        }
+
+
+        [Test()]
+        public void TestCalculateTotalWorthProp()
+        {
+            var p = new Player("Eddy");
+            Property prop = new Property("TEST", 0, p, 100, 200, new int[] { 0, 0 }, 50);
+            Assert.AreEqual(1300 + 100 + 0*50, p.calculateTotalWorth());
+        }
+
+        [Test()]
+        public void TestCalculateTotalWorthMultProp()
+        {
+            var p = new Player("Eddy");
+            Property prop1 = new Property("TEST1", 0, p, 100, 200, new int[] { 0, 0 }, 50);
+            int worth1 = 100 + 0 * 50;
+            Property prop2 = new Property("TEST2", 0, p, 200, 300, new int[] { 0, 0 }, 100);
+            int worth2 = 200 + 0 * 100;
+            Property prop3 = new Property("TEST3", 0, p, 300, 400, new int[] { 0, 0 }, 150);
+            int worth3 = 300 + 0 * 150;
+            Assert.AreEqual(1300 + worth1 + worth2 + worth3, p.calculateTotalWorth());
+        }
+
+        [Test()]
+        public void TestCalculateTotalWorthRailroad()
+        {
+            Player p = new Player("Eddy");
+            Railroad rr = new Railroad("TEST", 0, p, 100, 200);
+
+
+            Assert.Contains(rr, p.getDeeds());
+            Assert.AreEqual(1300 + 100, p.calculateTotalWorth());
+        }
+
+        [Test()]
+        public void TestCalculateTotalWorthUtility()
+        {
+            Player p = new Player("Eddy");
+            Utility u = new Utility("TEST", 0, p, 100, 200);
+
+            Assert.AreEqual(1300 + 100, p.calculateTotalWorth());
+        }
+
+        [Test()]
+        public void TestCalculateTotalWorthHouses()
+        {
+            Player p = new Player("Eddy");
+            Property prop = new Property("TEST", 0, p, 100, 200, new int[] { 0, 0 }, 50);
+            prop.addHouse();
+            Assert.AreEqual(1300 + 100 + 50 * 1, p.calculateTotalWorth());
+
+            prop.addHouse();
+            Assert.AreEqual(1300 + 100 + 50 * 2, p.calculateTotalWorth());
+
+            prop.addHouse();
+            prop.addHouse();
+            prop.addHouse();
+            Assert.AreEqual(1300 + 100 + 50 * 5, p.calculateTotalWorth());//1 hotel
         }
     }
 }

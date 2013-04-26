@@ -16,6 +16,7 @@ namespace Monopoly
         {
             this.buy = cost;
             this.owner = owner;
+            this.owner.addDeed(this);
             this.mortgage = mortgage;
             this.name = name;
             this.position = position;
