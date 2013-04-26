@@ -227,18 +227,35 @@ namespace WindowsFormsApplication2
         {
             List<int> die = this.roll();
             this.diceRoll = die;
-            this.getPlayer().move(die[0] + die[1]);
-            this.updatePlayerPosition();
-            if (die[0] + die[1] >= 10)
+            
+            if (die[0] == die[1])
             {
                 this.getPlayer().doubleCounter++;
             }
-            int newPosition = this.getPlayer().getLocation();
-            this.cellEffect(newPosition);
-            this.TurnEnds.Enabled = true;
-            this.rollDie.Enabled = false;
-            System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + " New Location: " + newPosition + "\n");
-            return newPosition;
+//            if (this.getPlayer().getLocation() == 10)
+//            {
+//                ((Jail)this.cells[10]).effect(this.getPlayer());
+//            }
+//            if (this.getPlayer().isInJail && die[0] != die[1])
+//            {
+//                this.getPlayer().inJailCounter++;
+//                this.TurnEnds.Enabled = true;
+//                this.rollDie.Enabled = false;
+//                this.payFine.Enabled = true;
+//                return 10;
+//            }
+//            else
+//            {
+                this.getPlayer().move(die[0] + die[1]);
+                this.updatePlayerPosition();
+                int newPosition = this.getPlayer().getLocation();
+                this.cellEffect(newPosition);
+                this.TurnEnds.Enabled = true;
+                this.rollDie.Enabled = false;
+                System.Diagnostics.Debug.Write("Die 1: " + die[0] + " Die 2: " + die[1] + " New Location: " + newPosition + "\n");
+                return newPosition;
+            
+            
         }
 
         
@@ -272,6 +289,10 @@ namespace WindowsFormsApplication2
             this.BuyProper.Enabled = true;
             this.TurnEnds.Enabled = true;
             this.rollDie.Enabled = false;
+            if (this.players[this.activePlayer].getLocation() == 10)
+            {
+                this.payFine.Enabled = true;
+            }
             if (this.cells[this.getPlayer().getLocation()].GetType() != typeof(Special) && this.cells[this.getPlayer().getLocation()].GetType() != typeof(FreeParking))
             {
                 propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
@@ -317,12 +338,22 @@ namespace WindowsFormsApplication2
 
         public void endTurn()
         {
+
             this.rent();
             this.activePlayer++;
             this.activePlayer = this.activePlayer % (this.players.Count);
             this.rollDie.Enabled = true;
             this.BuyProper.Enabled = false;
             this.TurnEnds.Enabled = false;
+            this.payFine.Enabled = false;
+            if (this.getPlayer().getMoney() <= 0)
+            {
+                this.getPlayer().lose();
+                this.rollDie.Enabled = false;
+                this.BuyProper.Enabled = false;
+                this.TurnEnds.Enabled = false;
+                this.payFine.Enabled = false;
+            }
             updatePlayerLabels();
         }
 
@@ -493,6 +524,11 @@ namespace WindowsFormsApplication2
 
         }
 
+        public void payJailFine()
+        {
+            this.getPlayer().payJailFine();
+            this.getPlayer().isInJail = false;
+        }
 
         public void manageProperties()
         {
@@ -632,6 +668,7 @@ namespace WindowsFormsApplication2
             this.MagProper = new System.Windows.Forms.Button();
             this.player1Label = new System.Windows.Forms.Label();
             this.player2Label = new System.Windows.Forms.Label();
+            this.payFine = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shapeContainer1
@@ -1235,7 +1272,6 @@ namespace WindowsFormsApplication2
             // 
             // BuyProper
             // 
-
             this.BuyProper.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuyProper.Location = new System.Drawing.Point(530, 220);
             this.BuyProper.Name = "BuyProper";
@@ -1298,11 +1334,22 @@ namespace WindowsFormsApplication2
             this.player2Label.TabIndex = 30;
             this.player2Label.Text = "P2";
             // 
+            // payFine
+            // 
+            this.payFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payFine.Location = new System.Drawing.Point(379, 465);
+            this.payFine.Name = "payFine";
+            this.payFine.Size = new System.Drawing.Size(220, 70);
+            this.payFine.TabIndex = 31;
+            this.payFine.Text = "Pay Fine";
+            this.payFine.UseVisualStyleBackColor = true;
+            // 
             // Board
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 890);
+            this.Controls.Add(this.payFine);
             this.Controls.Add(this.player2Label);
             this.Controls.Add(this.player1Label);
             this.Controls.Add(this.MagProper);
@@ -1416,6 +1463,7 @@ namespace WindowsFormsApplication2
         private System.Windows.Forms.Button MagProper;
         private Label player1Label;
         private Label player2Label;
+        private Button payFine;
     }
 
 }

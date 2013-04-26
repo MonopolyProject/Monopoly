@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Monopoly
 {
@@ -13,8 +14,10 @@ namespace Monopoly
         int location;
         int payForRound;
         bool collectAtGo;
+        public bool isInJail = false;
         public List<Property> deeds = new List<Property>();
         public int doubleCounter = 0;
+        public int inJailCounter = 0;
         public Player(string Name)
         {
             this.Name = Name;
@@ -92,6 +95,34 @@ namespace Monopoly
                 if (p.GetType().Equals(t)) count++;
             }
             return count;
+        }
+
+        public void payJailFine()
+        {
+            this.addMoney(-50);
+        }
+
+        public void lose()
+        {
+            Form loseInfo = new Form();
+            loseInfo.Text = "Game End";
+            Label info = new Label();
+            info.Text = this.Name + " Lose!!";
+            loseInfo.Controls.Add(info);
+            loseInfo.ShowDialog();
+        }
+
+        public int calculateTotalWorth()
+        {
+            int total = this.money;
+            foreach (Property p in this.deeds)
+            {
+                total += p.getMortgage();
+                total += p.getHouseCost() * p.getNumHouses();
+            }
+
+
+            return total;
         }
     }
 }

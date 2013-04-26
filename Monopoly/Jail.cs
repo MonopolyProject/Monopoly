@@ -15,7 +15,15 @@ namespace Monopoly
         }
         public override void effect(Player landedOn)
         {
-
+            if (landedOn.inJailCounter == 2)
+            {
+                landedOn.isInJail = false;
+                landedOn.inJailCounter = 0;
+                landedOn.payJailFine();
+            }
+            else{
+                landedOn.isInJail = true;
+            }
         }
     }
 }

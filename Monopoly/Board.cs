@@ -111,6 +111,10 @@ namespace WindowsFormsApplication2
         {
             this.propertyList.Close();
         }
+        private void payfine_Click_1(object sender, EventArgs e)
+        {
+            this.payJailFine();
+        }
 
     }
 }
