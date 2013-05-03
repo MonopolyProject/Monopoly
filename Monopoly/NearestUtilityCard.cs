@@ -21,11 +21,11 @@ namespace Monopoly
         public override void drawCard(Player p, List<Player> otherP, Board b)
         {
             int i = p.getLocation();
-            while(b.getCellAt(i).GetType() != typeof(Utility)) {
-                i = (i+i)%40;
-            }
-            p.move(-p.getLocation() + i);
-            Utility u = (Utility)b.getCellAt(i);
+            int loc = 0;
+            if (i < 12 || i > 28) { loc = 12; }
+            else { loc = 28; }
+            p.move(-p.getLocation() + loc);
+            Utility u = (Utility)b.getCellAt(loc);
             if(u.getOwner() == b.getBanker()) {
                 b.buyDisplay();
             } else {

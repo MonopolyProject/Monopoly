@@ -25,7 +25,9 @@ namespace Monopoly
 
         public override void drawCard(Player p, List<Player> otherP, Board b)
         {
-            p.move(-p.getLocation() + this.newLocation, this.passGo);
+            int loc = p.getLocation();
+            p.move(-p.getLocation() + this.newLocation, false);
+            if (loc > p.getLocation() && this.passGo) { p.addMoney(200); }
         }
     }
 }

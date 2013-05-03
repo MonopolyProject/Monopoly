@@ -70,6 +70,8 @@ namespace Monopoly
 
         public void setGetOutOfJailFree(bool b) { this.getOutOfJailFree = b; }
 
+        public bool getOutOfFailFreeCard() { return this.getOutOfJailFree; }
+
         public bool hasDeed(Property lookFor) { return this.deeds.Contains(lookFor); }
         public bool hasDeeds(List<Property> possibleDeeds)
         {
