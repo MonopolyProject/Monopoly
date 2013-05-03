@@ -83,22 +83,15 @@ namespace MonopolyTests
             Property prop = (Property) board.getCellAt(p.getLocation());
 
             Assert.False(p.getDeeds().Contains(prop));
-            int houseCost = prop.getBuy();
+            int cost = prop.getBuy();
             board.buyProperty();
             Assert.True(p.getDeeds().Contains(prop));
-            int newMoney = 1500 - houseCost;
+            int newMoney = 1500 - cost;
             Assert.AreEqual(newMoney, p.getMoney());
-            Assert.AreEqual(0, prop.getNumHouses());
 
-            houseCost = prop.getHouseCost();
+            cost = prop.getBuy();
             board.buyProperty();
-            Assert.AreEqual(newMoney - houseCost, p.getMoney());
-            Assert.AreEqual(1, prop.getNumHouses());
-
-            p.addMoney(-p.getMoney());
-            board.buyProperty();
-            Assert.AreEqual(0, p.getMoney());
-            Assert.AreEqual(1, prop.getNumHouses());
+            Assert.AreEqual(newMoney, p.getMoney());
         }
 
         [Test()]
@@ -241,6 +234,7 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] {1, 2, 3, 4, 5, 6}, 10);
+            haute.setColorHouses(new Property[] { });
             Tomato.addDeed(haute);
 
             List<Property> props = new List<Property>();
@@ -261,6 +255,9 @@ namespace MonopolyTests
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
             var chitown = new Property("Chi Town", 0, Tomato, 100, 100, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
             var norleans = new Property("Norleans", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            chitown.setColorHouses(new Property[] { });
+            norleans.setColorHouses(new Property[] { });
+            haute.setColorHouses(new Property[] { });
             Tomato.addDeed(haute);
             Tomato.addDeed(chitown);
             Tomato.addDeed(norleans);
@@ -282,6 +279,7 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            haute.setColorHouses(new Property[] { });
             haute.addHouse();
             Tomato.addDeed(haute);
             
@@ -299,6 +297,7 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
+            haute.setColorHouses(new Property[] { });
             haute.mortgageProperty();
             Tomato.addDeed(haute);
 
@@ -319,24 +318,6 @@ namespace MonopolyTests
 
             String result = b.mortgageProperties(Tomato, props);
             Assert.AreEqual("ERROR: You did not select any properties", result);
-        }
-
-        [Test()]
-        public void TestHasMonopolyWorks()
-        {
-            Board b = new WindowsFormsApplication2.Board();
-            var Tomato = b.getPlayer();
-            var banker = b.getBanker();
-            Property p1 = (Property)b.getCellAt(1);
-            Property p3 = (Property)b.getCellAt(3);
-            Property p8 = (Property)b.getCellAt(8);
-            Property p9 = (Property)b.getCellAt(9);
-            p1.changeOwner(Tomato);
-            p3.changeOwner(Tomato);
-            p8.changeOwner(Tomato);
-            Assert.True(b.hasMonopoly((Property)b.getCellAt(1)));
-            Assert.False(b.hasMonopoly((Property)b.getCellAt(8)));
-            Assert.False(b.hasMonopoly((Property)b.getCellAt(9)));
         }
 
         [Test()]
