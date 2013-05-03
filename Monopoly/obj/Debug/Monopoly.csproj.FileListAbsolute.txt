@@ -41,3 +41,4 @@ C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopo
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.csproj.GenerateResource.Cache
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.pdb
+C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache
