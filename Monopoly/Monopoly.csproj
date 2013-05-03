@@ -60,6 +60,7 @@
     <Compile Include="GetOutOfJailFreeCard.cs" />
     <Compile Include="NearestUtilityCard.cs" />
     <Compile Include="NearestRailroadCard.cs" />
+    <Compile Include="Populators.cs" />
     <Compile Include="RepairCard.cs" />
     <Compile Include="GiveMoneyCard.cs" />
     <Compile Include="MoveCard.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="MoneyCard.cs" />
     <Compile Include="Jail.cs" />
     <Compile Include="FreeParking.cs" />
-    <Compile Include="PropertyInitializer.cs" />
     <Compile Include="Special.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

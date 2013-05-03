@@ -58,7 +58,7 @@
     <Compile Include="LuxaryTaxTests.cs" />
     <Compile Include="MoneyCardTests.cs" />
     <Compile Include="JailTests.cs" />
-    <Compile Include="PropertyInitializerTests.cs" />
+    <Compile Include="PopulatorsTests.cs" />
     <Compile Include="UtilityTests.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

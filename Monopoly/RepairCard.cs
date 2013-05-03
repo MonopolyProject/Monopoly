@@ -11,11 +11,16 @@ namespace Monopoly
     //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
     public class RepairCard: Card
     {
+        private int hotelAmount;
+        private int houseAmount;
+
         public RepairCard() { }
 
-        public RepairCard(String name)
+        public RepairCard(String name, int houseAmount, int hotelAmount)
         {
             this.name = name;
+            this.houseAmount = houseAmount;
+            this.hotelAmount = hotelAmount;
         }
 
         public override void drawCard(Player p, List<Player> otherP, Board b)
@@ -27,6 +32,7 @@ namespace Monopoly
                 if (p.getDeeds()[i].getNumHouses() == 5) { hotels++; }
                 else { houses += p.getDeeds()[i].getNumHouses(); }
             }
+            p.addMoney(-(houses * this.houseAmount + hotels * this.hotelAmount));
         }
     }
 }

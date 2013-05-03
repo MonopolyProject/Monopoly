@@ -8,11 +8,11 @@ namespace WindowsFormsApplication2
     public partial class Board
     {
         private static Player banker = new Player("banker");
-        public List<Point> locations = populateLocations();
-        private List<Player> players = populatePlayers();
-        private List<Cell> cells = PropertyInitializer.populateCells(banker);
-        private List<Card> CommunityChestDeck = populateCC();
-        private List<Card> ChanceDeck = populateC();
+        public List<Point> locations = Populators.populateLocations();
+        private List<Player> players = Populators.populatePlayers();
+        private List<Cell> cells = Populators.populateCells(banker);
+        private List<Card> CommunityChestDeck = Populators.populateCommunity();
+        private List<Card> ChanceDeck = Populators.populateChance();
         private int activePlayer = 0;
         CheckedListBox properties;
         Form propertyList;
@@ -23,16 +23,9 @@ namespace WindowsFormsApplication2
         Form controllBoard = new Form();
         TextBox numberToRoll = new TextBox();
 
-        
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -49,112 +42,10 @@ namespace WindowsFormsApplication2
 
         public Microsoft.VisualBasic.PowerPacks.OvalShape getPlayerShape()
         {
-            if(this.getPlayer().Equals(players[0]))
-            return this.ovalShape2;
+            if (this.getPlayer().Equals(players[0]))
+                return this.ovalShape2;
             else
-            return this.ovalShape1;
-        }
-
-        private static List<Player> populatePlayers()
-        {
-            Player player0 = new Player("Ed");
-            Player player1 = new Player("Tomato");
-            List<Player> players = new List<Player>();
-            players.Add(player0);
-            players.Add(player1);
-            return players;
-        }
-
-        private static List<Point> populateLocations() {
-            List<Point> locationSet = new List<Point>();
-            int x = 58;
-            int y = 848;
-            int i;
-            locationSet.Add(new Point(x, y));
-            for(i = 0; i<10; i++) {
-                if (i %10 ==  0)
-                {
-                    y -= 80;
-                    locationSet.Add(new Point(x, y));
-                }
-                else
-                {
-                    y -= 70;
-                    locationSet.Add(new Point(x, y));
-                    
-                }
-            }
-            x = 120;
-            y = 50;
-            for (i = 10; i < 20; i++)
-            {
-                if (i % 10 == 0)
-                {
-                    x += 80;
-                    locationSet.Add(new Point(x, y));
-                }
-                else
-                {
-                    x += 70;
-                    locationSet.Add(new Point(x, y));
-
-                }
-            }
-            x = 910;
-            y = 120;
-            for (i = 20; i < 30; i++)
-            {
-                if (i % 10 == 0)
-                {
-                    y += 80;
-                    locationSet.Add(new Point(x, y));
-                }
-                else
-                {
-                    y += 70;
-                    locationSet.Add(new Point(x, y));
-
-                }
-            }
-
-            x = 840;
-            y = 910;
-            for (i = 10; i < 19; i++)
-            {
-                if (i % 10 == 0)
-                {
-                    x -= 80;
-                    locationSet.Add(new Point(x, y));
-                }
-                else
-                {
-                    x -= 70;
-                    locationSet.Add(new Point(x, y));
-
-                }
-            }
-
-            for (i = 0; i < locationSet.Count; i++)
-            {
-                Console.WriteLine("(" + locationSet[i].X + "," + locationSet[i].Y+")");
-            }
-            return locationSet;
-        }
-
-    
-
-        private static List<Card> populateCC()
-        {
-            List<Card> cards = new List<Card>();
-            cards.Add(new MoneyCard("Get 200", 200));
-            return cards;
-        }
-
-        private static List<Card> populateC()
-        {
-            List<Card> cards = new List<Card>();
-            cards.Add(new MoneyCard("Get 200", 200));
-            return cards;
+                return this.ovalShape1;
         }
 
         public List<int> roll()
@@ -388,14 +279,14 @@ namespace WindowsFormsApplication2
             if (cell.GetType() == typeof(Property) || cell.GetType() == typeof(Railroad))
             {
                 Property prop = (Property) cell;
-                Console.WriteLine(prop.getName());
+               // Console.WriteLine(prop.getName());
                 if (!(banker.hasDeed(prop) || this.getPlayer().hasDeed(prop)))
                 {
                     Player owner = prop.getOwner();
-                    Console.WriteLine(owner.getName());
+                  //  Console.WriteLine(owner.getName());
                     if (owner.Equals(banker)) { return; }
                     int rent = prop.getRent();
-                    Console.WriteLine(rent);
+                  //  Console.WriteLine(rent);
                     owner.addMoney(rent);
                     this.getPlayer().addMoney(-rent);
                     return;
