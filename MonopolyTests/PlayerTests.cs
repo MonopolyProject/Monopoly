@@ -196,7 +196,7 @@ namespace MonopolyTests
         {
             Player p = new Player("Eddy");
             Property prop = new Property("TEST", 0, p, 100, 200, new int[] { 0, 0 }, 50);
-            prop.setColorHouses(new Property[] { });
+            prop.setColorGroup(new Property[] { });
 
             prop.addHouse();
             Assert.AreEqual(1300 + 100 + 50 * 1, p.calculateTotalWorth());

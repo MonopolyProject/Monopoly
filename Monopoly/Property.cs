@@ -16,13 +16,13 @@ namespace Monopoly
         protected int[] rents;
         protected int numHouses = 0;//5 houses = 1 hotel on a normal property
         protected int houseCost;
-        protected int color;
+        protected Property[] colorGroup;
         protected Player owner;
         protected bool mortgaged = false;
 
         public Property() { }
 
-        public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents, int houseCost, int color = 0)
+        public Property(String name, int position, Player owner, int cost, int mortgage, int[] rents, int houseCost)
         {
             this.buy = cost;
             this.owner = owner;
@@ -32,7 +32,6 @@ namespace Monopoly
             this.name = name;
             this.position = position;
             this.houseCost = houseCost;
-            this.color = color;
         }
 
 
@@ -45,34 +44,35 @@ namespace Monopoly
             this.owner.addDeed(this);
         }
 
-        public int getColor() { return this.color; }
         public int getBuy() { return this.buy; }
 
         public int getMortgage() { return this.mortgage; }
 
-        public virtual int getRent() { 
-            if(!this.mortgaged)
+        public virtual int getRent() {
+            if (!this.mortgaged)
+            {
+                if (this.isMonopoly() && this.numHouses == 0) return 2 * this.rents[this.numHouses];
                 return this.rents[this.numHouses];
+            }
             return 0;
         }
 
         public virtual int addHouse()
         {
-            if (this.numHouses < 5 && !this.mortgaged)
-            {
-                this.numHouses++;
-                return this.numHouses;
-            }
-            return -1;
+            if (this.numHouses == 5) return -1;
+            if (this.mortgaged) return -2;
+            if (!this.isMonopoly()) return -3;
+            foreach (Property p in colorGroup) if (p.getNumHouses() < this.numHouses) return -4;
+            this.numHouses++;
+            return this.numHouses;
         }
 
         public int removeHouse()
         {
-            if(this.numHouses != 0){
-                this.numHouses--;
-                return this.numHouses;
-            }
-            return 99;
+            if(this.numHouses == 0) return 99;
+            foreach (Property p in colorGroup) if (p.getNumHouses() > this.numHouses) return 98;
+            this.numHouses--;
+            return this.numHouses;
         }
 
         public int getNumHouses() { return this.numHouses; }
@@ -88,6 +88,7 @@ namespace Monopoly
 
         public bool canMortgage()
         {
+            foreach (Property p in colorGroup) if (p.getNumHouses() != 0) return false;
             return this.numHouses == 0 && !this.mortgaged;
         }
 
@@ -100,5 +101,16 @@ namespace Monopoly
 
         public int getPayMortgage() { return (int) (this.mortgage *1.1); }
 
+        public bool isMonopoly()
+        {
+            foreach (Property p in colorGroup) if (!this.owner.Equals(p.owner)) return false;
+            return true;
+        }
+        public void setColorGroup(Property[] group)
+        {
+            this.colorGroup = group;
+        }
+
+        public void setHouses(int newamount) { this.numHouses = newamount; }
     }
 }

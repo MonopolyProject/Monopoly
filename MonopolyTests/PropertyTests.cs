@@ -24,7 +24,8 @@ namespace MonopolyTests
         {
             Player p1 = new Player("Ed");
             var prop = new Property("Board Walk", 39, p1, 1, 2, new int[] {1}, 1);
-            prop.setColorHouses(new Property[] {new Property ("SAME COLOR BUT NOT OWNED", 39, new Player("TROLL"), 1, 2, new int[] {1}, 1)});
+            prop.setColorGroup(new Property[] {new Property("SAME COLOR BUT NOT OWNED", 39, new Player("TROLL"), 1, 2, new int[] {1}, 1)});
+            prop.setColorGroup(new Property[] {new Property ("SAME COLOR BUT NOT OWNED", 39, new Player("TROLL"), 1, 2, new int[] {1}, 1)});
             Assert.AreEqual("Board Walk", prop.getName());
             Assert.AreEqual(39, prop.getPos());
             Assert.AreEqual(p1, prop.getOwner());
@@ -57,8 +58,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
             for (int i = 0; i < 5; i++)
             {
                 Assert.AreEqual(i + 1, boardwalk.addHouse());
@@ -72,7 +73,7 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, new Player("Ed"), 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, new Player("Andy"), 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
+            boardwalk.setColorGroup(new Property[] { parkplace });
             Assert.AreEqual(-3, boardwalk.addHouse());
         }
 
@@ -83,8 +84,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
             for (int i = 0; i < 5; i++)
             {
                 boardwalk.addHouse();
@@ -101,8 +102,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
             Assert.False(boardwalk.isMortgaged());
             boardwalk.mortgageProperty();
             Assert.True(boardwalk.isMortgaged());
@@ -116,8 +117,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
 
             boardwalk.addHouse();
             Assert.AreEqual(-4, boardwalk.addHouse());
@@ -131,8 +132,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
 
             Assert.AreEqual(1, boardwalk.addHouse());
             Assert.AreEqual(0, boardwalk.removeHouse());
@@ -146,8 +147,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
 
             Assert.AreEqual(99, boardwalk.removeHouse());
 
@@ -160,8 +161,8 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             var boardwalk = new Property("Board Walk", 39, p, 400, 200, rents, 200);
             var parkplace = new Property("Park Place", 39, p, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { parkplace });
-            parkplace.setColorHouses(new Property[] { boardwalk });
+            boardwalk.setColorGroup(new Property[] { parkplace });
+            parkplace.setColorGroup(new Property[] { boardwalk });
 
             boardwalk.addHouse();
             parkplace.addHouse();
@@ -178,7 +179,7 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             Player ed = new Player("Ed");
             var boardwalk = new Property("Board Walk", 39, ed, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] {new Property ("SAME COLOR BUT NOT OWNED", 39, new Player("TROLL"), 1, 2, new int[] {1}, 1)});
+            boardwalk.setColorGroup(new Property[] {new Property ("SAME COLOR BUT NOT OWNED", 39, new Player("TROLL"), 1, 2, new int[] {1}, 1)});
             
             for(int i = 0; i < 5;  i++){
                 Assert.AreEqual(rents[i], boardwalk.getRent());
@@ -192,7 +193,7 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             Player ed = new Player("Ed");
             var boardwalk = new Property("Board Walk", 39, ed, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { new Property("SAME COLOR BUT OWNED", 39, ed, 1, 2, new int[] { 1 }, 1) });
+            boardwalk.setColorGroup(new Property[] { new Property("SAME COLOR BUT OWNED", 39, ed, 1, 2, new int[] { 1 }, 1) });
 
             Assert.True(boardwalk.isMonopoly());
             Assert.AreEqual(2 * rents[0], boardwalk.getRent());
@@ -204,7 +205,7 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             Player ed = new Player("Ed");
             var boardwalk = new Property("Board Walk", 39, ed, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { new Property("SAME COLOR BUT NOT OWNED", 39, new Player("Troll"), 1, 2, new int[] { 1 }, 1) });
+            boardwalk.setColorGroup(new Property[] { new Property("SAME COLOR BUT NOT OWNED", 39, new Player("Troll"), 1, 2, new int[] { 1 }, 1) });
 
             boardwalk.mortgageProperty();
             Assert.True(boardwalk.isMortgaged());
@@ -217,7 +218,7 @@ namespace MonopolyTests
             int[] rents = { 50, 200, 600, 1400, 1700, 200 };
             Player ed = new Player("Ed");
             var boardwalk = new Property("Board Walk", 39, ed, 400, 200, rents, 200);
-            boardwalk.setColorHouses(new Property[] { });
+            boardwalk.setColorGroup(new Property[] { });
             ed.addMoney(500);
             Assert.IsFalse(boardwalk.isMortgaged());
             Assert.IsTrue(boardwalk.canMortgage());

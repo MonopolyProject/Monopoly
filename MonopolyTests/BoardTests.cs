@@ -234,7 +234,7 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] {1, 2, 3, 4, 5, 6}, 10);
-            haute.setColorHouses(new Property[] { });
+            haute.setColorGroup(new Property[] { });
             Tomato.addDeed(haute);
 
             List<Property> props = new List<Property>();
@@ -255,9 +255,9 @@ namespace MonopolyTests
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
             var chitown = new Property("Chi Town", 0, Tomato, 100, 100, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
             var norleans = new Property("Norleans", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
-            chitown.setColorHouses(new Property[] { });
-            norleans.setColorHouses(new Property[] { });
-            haute.setColorHouses(new Property[] { });
+            chitown.setColorGroup(new Property[] { });
+            norleans.setColorGroup(new Property[] { });
+            haute.setColorGroup(new Property[] { });
             Tomato.addDeed(haute);
             Tomato.addDeed(chitown);
             Tomato.addDeed(norleans);
@@ -279,7 +279,7 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
-            haute.setColorHouses(new Property[] { });
+            haute.setColorGroup(new Property[] { });
             haute.addHouse();
             Tomato.addDeed(haute);
             
@@ -297,7 +297,7 @@ namespace MonopolyTests
             Board b = new WindowsFormsApplication2.Board();
             var Tomato = b.getPlayer();
             var haute = new Property("Terre Haute", 0, Tomato, 100, 50, new int[] { 1, 2, 3, 4, 5, 6 }, 10);
-            haute.setColorHouses(new Property[] { });
+            haute.setColorGroup(new Property[] { });
             haute.mortgageProperty();
             Tomato.addDeed(haute);
 

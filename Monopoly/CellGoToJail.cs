@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class CellGoToJail:Special
+    public class CellGoToJail:Special
     {
         public CellGoToJail(string name, int position)
         {

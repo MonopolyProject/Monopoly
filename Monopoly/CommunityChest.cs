@@ -14,6 +14,12 @@ namespace Monopoly
             this.position = 2;
         }
 
+        public CommunityChest(int pos)
+        {
+            this.name = "Community Chest";
+            this.position = pos;
+        }
+
         public void effect(Player p, Card c)
         {
             c.drawCard(p);

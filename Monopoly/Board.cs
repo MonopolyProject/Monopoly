@@ -130,5 +130,14 @@ namespace WindowsFormsApplication2
             this.payJailFine();
         }
 
+        private void controlled_confirm_Click_1(object sender, EventArgs e)
+        {
+            controlledMove();
+        }
+        private void controlled_roll_Click_1(object sender, EventArgs e)
+        {
+            controlledRoll();
+        }
+
     }
 }
