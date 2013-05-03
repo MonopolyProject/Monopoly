@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Monopoly;
+using WindowsFormsApplication2;
 
 namespace Monopoly
 {
@@ -14,9 +16,9 @@ namespace Monopoly
             this.position = 2;
         }
 
-        public void effect(Player p, Card c)
+        public void effect(Player p, Card c, List<Player> otherP, Board b)
         {
-            c.drawCard(p);
+            c.drawCard(p, otherP, b);
         }
     }
 }

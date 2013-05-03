@@ -9,26 +9,24 @@ namespace Monopoly
 {
     //site with all card information we need
     //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
-    public class MoneyCard: Card
+    public class GiveMoneyCard: Card
     {
-        protected int amount;
+        protected int amountPerPlayer;
+        public GiveMoneyCard() { }
 
-        public MoneyCard() { }
-
-        public MoneyCard(String name, int amount)
+        public GiveMoneyCard(String name, int amountPerPlayer)
         {
             this.name = name;
-            this.amount = amount;
-        }
-
-        public int getAmount()
-        {
-            return this.amount;
+            this.amountPerPlayer = amountPerPlayer;
         }
 
         public override void drawCard(Player p, List<Player> otherP, Board b)
         {
-            p.addMoney(this.amount);
+            p.addMoney(this.amountPerPlayer * otherP.Count);
+            for (int i = 0; i < otherP.Count; i++)
+            {
+                otherP[i].addMoney(-this.amountPerPlayer);
+            }
         }
     }
 }

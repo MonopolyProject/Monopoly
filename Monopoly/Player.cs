@@ -13,7 +13,7 @@ namespace Monopoly
         int money;
         int location;
         int payForRound;
-        bool collectAtGo;
+        bool getOutOfJailFree = false;
         public bool isInJail = false;
         public List<Property> deeds = new List<Property>();
         public int doubleCounter = 0;
@@ -67,6 +67,8 @@ namespace Monopoly
         {
             return this.payForRound;
         }
+
+        public void setGetOutOfJailFree(bool b) { this.getOutOfJailFree = b; }
 
         public bool hasDeed(Property lookFor) { return this.deeds.Contains(lookFor); }
         public bool hasDeeds(List<Property> possibleDeeds)

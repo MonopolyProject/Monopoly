@@ -12,7 +12,6 @@ namespace WindowsFormsApplication2
         private List<Player> players = populatePlayers();
         private List<Cell> cells = populateCells(banker);
         private List<Card> CommunityChestDeck = populateCC();
-        private List<System.Windows.Forms.TextBox> houseNumbers;
         private int activePlayer = 0;
         CheckedListBox properties;
         Form propertyList;
@@ -283,7 +282,9 @@ namespace WindowsFormsApplication2
             if (cell is CommunityChest)
             {
                 CommunityChest cc = (CommunityChest)cell;
-                cc.effect(this.getPlayer(), this.CommunityChestDeck[0]);
+                List<Player> players = this.players;
+                players.Remove(this.getPlayer());
+                cc.effect(this.getPlayer(), this.CommunityChestDeck[0], players, this);
                 this.CommunityChestDeck.RemoveAt(0);
             }
             else if (cell is Special)
