@@ -54,8 +54,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="NearestUtilityCardTests.cs" />
+    <Compile Include="GetOutOfJailFreeCard.cs" />
+    <Compile Include="GiveMoneyCardTests.cs" />
+    <Compile Include="MoveCardTests.cs" />
+    <Compile Include="NearestRailroadCardTests.cs" />
+    <Compile Include="RepairCardTests.cs" />
+    <Compile Include="CardCellTests.cs" />
     <Compile Include="IncomeTaxTests.cs" />
-    <Compile Include="LuxaryTaxTests.cs" />
+    <Compile Include="LuxuryTaxTests.cs" />
     <Compile Include="MoneyCardTests.cs" />
     <Compile Include="JailTests.cs" />
     <Compile Include="PopulatorsTests.cs" />
