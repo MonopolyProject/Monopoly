@@ -279,9 +279,9 @@ namespace WindowsFormsApplication2
             {
                 this.buyDisplay();
             }
-            if (cell is CommunityChest)
+            if (cell is CardCell)
             {
-                CommunityChest cc = (CommunityChest)cell;
+                CardCell cc = (CardCell)cell;
                 List<Player> players = this.players;
                 players.Remove(this.getPlayer());
                 cc.effect(this.getPlayer(), this.CommunityChestDeck[0], players, this);
