@@ -12,6 +12,7 @@ namespace WindowsFormsApplication2
         private List<Player> players = populatePlayers();
         private List<Cell> cells = PropertyInitializer.populateCells(banker);
         private List<Card> CommunityChestDeck = populateCC();
+        private List<Card> ChanceDeck = populateC();
         private int activePlayer = 0;
         CheckedListBox properties;
         Form propertyList;
@@ -149,6 +150,13 @@ namespace WindowsFormsApplication2
             return cards;
         }
 
+        private static List<Card> populateC()
+        {
+            List<Card> cards = new List<Card>();
+            cards.Add(new MoneyCard("Get 200", 200));
+            return cards;
+        }
+
         public List<int> roll()
         {
             List<int> dice = new List<int>();
@@ -266,6 +274,24 @@ namespace WindowsFormsApplication2
                 }
                 else
                     ((Special)cell).effect(this.getPlayer());
+            }
+            else if (cell is CardCell)
+            {
+                CardCell cc = (CardCell)cell;
+                List<Player> ps = this.players;
+                ps.Remove(this.getPlayer());
+                Card c = null;
+                if (cc.getName() == "Community Chest")
+                {
+                    c = CommunityChestDeck[0];
+                    CommunityChestDeck.Remove(c);
+                }
+                else
+                {
+                    c = ChanceDeck[0];
+                    ChanceDeck.Remove(c);
+                }
+                cc.effect(this.getPlayer(), c, ps, this);
             }
         }
 
