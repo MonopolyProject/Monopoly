@@ -76,20 +76,19 @@ namespace WindowsFormsApplication2
         }
 
 
-
         private void manage_Click_1(object sender, EventArgs e)
         {
             this.manageProperties();
         }
 
-        private void manageConfirm_Click_1(object sender, EventArgs e)
+        private void manageConfirm_Click_Morgage(object sender, EventArgs e)
         {
             List<Property> props = new List<Property>();
             Player currentPlayer = this.players[this.activePlayer];
             for (int i = 0; i < this.properties.Items.Count; i++)
             {
                 if (this.properties.GetSelected(i)) { props.Add(currentPlayer.deeds[i]); }
-                
+
             }
 
 
@@ -97,7 +96,11 @@ namespace WindowsFormsApplication2
             MessageBox.Show(message, "Mortgaging", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.properties.ClearSelected();
             this.manageList.Close();
-            
+        }
+
+        private void manageConfirm_Click_BuyHouse(object sender, EventArgs e)
+        {
+            this.buyHouse((Property)cells[this.getPlayer().getLocation()], this.getPlayer());
         }
 
         private void manageCancel_Click_1(object sender, EventArgs e)

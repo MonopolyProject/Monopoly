@@ -384,6 +384,10 @@ namespace WindowsFormsApplication2
            int steps = Convert.ToInt32(this.numberToRoll.Text);
            this.getPlayer().move(steps);
            this.updatePlayerPosition();
+           int newPosition = this.getPlayer().getLocation();
+           this.cellEffect(newPosition);
+           this.TurnEnds.Enabled = true;
+           this.rollDie.Enabled = false;
            
         }
 
@@ -450,6 +454,7 @@ namespace WindowsFormsApplication2
                 default:
                     player.addMoney(-p.getHouseCost());
                     message = "Success! House built on " + p.getName();
+                    updateHouseNumber(p);
                     break;
             }
             return message;
@@ -488,6 +493,38 @@ namespace WindowsFormsApplication2
             }*/
         }
 
+        public void updateHouseNumber(Property p)
+        {
+            if (p.getNumHouses() != 0 && p.getNumHouses() < 5)
+            {
+                PictureBox houseImg = new PictureBox();
+                houseImg.BackColor = System.Drawing.Color.Transparent;
+                houseImg.Image = global::Monopoly.Properties.Resources.images;
+                houseImg.Location = new System.Drawing.Point(this.locations[p.getPos()].X + 12 + 20 * p.getNumHouses(), this.locations[p.getPos()].Y - 20);
+                houseImg.Name = "pictureBox1";
+                houseImg.Size = new System.Drawing.Size(20, 18);
+                houseImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                houseImg.TabIndex = 35;
+                houseImg.TabStop = false;
+                this.Controls.Add(houseImg);
+            }
+            else if (p.getNumHouses() == 5)
+            {
+                PictureBox houseImg = new PictureBox();
+                houseImg.BackColor = System.Drawing.Color.Transparent;
+                houseImg.Image = global::Monopoly.Properties.Resources.Kuvvat_hotel;
+                houseImg.Location = new System.Drawing.Point(this.locations[p.getPos()].X + 12, this.locations[p.getPos()].Y - 20);
+                houseImg.Name = "pictureBox1";
+                houseImg.Size = new System.Drawing.Size(90, 70);
+                houseImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                houseImg.TabIndex = 35;
+                houseImg.TabStop = false;
+                houseImg.BringToFront();
+                this.Controls.Add(houseImg);
+            }
+
+        }
+
         public void payJailFine()
         {
             this.getPlayer().payJailFine();
@@ -514,17 +551,12 @@ namespace WindowsFormsApplication2
             Button morgage = new Button();
             morgage.Text = "Morgage";
             morgage.Location = new System.Drawing.Point(5, 300);
-            morgage.Click += new System.EventHandler(manageConfirm_Click_1);
-            
+            morgage.Click += new System.EventHandler(manageConfirm_Click_Morgage);
+
             Button buyhouse = new Button();
             buyhouse.Text = "BuyHouse";
             buyhouse.Location = new System.Drawing.Point(5, 330);
-            buyhouse.Click += new System.EventHandler(manageConfirm_Click_1);
-
-            Button saleproperty = new Button();
-            saleproperty.Text = "Sale";
-            saleproperty.Location = new System.Drawing.Point(100, 300);
-            saleproperty.Click += new System.EventHandler(manageConfirm_Click_1);
+            buyhouse.Click += new System.EventHandler(manageConfirm_Click_BuyHouse);
 
             Button cancel = new Button();
             cancel.Text = "Cancel";
@@ -532,7 +564,6 @@ namespace WindowsFormsApplication2
             cancel.Click += new System.EventHandler(manageCancel_Click_1);
 
             manageList.Controls.Add(morgage);
-            manageList.Controls.Add(saleproperty);
             manageList.Controls.Add(buyhouse);
             manageList.Controls.Add(cancel);
             manageList.ShowDialog();
@@ -1372,7 +1403,7 @@ namespace WindowsFormsApplication2
             this.Controlled.TabIndex = 34;
             this.Controlled.Text = "Controlled Roll";
             this.Controlled.UseVisualStyleBackColor = true;
-            this.Controlled.Click += new System.EventHandler(controlled_roll_Click_1);
+            this.Controlled.Click += new System.EventHandler(this.controlled_roll_Click_1);
             // 
             // Board
             // 
