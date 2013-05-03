@@ -65,7 +65,6 @@
     <Compile Include="MoveCard.cs" />
     <Compile Include="IncomeTax.cs" />
     <Compile Include="LuxuryTax.cs" />
-    <Compile Include="CommunityChest.cs" />
     <Compile Include="MoneyCard.cs" />
     <Compile Include="Jail.cs" />
     <Compile Include="FreeParking.cs" />

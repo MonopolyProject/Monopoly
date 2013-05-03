@@ -26,7 +26,7 @@ namespace MonopolyTests
         public void TestContainsCorrectNumberTypes()
         {
             List<Cell> cs =  PropertyInitializer.populateCells(new Player("Ed"));
-            int properties = 0, railroads = 0, utilities = 0, freeparking = 0, itax = 0, ltax = 0, chest = 0, chance = 0, jail = 0, gotojail = 0;
+            int properties = 0, railroads = 0, utilities = 0, freeparking = 0, itax = 0, ltax = 0, card = 0, jail = 0, gotojail = 0;
             
             foreach (Cell c in cs)
             {
@@ -35,7 +35,7 @@ namespace MonopolyTests
                 else if (c is Utility) utilities++;
                 else if (c is IncomeTax) itax++;
                 else if (c is LuxuryTax) ltax++;
-                else if (c is CommunityChest) chest++;
+                else if (c is CardCell) card++;
                 else if (c is Jail) jail++;
                 else if (c is CellGoToJail) gotojail++;
                 else if (c is FreeParking) freeparking++;
@@ -46,8 +46,7 @@ namespace MonopolyTests
             Assert.AreEqual(22, properties);
             Assert.AreEqual(4, railroads);
             Assert.AreEqual(2, utilities);
-            Assert.AreEqual(3, chance);//need to implement chance
-            Assert.AreEqual(3, chest);
+            Assert.AreEqual(6, card);
             Assert.AreEqual(2, freeparking);//go is considered free parking because doesnt do anything when landed on.
             Assert.AreEqual(1, itax);
             Assert.AreEqual(1, ltax);

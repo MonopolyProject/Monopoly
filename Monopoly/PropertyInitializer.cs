@@ -84,13 +84,13 @@ namespace Monopoly
             IncomeTax income = new IncomeTax("Income Tax", 4);
             LuxuryTax Luxury = new LuxuryTax("Luxury Tax", 38);
 
-            CommunityChest cchest1 = new CommunityChest(2);
-            CommunityChest cchest2 = new CommunityChest(17);
-            CommunityChest cchest3 = new CommunityChest(33);
+            CardCell cchest1 = new CardCell("Community Chest", 2);
+            CardCell cchest2 = new CardCell("Community Chest", 17);
+            CardCell cchest3 = new CardCell("Community Chest", 33);
 
-            FreeParking chance1 = new FreeParking("Placeholder", 7);
-            FreeParking chance2 = new FreeParking("Placeholder", 22);
-            FreeParking chance3 = new FreeParking("Placeholder", 36);
+            CardCell chance1 = new CardCell("Chance", 7);
+            CardCell chance2 = new CardCell("Chance", 22);
+            CardCell chance3 = new CardCell("Chance", 36);
 
             cells.Add(go); cells.Add(mediterr); cells.Add(cchest1); cells.Add(baltic); cells.Add(income); cells.Add(readingRR); cells.Add(oriental); cells.Add(chance1); cells.Add(vermont);
             cells.Add(connecticut); cells.Add(jail); cells.Add(charles); cells.Add(electric); cells.Add(states); cells.Add(virginia); cells.Add(pennRR); cells.Add(james); cells.Add(cchest2);

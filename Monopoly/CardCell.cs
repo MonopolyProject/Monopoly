@@ -10,10 +10,10 @@ namespace Monopoly
 {
     public class CardCell : Cell
     {
-        public CardCell(string name)
+        public CardCell(string name, int pos)
         {
             this.name = name;
-            this.position = 2;
+            this.position = pos;
         }
 
         public void effect(Player p, Card c, List<Player> otherP, Board b)
