@@ -30,7 +30,7 @@ namespace MonopolyTests
             MoneyCard c = new MoneyCard("Get 200", 200);
             Player ed = new Player("Ed");
             int initialMoney = ed.getMoney();
-            c.drawCard(ed);
+            c.drawCard(ed, null, null);
             Assert.AreEqual(initialMoney + 200, ed.getMoney());
         }
 
@@ -40,7 +40,7 @@ namespace MonopolyTests
             MoneyCard c = new MoneyCard("Lose 200", -200);
             Player ed = new Player("Ed");
             int initialMoney = ed.getMoney();
-            c.drawCard(ed);
+            c.drawCard(ed, null, null);
             Assert.AreEqual(initialMoney - 200, ed.getMoney());
         }
     }

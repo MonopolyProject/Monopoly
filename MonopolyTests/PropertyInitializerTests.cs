@@ -34,7 +34,7 @@ namespace MonopolyTests
                 if (c is Railroad) railroads++;
                 else if (c is Utility) utilities++;
                 else if (c is IncomeTax) itax++;
-                else if (c is LuxaryTax) ltax++;
+                else if (c is LuxuryTax) ltax++;
                 else if (c is CommunityChest) chest++;
                 else if (c is Jail) jail++;
                 else if (c is CellGoToJail) gotojail++;

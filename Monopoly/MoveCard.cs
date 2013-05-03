@@ -9,26 +9,23 @@ namespace Monopoly
 {
     //site with all card information we need
     //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
-    public class MoneyCard: Card
+    public class MoveCard: Card
     {
-        protected int amount;
+        protected int newLocation;
+        protected bool passGo;
 
-        public MoneyCard() { }
+        public MoveCard() { }
 
-        public MoneyCard(String name, int amount)
+        public MoveCard(String name, int newLocation, bool passGo)
         {
             this.name = name;
-            this.amount = amount;
-        }
-
-        public int getAmount()
-        {
-            return this.amount;
+            this.newLocation = newLocation;
+            this.passGo = passGo;
         }
 
         public override void drawCard(Player p, List<Player> otherP, Board b)
         {
-            p.addMoney(this.amount);
+            p.move(-p.getLocation() + this.newLocation, this.passGo);
         }
     }
 }

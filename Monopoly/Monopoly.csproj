@@ -53,11 +53,18 @@
     <Compile Include="Board.Designer.cs">
       <DependentUpon>Board.cs</DependentUpon>
     </Compile>
+    <Compile Include="CardCell.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="CellGoToJail.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="GetOutOfJailFreeCard.cs" />
+    <Compile Include="NearestUtilityCard.cs" />
+    <Compile Include="NearestRailroadCard.cs" />
+    <Compile Include="RepairCard.cs" />
+    <Compile Include="GiveMoneyCard.cs" />
+    <Compile Include="MoveCard.cs" />
     <Compile Include="IncomeTax.cs" />
-    <Compile Include="LuxaryTax.cs" />
+    <Compile Include="LuxuryTax.cs" />
     <Compile Include="CommunityChest.cs" />
     <Compile Include="MoneyCard.cs" />
     <Compile Include="Jail.cs" />

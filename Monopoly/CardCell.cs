@@ -8,18 +8,12 @@ using WindowsFormsApplication2;
 
 namespace Monopoly
 {
-    public class CommunityChest : Cell
+    public class CardCell : Cell
     {
-        public CommunityChest()
+        public CardCell(string name)
         {
-            this.name = "Community Chest";
+            this.name = name;
             this.position = 2;
-        }
-
-        public CommunityChest(int pos)
-        {
-            this.name = "Community Chest";
-            this.position = pos;
         }
 
         public void effect(Player p, Card c, List<Player> otherP, Board b)

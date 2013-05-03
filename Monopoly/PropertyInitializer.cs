@@ -82,7 +82,7 @@ namespace Monopoly
             FreeParking go = new FreeParking("Go", 0);
 
             IncomeTax income = new IncomeTax("Income Tax", 4);
-            LuxaryTax luxary = new LuxaryTax("Luxary Tax", 38);
+            LuxuryTax Luxury = new LuxuryTax("Luxury Tax", 38);
 
             CommunityChest cchest1 = new CommunityChest(2);
             CommunityChest cchest2 = new CommunityChest(17);
@@ -96,7 +96,7 @@ namespace Monopoly
             cells.Add(connecticut); cells.Add(jail); cells.Add(charles); cells.Add(electric); cells.Add(states); cells.Add(virginia); cells.Add(pennRR); cells.Add(james); cells.Add(cchest2);
             cells.Add(tennessee); cells.Add(newyork); cells.Add(parking); cells.Add(kentucky); cells.Add(chance2); cells.Add(indiana); cells.Add(illinois); cells.Add(boRR); cells.Add(atlantic);
             cells.Add(ventnor); cells.Add(water); cells.Add(marvin); cells.Add(jailGo); cells.Add(pacific); cells.Add(carolina); cells.Add(cchest3); cells.Add(penn); cells.Add(shortRR);
-            cells.Add(chance3); cells.Add(park); cells.Add(luxary); cells.Add(boardwalk);
+            cells.Add(chance3); cells.Add(park); cells.Add(Luxury); cells.Add(boardwalk);
 
             return cells;
         }

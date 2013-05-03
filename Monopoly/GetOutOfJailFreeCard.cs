@@ -9,26 +9,19 @@ namespace Monopoly
 {
     //site with all card information we need
     //http://www.researchmaniacs.com/Games/Monopoly/Properties.html
-    public class MoneyCard: Card
+    public class GetOutOfJailFreeCard: Card
     {
-        protected int amount;
 
-        public MoneyCard() { }
+        public GetOutOfJailFreeCard() { }
 
-        public MoneyCard(String name, int amount)
+        public GetOutOfJailFreeCard(String name)
         {
             this.name = name;
-            this.amount = amount;
-        }
-
-        public int getAmount()
-        {
-            return this.amount;
         }
 
         public override void drawCard(Player p, List<Player> otherP, Board b)
         {
-            p.addMoney(this.amount);
+            p.setGetOutOfJailFree(true);
         }
     }
 }
