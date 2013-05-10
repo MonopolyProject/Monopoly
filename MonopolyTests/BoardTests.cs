@@ -42,7 +42,7 @@ namespace MonopolyTests
         }
 
         [Test()]
-        public void TestMovePlayer()
+        public void Test ()
         {
             Board board = new WindowsFormsApplication2.Board();
             int position = board.movePlayer();
@@ -496,6 +496,16 @@ namespace MonopolyTests
             b.buyHouse((Property)b.getCellAt(1), Tomato);
             Assert.AreEqual(1, ((Property)b.getCellAt(1)).getNumHouses());
             Assert.AreEqual(initialMoney-houseCost, Tomato.getMoney());
+        }
+
+
+        [Test()]
+        public void testJailFine()
+        {
+            Board b = new WindowsFormsApplication2.Board();
+            int initialmoney = b.getPlayer().getMoney();
+            b.payJailFine();
+            Assert.AreEqual(initialmoney - 50, b.getPlayer().getMoney());
         }
     }
 }

@@ -56,8 +56,6 @@ namespace MonopolyTests
             Utility w = new Utility("Water Works", 28, playah, 150, 75);
             Assert.AreEqual(Utility.OWN_TWO_UTILITY, e.getRent());
 
-
-
         }
     }
 }

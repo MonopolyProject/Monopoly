@@ -949,7 +949,6 @@ namespace WindowsFormsApplication2
             this.marvinGardens.Location = new System.Drawing.Point(810, 740);
             this.marvinGardens.Name = "marvinGardens";
             this.marvinGardens.Size = new System.Drawing.Size(90, 70);
-            this.marvinGardens.Click += new System.EventHandler(this.rectangleShape37_Click);
             // 
             // ventnorAvenue
             // 
@@ -958,7 +957,6 @@ namespace WindowsFormsApplication2
             this.ventnorAvenue.Location = new System.Drawing.Point(810, 600);
             this.ventnorAvenue.Name = "ventnorAvenue";
             this.ventnorAvenue.Size = new System.Drawing.Size(90, 70);
-            this.ventnorAvenue.Click += new System.EventHandler(this.rectangleShape37_Click);
             // 
             // illinoisAvenue
             // 
@@ -1045,7 +1043,6 @@ namespace WindowsFormsApplication2
             this.atlanticAvenue.Location = new System.Drawing.Point(810, 530);
             this.atlanticAvenue.Name = "atlanticAvenue";
             this.atlanticAvenue.Size = new System.Drawing.Size(90, 70);
-            this.atlanticAvenue.Click += new System.EventHandler(this.rectangleShape37_Click);
             // 
             // boRailroad
             // 
@@ -1091,7 +1088,6 @@ namespace WindowsFormsApplication2
             this.communityChest1.Name = "communityChest1";
             this.communityChest1.Size = new System.Drawing.Size(90, 70);
             this.communityChest1.Tag = "";
-            this.communityChest1.Click += new System.EventHandler(this.rectangleShape27_Click);
             // 
             // mediteraneanAvenue
             // 
@@ -1606,7 +1602,6 @@ namespace WindowsFormsApplication2
             this.Controls.Add(this.shapeContainer1);
             this.Name = "Board";
             this.Text = "GameBoard";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

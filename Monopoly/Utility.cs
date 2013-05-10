@@ -27,10 +27,8 @@ namespace Monopoly
             int count = this.owner.countType(typeof(Utility));
             if (count == 1)
                 return OWN_ONE_UTILITY;
-            else if (count == 2)
-                return OWN_TWO_UTILITY;
             else
-                return 0;
+                return OWN_TWO_UTILITY;
                 
         }
 

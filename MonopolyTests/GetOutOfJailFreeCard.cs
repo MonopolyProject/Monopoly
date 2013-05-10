@@ -9,6 +9,15 @@ namespace MonopolyTests
     [TestFixture()]
     class GetOutOfJailFreeCardTests
     {
+
+
+        [Test()]
+        public void testNotNull()
+        {
+            Assert.NotNull(new GetOutOfJailFreeCard());
+            Assert.NotNull(new GetOutOfJailFreeCard("Dis Card"));
+        }
+
         [Test()]
         public void testMoneyCardProperties()
         {

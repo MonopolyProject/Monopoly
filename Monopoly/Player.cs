@@ -58,15 +58,6 @@ namespace Monopoly
             }
         }
 
-        public void setPayForRound(int amount)
-        {
-            this.payForRound = amount;
-        }
-
-        public int getPayForRound()
-        {
-            return this.payForRound;
-        }
 
         public void setGetOutOfJailFree(bool b) { this.getOutOfJailFree = b; }
 

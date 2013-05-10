@@ -8,6 +8,14 @@ namespace MonopolyTests
     [TestFixture()]
     class MoveCardTests
     {
+
+        [Test()]
+        public void testNotNull()
+        {
+            Assert.NotNull(new MoveCard());
+            Assert.NotNull(new MoveCard("Dis Card", 2, true));
+        }
+
         [Test()]
         public void testMoveCardProperties()
         {

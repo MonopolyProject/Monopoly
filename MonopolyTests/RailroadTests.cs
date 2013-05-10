@@ -17,6 +17,7 @@ namespace MonopolyTests
         {
             Railroad r = new Railroad("Pennsylvania Railroad", 15, new Player("Ben"), 200, 100);
             Assert.NotNull(r);
+            Assert.NotNull(new Railroad());
         }
 
         [Test()]

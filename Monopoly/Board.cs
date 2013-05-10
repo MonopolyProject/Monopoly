@@ -19,21 +19,6 @@ namespace WindowsFormsApplication2
             if (test) this.players = Populators.populatePlayers();
         }
 
-        private void rectangleShape37_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rectangleShape27_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void chest1_Click(object sender, EventArgs e)
         {
 

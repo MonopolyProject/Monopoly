@@ -22,7 +22,7 @@ namespace Monopoly
         {
             int i = p.getLocation();
             int loc = 0;
-            if (i < 12 || i > 28) { loc = 12; }
+            if (i < 12 || i >= 28) { loc = 12; }
             else { loc = 28; }
             p.move(-p.getLocation() + loc);
             Utility u = (Utility)b.getCellAt(loc);

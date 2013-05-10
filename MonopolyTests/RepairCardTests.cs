@@ -9,6 +9,13 @@ namespace MonopolyTests
     class RepairCardTests
     {
         [Test()]
+        public void testNotNull()
+        {
+            Assert.NotNull(new RepairCard());
+            Assert.NotNull(new RepairCard("Dis Card", 50, 75));
+        }
+
+        [Test()]
         public void testCardProperties()
         {
             RepairCard c = new RepairCard("Repair", 50, 75);

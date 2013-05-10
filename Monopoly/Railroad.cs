@@ -16,7 +16,6 @@ namespace Monopoly
             this.buy = cost;
             this.owner = owner;
             this.owner.addDeed(this);
-            this.rents = RENTS;
             this.mortgage = mortgage;
             this.name = name;
             this.position = position;
@@ -25,9 +24,7 @@ namespace Monopoly
         public override int getRent()
         {
             int rrCount = this.owner.countType(typeof(Railroad)) - 1;
-            if(rrCount < rents.Length && rrCount >= 0)
-                return rents[rrCount];
-            return 0;
+            return RENTS[rrCount];
         }
 
 

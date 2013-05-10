@@ -9,11 +9,6 @@ namespace Monopoly
     public abstract class Special : Cell
     {
         public Special() { }
-        public Special(String name, int pos)
-        {
-            this.name = name;
-            this.position = pos;
-        }
         public abstract void effect(Player landedOn);
     }
 }

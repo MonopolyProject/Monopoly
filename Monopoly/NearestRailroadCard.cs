@@ -22,7 +22,7 @@ namespace Monopoly
         {
             int i = p.getLocation();
             int loc = 0;
-            if (i < 5 || i > 35) { loc = 5; }
+            if (i < 5 || i >= 35) { loc = 5; }
             else if (i < 15) { loc = 15; }
             else if (i < 25) { loc = 25; }
             else if (i < 35) { loc = 35; }

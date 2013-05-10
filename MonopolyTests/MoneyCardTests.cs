@@ -8,6 +8,13 @@ namespace MonopolyTests
     [TestFixture()]
     class MoneyCardTests
     {
+        [Test()]
+        public void testNotNull()
+        {
+            Assert.NotNull(new MoneyCard());
+            Assert.NotNull(new MoneyCard("Dis Card", 200));
+        }
+
 
         [Test()]
         public void testMoneyCardInitializes()

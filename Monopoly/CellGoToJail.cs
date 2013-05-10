@@ -23,7 +23,6 @@ namespace Monopoly
 
         public override void effect(Player landedOn)
         {
-
         }
     }
 }
