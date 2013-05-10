@@ -9,10 +9,12 @@ namespace WindowsFormsApplication2
     {
         private static Player banker = new Player("banker");
         public List<Point> locations = Populators.populateLocations();
-        private List<Player> players = Populators.populatePlayers();
+        public String language;
+        private List<Player> players = new List<Player>();
         private List<Cell> cells = Populators.populateCells(banker);
         private List<Card> CommunityChestDeck = Populators.populateCommunity();
         private List<Card> ChanceDeck = Populators.populateChance();
+        public int numberOfPlayers;
         private int activePlayer = 0;
         CheckedListBox properties;
         Form propertyList;
@@ -22,9 +24,146 @@ namespace WindowsFormsApplication2
         Property propertyToAdd;
         Form controllBoard = new Form();
         TextBox numberToRoll = new TextBox();
-
-
+        Form languageMenu;
+        Form noPlayersMenu;
+        Form playerCreationMenu;
+        TextBox nameBox;
+        
         private System.ComponentModel.IContainer components = null;
+
+        public void languageSelect()
+        {
+            this.languageMenu = new Form();
+            Label menu = new Label();
+            menu.Width = 100;
+            menu.Height = 20;
+            menu.Text = "Select a Language";
+            RadioButton radioButton1 = new RadioButton();
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new System.Drawing.Point(10, 30);
+            radioButton1.Name = "English";
+            radioButton1.Size = new System.Drawing.Size(100, 10);
+            radioButton1.TabIndex = 35;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "English";
+            radioButton1.UseVisualStyleBackColor = true;
+            RadioButton radioButton2 = new RadioButton();
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new System.Drawing.Point(10, 45);
+            radioButton2.Name = "Chinese";
+            radioButton2.Size = new System.Drawing.Size(100, 10);
+            radioButton2.TabIndex = 35;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Chinese";
+            radioButton2.UseVisualStyleBackColor = true;
+
+            RadioButton confirm = new RadioButton();
+            confirm.AutoSize = true;
+            confirm.Location = new System.Drawing.Point(10, 60);
+            confirm.Name = "Confirm";
+            confirm.Size = new System.Drawing.Size(100, 10);
+            confirm.TabIndex = 35;
+            confirm.TabStop = true;
+            confirm.Text = "Confirm";
+            confirm.UseVisualStyleBackColor = true;
+
+            this.languageMenu.Location = new System.Drawing.Point(5, 5);
+
+            radioButton1.Click += new System.EventHandler(language_Click_1);
+            radioButton2.Click += new System.EventHandler(language_Click_2);
+            confirm.Click += new System.EventHandler(language_Confirm);
+
+            this.languageMenu.Controls.Add(menu);
+            this.languageMenu.Controls.Add(radioButton1);
+            this.languageMenu.Controls.Add(radioButton2);
+            this.languageMenu.Controls.Add(confirm);
+            languageMenu.ShowDialog();
+        }
+
+        public void noPlayersSelect()
+        {
+            this.noPlayersMenu = new Form();
+            Label menu = new Label();
+            menu.Width = 100;
+            menu.Height = 20;
+            menu.Text = "How Many Players?";
+            RadioButton radioButton1 = new RadioButton();
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new System.Drawing.Point(10, 30);
+            radioButton1.Name = "2 Players";
+            radioButton1.Size = new System.Drawing.Size(100, 10);
+            radioButton1.TabIndex = 35;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "2 Players";
+            radioButton1.UseVisualStyleBackColor = true;
+            RadioButton radioButton2 = new RadioButton();
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new System.Drawing.Point(10, 45);
+            radioButton2.Name = "3 Players";
+            radioButton2.Size = new System.Drawing.Size(100, 10);
+            radioButton2.TabIndex = 35;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "3 Players";
+            RadioButton radioButton3 = new RadioButton();
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new System.Drawing.Point(10, 60);
+            radioButton3.Name = "4 Players";
+            radioButton3.Size = new System.Drawing.Size(100, 10);
+            radioButton3.TabIndex = 35;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "4 Players";
+            radioButton3.UseVisualStyleBackColor = true;
+
+            RadioButton confirm = new RadioButton();
+            confirm.AutoSize = true;
+            confirm.Location = new System.Drawing.Point(10, 75);
+            confirm.Name = "Confirm";
+            confirm.Size = new System.Drawing.Size(100, 10);
+            confirm.TabIndex = 35;
+            confirm.TabStop = true;
+            confirm.Text = "Confirm";
+            confirm.UseVisualStyleBackColor = true;
+            this.noPlayersMenu.Location = new System.Drawing.Point(5, 5);
+            
+            radioButton1.Click += new System.EventHandler(noPlayers_Click_1);
+            radioButton2.Click += new System.EventHandler(noPlayers_Click_2);
+            radioButton3.Click += new System.EventHandler(noPlayers_Click_3);
+            confirm.Click += new System.EventHandler(noPlayers_Confirm);
+
+            this.noPlayersMenu.Controls.Add(menu);
+            this.noPlayersMenu.Controls.Add(radioButton1);
+            this.noPlayersMenu.Controls.Add(radioButton2);
+            this.noPlayersMenu.Controls.Add(radioButton3);
+            this.noPlayersMenu.Controls.Add(confirm);
+            this.noPlayersMenu.ShowDialog();
+        }
+
+        public void generatePlayers()
+        {
+            this.playerCreationMenu = new Form();
+            this.nameBox = new TextBox();
+            nameBox.Width = 200;
+            nameBox.Height = 20;
+            nameBox.Text = String.Format("Enter Player {0}'s Name", activePlayer + 1);
+            nameBox.Location = new System.Drawing.Point(10, 20);
+
+            Button confirm = new Button();
+            confirm.AutoSize = true;
+            confirm.Location = new System.Drawing.Point(10, 50);
+            confirm.Name = "Confirm";
+            confirm.Size = new System.Drawing.Size(100, 10);
+            confirm.TabIndex = 35;
+            confirm.TabStop = true;
+            confirm.Text = "Confirm";
+            confirm.UseVisualStyleBackColor = true;
+            this.noPlayersMenu.Location = new System.Drawing.Point(5, 5);
+
+            confirm.Click += new System.EventHandler(newPlayer_Confirm);
+
+            this.playerCreationMenu.Controls.Add(nameBox);
+            this.playerCreationMenu.Controls.Add(confirm);
+            this.playerCreationMenu.ShowDialog();
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -42,10 +181,10 @@ namespace WindowsFormsApplication2
 
         public Microsoft.VisualBasic.PowerPacks.OvalShape getPlayerShape()
         {
-            if (this.getPlayer().Equals(players[0]))
-                return this.ovalShape2;
-            else
-                return this.ovalShape1;
+            if (this.activePlayer == 0) return this.ovalShape1;
+            else if(this.activePlayer == 1) return this.ovalShape2;
+            else if(this.activePlayer == 2) return this.ovalShape3;
+            else return this.ovalShape4;
         }
 
         public List<int> roll()
@@ -60,6 +199,7 @@ namespace WindowsFormsApplication2
 
         public int movePlayer(bool setDice = false)
         {
+            System.Diagnostics.Debug.Write(this.language);
             if (!setDice) { this.roll(); }
             List<int> die = this.diceRoll;
 
@@ -264,12 +404,9 @@ namespace WindowsFormsApplication2
             this.payFine.Enabled = false;
             if (this.getPlayer().getMoney() <= 0)
             {
-                this.getPlayer().lose();
-                this.rollDie.Enabled = false;
-                this.BuyProper.Enabled = false;
-                this.TurnEnds.Enabled = false;
-                this.payFine.Enabled = false;
+                this.players.Remove(this.getPlayer());
             }
+            if (this.players.Count == 1) { this.players[0].win(); }
             updatePlayerLabels();
         }
 
@@ -599,11 +736,6 @@ namespace WindowsFormsApplication2
         }
         
         #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -611,6 +743,8 @@ namespace WindowsFormsApplication2
             this.die1box = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ovalShape1 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.ovalShape2 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.ovalShape3 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
+            this.ovalShape4 = new Microsoft.VisualBasic.PowerPacks.OvalShape();
             this.marvinGardens = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ventnorAvenue = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.illinoisAvenue = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
@@ -693,6 +827,8 @@ namespace WindowsFormsApplication2
             this.die1box,
             this.ovalShape1,
             this.ovalShape2,
+            this.ovalShape3,
+            this.ovalShape4,
             this.marvinGardens,
             this.ventnorAvenue,
             this.illinoisAvenue,
@@ -753,30 +889,58 @@ namespace WindowsFormsApplication2
             // 
             // ovalShape1
             // 
-            this.ovalShape1.AccessibleDescription = "Player";
-            this.ovalShape1.AccessibleName = "Player";
+            this.ovalShape1.AccessibleDescription = "Player1";
+            this.ovalShape1.AccessibleName = "Player1";
             this.ovalShape1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ovalShape1.FillColor = System.Drawing.Color.DarkViolet;
             this.ovalShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent60;
-            this.ovalShape1.Location = new System.Drawing.Point(58, 848);
+            this.ovalShape1.Location = new System.Drawing.Point(30, 840);
             this.ovalShape1.Name = "ovalShape1";
             this.ovalShape1.Size = new System.Drawing.Size(25, 25);
             // 
             // ovalShape2
             // 
-            this.ovalShape2.AccessibleDescription = "Player";
-            this.ovalShape2.AccessibleName = "Player";
+            this.ovalShape2.AccessibleDescription = "Player2";
+            this.ovalShape2.AccessibleName = "Player2";
             this.ovalShape2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ovalShape2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.ovalShape2.FillColor = System.Drawing.Color.Blue;
             this.ovalShape2.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent90;
-            this.ovalShape2.Location = new System.Drawing.Point(58, 848);
+            this.ovalShape2.Location = new System.Drawing.Point(30, 865);
             this.ovalShape2.Name = "ovalShape2";
             this.ovalShape2.Size = new System.Drawing.Size(25, 24);
+            // 
+            // ovalShape3
+            // 
+            this.ovalShape3.AccessibleDescription = "Player3";
+            this.ovalShape3.AccessibleName = "Player3";
+            this.ovalShape3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ovalShape3.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape3.FillColor = System.Drawing.Color.Red;
+            this.ovalShape3.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent90;
+            this.ovalShape3.Location = new System.Drawing.Point(60, 840);
+            this.ovalShape3.Name = "ovalShape3";
+            this.ovalShape3.Size = new System.Drawing.Size(25, 24);
+            // 
+            // ovalShape4
+            // 
+            this.ovalShape4.AccessibleDescription = "Player4";
+            this.ovalShape4.AccessibleName = "Player4";
+            this.ovalShape4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ovalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ovalShape4.FillColor = System.Drawing.Color.Black;
+            this.ovalShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent90;
+            this.ovalShape4.Location = new System.Drawing.Point(60, 865);
+            this.ovalShape4.Name = "ovalShape4";
+            this.ovalShape4.Size = new System.Drawing.Size(25, 24);
             // 
             // marvinGardens
             // 
@@ -1523,6 +1687,8 @@ namespace WindowsFormsApplication2
         private System.Windows.Forms.Button BuyProper;
         private System.Windows.Forms.Button TurnEnds;
         private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape1;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape4;
+        private Microsoft.VisualBasic.PowerPacks.OvalShape ovalShape3;
         private System.Windows.Forms.Button Trade;
         private System.Windows.Forms.Button MagProper;
         private Label player1Label;

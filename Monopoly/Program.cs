@@ -15,13 +15,11 @@ namespace Monopoly
         [STAThread]
         static void Main()
         {
-
-            Railroad r = new Railroad("Pennsylvania Railroad", 15, new Player("Ben"), 200, 100);
-
-            Console.WriteLine(r.GetType().ToString());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Board());
+            Board b = new Board(false);
+            b.languageSelect();
+            Application.Run(b);
         }
     }
 }

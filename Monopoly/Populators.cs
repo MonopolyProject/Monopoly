@@ -152,13 +152,12 @@ namespace Monopoly
 
         public static List<Player> populatePlayers()
         {
-            Player player0 = new Player("Ed");
-            Player player1 = new Player("Tomato");
             List<Player> players = new List<Player>();
-            players.Add(player0);
-            players.Add(player1);
+            Player p0 = new Player("Ed");
+            Player p1 = new Player("Tomato");
+            players.Add(p0);
+            players.Add(p1);
             return players;
-
         }
 
         public static List<Point> populateLocations()

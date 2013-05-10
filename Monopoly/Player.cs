@@ -107,14 +107,14 @@ namespace Monopoly
             this.addMoney(-50);
         }
 
-        public void lose()
+        public void win()
         {
-            Form loseInfo = new Form();
-            loseInfo.Text = "Game End";
+            Form winInfo = new Form();
+            winInfo.Text = "Game Over";
             Label info = new Label();
-            info.Text = this.Name + " Lose!!";
-            loseInfo.Controls.Add(info);
-            loseInfo.ShowDialog();
+            info.Text = this.Name + " Wins!!";
+            winInfo.Controls.Add(info);
+            winInfo.ShowDialog();
         }
 
         public int calculateTotalWorth()

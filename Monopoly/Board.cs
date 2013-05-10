@@ -13,9 +13,10 @@ namespace WindowsFormsApplication2
 {
     public partial class Board : Form
     {
-        public Board()
+        public Board(bool test = true)
         {
             InitializeComponent();
+            if (test) this.players = Populators.populatePlayers();
         }
 
         private void rectangleShape37_Click(object sender, EventArgs e)
@@ -38,6 +39,56 @@ namespace WindowsFormsApplication2
 
         }
 
+        private void language_Click_1(object sender, EventArgs e)
+        {
+            this.language = "EN";
+            
+        }
+
+        private void language_Click_2(object sender, EventArgs e)
+        {
+            this.language = "CH";
+        }
+
+        private void language_Confirm(object sender, EventArgs e)
+        {
+            this.languageMenu.Hide();
+            this.noPlayersSelect();
+        }
+
+        private void noPlayers_Click_1(object sender, EventArgs e)
+        {
+            this.numberOfPlayers = 2;
+        }
+
+        private void noPlayers_Click_2(object sender, EventArgs e)
+        {
+            this.numberOfPlayers = 3;
+        }
+
+        private void noPlayers_Click_3(object sender, EventArgs e)
+        {
+            this.numberOfPlayers = 4;
+        }
+
+        private void noPlayers_Confirm(object sender, EventArgs e)
+        {
+            if (this.numberOfPlayers < 4) this.ovalShape4.Dispose();
+            if (this.numberOfPlayers < 3) this.ovalShape3.Dispose();
+            this.noPlayersMenu.Hide();
+            this.generatePlayers();
+        }
+
+        private void newPlayer_Confirm(object sender, EventArgs e)
+        {
+            String name = (this.nameBox.Text);
+            this.players.Add(new Player(name));
+            this.playerCreationMenu.Hide();
+            this.activePlayer++;
+            if (this.activePlayer < this.numberOfPlayers) this.generatePlayers();
+            else this.activePlayer = 0;
+        }
+
         private void rollDie_Click_1(object sender, EventArgs e)
         {
             this.movePlayer();
@@ -46,7 +97,6 @@ namespace WindowsFormsApplication2
 
         private void buy_Click_1(object sender, EventArgs e)
         {
-
             this.buyProperty();
             this.BuyProper.Enabled = false;
 
@@ -90,7 +140,6 @@ namespace WindowsFormsApplication2
                 if (this.properties.GetSelected(i)) { props.Add(currentPlayer.deeds[i]); }
 
             }
-
 
             String message = this.mortgageProperties(currentPlayer, props);
             MessageBox.Show(message, "Mortgaging", MessageBoxButtons.OK, MessageBoxIcon.Information);
