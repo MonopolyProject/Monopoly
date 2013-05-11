@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Monopoly;
+using System.Threading;
+using System.Globalization;
 
 namespace WindowsFormsApplication2
 {
@@ -27,12 +29,29 @@ namespace WindowsFormsApplication2
         private void language_Click_1(object sender, EventArgs e)
         {
             this.language = "EN";
-            
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+            initText();
         }
 
         private void language_Click_2(object sender, EventArgs e)
         {
             this.language = "CH";
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
+            initText();
+        }
+        public void initText()
+        {
+            this.Controlled.Text = Resource1.Control;
+            this.Text = Resource1.Board;
+            this.payFine.Text = Resource1.payFine;
+            this.player1Label.Text = Resource1.p1Label;
+            this.player2Label.Text = Resource1.p2Label;
+            this.MagProper.Text = Resource1.magProper;
+            this.Trade.Text = Resource1.trade;
+            this.TurnEnds.Text = Resource1.endTurn;
+            this.rollDie.Text = Resource1.roll;
+            this.taxLabel2.Text = Resource1.taxLabel;
+            this.chanceLabel3.Text = Resource1.chance;
         }
 
         private void language_Confirm(object sender, EventArgs e)
