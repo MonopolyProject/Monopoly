@@ -16,29 +16,30 @@ namespace WindowsFormsApplication2
     public partial class Board : Form
     {
         public Board(bool test = true){
-          //  this.languageSelect();
-           // this.determinePlayerLabels();
-           // this.updatePlayerLabels();
-        
+
             InitializeComponent();
             if (test) this.players = Populators.populatePlayers();
         }
 
         private void language_Click_1(object sender, EventArgs e)
         {
-            Board.language = "EN";
+            this.language = "en-US";
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             initText();
         }
 
         private void language_Click_2(object sender, EventArgs e)
         {
-            Board.language = "CH";
+            this.language = "zh-CN";
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
             initText();
+
         }
         public void initText()
         {
+            this.ChanceDeck = Populators.populateChance();
+            this.CommunityChestDeck = Populators.populateCommunity();
+            this.cells = Populators.populateCells(banker);
             this.Controlled.Text = Resource1.Control;
             this.Text = Resource1.Board;
             this.payFine.Text = Resource1.payFine;
@@ -182,7 +183,11 @@ namespace WindowsFormsApplication2
 
         private void manageConfirm_Click_BuyHouse(object sender, EventArgs e)
         {
-            this.buyHouse((Property)cells[this.getPlayer().getLocation()], this.getPlayer());
+            foreach (int i in this.properties.CheckedIndices)
+            {
+                string message = this.buyHouse(this.getPlayer().deeds[i], this.getPlayer());
+                MessageBox.Show(message, "Houses n stuff", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void manageCancel_Click_1(object sender, EventArgs e)
@@ -229,6 +234,7 @@ namespace WindowsFormsApplication2
         private void controlled_confirm_Click_1(object sender, EventArgs e)
         {
             controlledMove();
+            this.controllBoard.Close();
         }
         private void controlled_roll_Click_1(object sender, EventArgs e)
         {

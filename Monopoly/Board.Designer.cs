@@ -11,11 +11,11 @@ namespace WindowsFormsApplication2
     {
         private static Player banker = new Player("banker");
         public List<Point> locations = Populators.populateLocations();
-        public static String language;
+        public String language;
         private List<Player> players = new List<Player>();
-        private List<Cell> cells = Populators.populateCells(banker);
-        private List<Card> CommunityChestDeck = Populators.populateCommunity();
-        private List<Card> ChanceDeck = Populators.populateChance();
+        private List<Cell> cells;
+        private List<Card> CommunityChestDeck;
+        private List<Card> ChanceDeck;
         public int numberOfPlayers;
         private int activePlayer = 0;
         CheckedListBox properties;
@@ -210,7 +210,7 @@ namespace WindowsFormsApplication2
 
         public int movePlayer(bool setDice = false)
         {
-            System.Diagnostics.Debug.Write(Board.language);
+            System.Diagnostics.Debug.Write(this.language);
             System.Diagnostics.Debug.Write(this.CommunityChestDeck[0].getName());
             if (!setDice) { this.roll(); }
             List<int> die = this.diceRoll;
@@ -261,6 +261,7 @@ namespace WindowsFormsApplication2
         public void cellEffect(int position)
         {
             updatePlayerLabels();
+
             Cell cell = this.cells[position];
             if (cell is Property)
             {
@@ -269,15 +270,6 @@ namespace WindowsFormsApplication2
                 {
                     this.buyDisplay();
                 }
-            }
-            if (cell is CardCell)
-            {
-                CardCell cc = (CardCell)cell;
-                List<Player> p = new List<Player>();
-                for(int i = 0; i < this.players.Count; i++) {p.Add(this.players[i]);}
-                p.Remove(this.getPlayer());
-                cc.effect(this.getPlayer(), this.CommunityChestDeck[0], p, this);
-                this.CommunityChestDeck.RemoveAt(0);
             }
             else if (cell is Special)
             {
@@ -291,23 +283,29 @@ namespace WindowsFormsApplication2
             }
             else if (cell is CardCell)
             {
+
                 CardCell cc = (CardCell)cell;
-                List<Player> ps = this.players;
+                List<Player> ps = new List<Player>();
+                ps.AddRange(this.players);
                 ps.Remove(this.getPlayer());
                 Card c = null;
                 if (cc.getName() == "Community Chest")
                 {
                     c = CommunityChestDeck[0];
                     CommunityChestDeck.Remove(c);
+                    CommunityChestDeck.Add(c);
+                    MessageBox.Show(c.getName(), "Community Chest Card!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     c = ChanceDeck[0];
                     ChanceDeck.Remove(c);
+                    ChanceDeck.Add(c);
+                    MessageBox.Show(c.getName(), "Chance Card!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                new CardWindow(c, this).initialize();
                 cc.effect(this.getPlayer(), c, ps, this);
             }
+            this.updatePlayerLabels();
         }
 
         public void determinePlayerLabels()
@@ -335,8 +333,39 @@ namespace WindowsFormsApplication2
             {
 
             }
+            switch (this.activePlayer)
+            {
+                case 0:
+                    this.player1Label.ForeColor = ovalShape1.FillColor;
+                    this.player2Label.ForeColor = Color.Black;
+                    this.player3Label.ForeColor = Color.Black;
+                    this.player4Label.ForeColor = Color.Black;
+                    break;
+
+                case 1:
+                    this.player1Label.ForeColor = Color.Black;
+                    this.player2Label.ForeColor = ovalShape2.FillColor;
+                    this.player3Label.ForeColor = Color.Black;
+                    this.player4Label.ForeColor = Color.Black;
+                    break;
+
+                case 2:
+                    this.player1Label.ForeColor = Color.Black;
+                    this.player2Label.ForeColor = Color.Black;
+                    this.player3Label.ForeColor = ovalShape3.FillColor;
+                    this.player4Label.ForeColor = Color.Black;
+                    break;
+
+                default:
+                    this.player1Label.ForeColor = Color.Black;
+                    this.player2Label.ForeColor = Color.Black;
+                    this.player3Label.ForeColor = Color.Black;
+                    this.player4Label.ForeColor = ovalShape4.FillColor;
+                    break;
+            }
 
         }
+
         private void updateDieLabels()
         {
             this.die1text.Text = this.diceRoll[0] + "";
@@ -540,14 +569,7 @@ namespace WindowsFormsApplication2
 
         public void tradeProperties()
         {
-            if (Board.language == "EN")
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
-            }
+           
             propertyList = new Form();
             propertyList.Width = 300;
             propertyList.Height = 600;
@@ -592,14 +614,7 @@ namespace WindowsFormsApplication2
         public String buyHouse(Property p, Player player)
 
         {
-            if (Board.language == "EN")
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
-            }
+
             String message = "";
             switch (p.addHouse())
             {
@@ -628,14 +643,7 @@ namespace WindowsFormsApplication2
         public void updateHouseNumber(Property p)
 
         {
-            if (Board.language == "EN")
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
-            }
+           
             int pos = p.getPos();
             if (p.getNumHouses() != 0 && p.getNumHouses() < 5)
             {
@@ -709,14 +717,6 @@ namespace WindowsFormsApplication2
 
         public void manageProperties()
         {
-            if (Board.language == "EN")
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
-            }
             manageList = new Form();
             manageList.Width = 300;
             manageList.Height = 400;

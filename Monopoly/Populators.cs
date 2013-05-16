@@ -106,14 +106,7 @@ namespace Monopoly
 
         public static List<Card> populateCommunity()
         {
-            if (Board.language == "EN")
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
-            }
+            
             List<Card> deck = new List<Card>();
             deck.Add(new MoveCard(Resource1.aGo, 0, true));
             deck.Add(new MoneyCard(Resource1.Berror, 75));
