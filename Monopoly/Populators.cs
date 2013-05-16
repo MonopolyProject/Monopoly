@@ -31,7 +31,7 @@ namespace Monopoly
             Property states = new Property("States Avenue", 13, banker, 140, 70, new int[] { 10, 50, 150, 250, 625, 750 }, 100);
             Property virginia = new Property("Virginia Avenue", 14, banker, 160, 80, new int[] { 12, 60, 180, 500, 700, 900 }, 100);
             charles.setColorGroup(new Property[] { virginia, states });
-            states.setColorGroup(new Property[] { charles, connecticut });
+            states.setColorGroup(new Property[] { charles, virginia });
             virginia.setColorGroup(new Property[] { charles, states });
 
             Property james = new Property("St. James Place", 16, banker, 180, 90, new int[] { 14, 70, 200, 550, 750, 950 }, 100);

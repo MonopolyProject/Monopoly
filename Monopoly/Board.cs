@@ -15,15 +15,13 @@ namespace WindowsFormsApplication2
 {
     public partial class Board : Form
     {
-        public Board(bool test = true)
-        {
+        public Board(bool test = true){
+          //  this.languageSelect();
+           // this.determinePlayerLabels();
+           // this.updatePlayerLabels();
+        
             InitializeComponent();
             if (test) this.players = Populators.populatePlayers();
-        }
-
-        private void chest1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void language_Click_1(object sender, EventArgs e)
@@ -163,6 +161,16 @@ namespace WindowsFormsApplication2
         private void manageCancel_Click_1(object sender, EventArgs e)
         {
             this.manageList.Close();
+        }
+
+        private void manageSelectAll(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.properties.Items.Count; i++) this.properties.SetItemChecked(i, true);
+        }
+
+        private void manageDeselectAll(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.properties.Items.Count; i++) this.properties.SetItemChecked(i, false);
         }
 
         private void confirm_Click_1(object sender, EventArgs e)

@@ -399,6 +399,10 @@ namespace WindowsFormsApplication2
             }
             if (this.players.Count == 1) { this.players[0].win(); }
             updatePlayerLabels();
+            if (this.getPlayer().inJail() && this.getPlayer().getOutOfFailFreeCard())
+            {
+                new GetOutOfJailDialog().Show();
+            }
         }
 
         public void removePlayer(int i) {
@@ -502,10 +506,11 @@ namespace WindowsFormsApplication2
 
         public void controlledRoll()
         {
-            controllBoard.Width = 300;
+            controllBoard.Width = 310;
             controllBoard.Height = 110;
             this.controllBoard.StartPosition = FormStartPosition.CenterScreen;
-            numberToRoll.Text = "What number you want to roll";
+            controllBoard.Text = "What number you want to roll";
+            numberToRoll.Text = "";
             numberToRoll.Location = new System.Drawing.Point(5, 10);
             numberToRoll.Width = 200;
             numberToRoll.Select(0, numberToRoll.Text.Length);
@@ -597,55 +602,38 @@ namespace WindowsFormsApplication2
                     updateHouseNumber(p);
                     break;
             }
+            this.updatePlayerLabels();
             return message;
-
-
-
-            /*List<Property> props = new List<Property>();
-            Property temp;
-            for (int i = 0; i < 40; i++)
-            {
-                if (this.getCellAt(i).GetType() == typeof(Property))
-                {
-                    temp = (Property)this.getCellAt(i);
-                    if (temp.getColor() == p.getColor())
-                    {
-                        props.Add(temp);
-                    }
-                }
-            }
-            if (this.hasMonopoly(p))
-            {
-                bool canBuy = true;
-                for (int j = 0; j < props.Count; j++)
-                {
-                    if (p.getNumHouses() > props[j].getNumHouses())
-                    {
-                        canBuy = false;
-                    }
-                }
-                if (canBuy)
-                {
-                    System.Diagnostics.Debug.Write("\nBuying House\n");
-                    player.addMoney(-p.getHouseCost());
-                    p.addHouse();
-                }
-            }*/
         }
 
         public void updateHouseNumber(Property p)
         {
+            int pos = p.getPos();
             if (p.getNumHouses() != 0 && p.getNumHouses() < 5)
             {
+
                 PictureBox houseImg = new PictureBox();
                 houseImg.BackColor = System.Drawing.Color.Transparent;
                 houseImg.Image = global::Monopoly.Properties.Resources.images;
-                houseImg.Location = new System.Drawing.Point(this.locations[p.getPos()].X + 12 + 20 * p.getNumHouses(), this.locations[p.getPos()].Y - 20);
                 houseImg.Name = "pictureBox1";
                 houseImg.Size = new System.Drawing.Size(20, 18);
                 houseImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 houseImg.TabIndex = 35;
                 houseImg.TabStop = false;
+                if (pos < 10)
+                {
+                    houseImg.Location = new System.Drawing.Point(this.locations[pos].X + 15 + 20 * p.getNumHouses(), this.locations[pos].Y);
+                }
+                if (pos < 30 && pos > 20)
+                {
+                    houseImg.Location = new System.Drawing.Point(this.locations[pos].X - 15 - 20 * p.getNumHouses(), this.locations[pos].Y);
+                }
+                if (pos < 20 && pos > 10)
+                {
+                    houseImg.Location = new System.Drawing.Point(this.locations[pos].X - 20 + 15, this.locations[pos].Y + 30 + 18 * p.getNumHouses());
+                }
+                if (pos > 30)
+                    houseImg.Location = new System.Drawing.Point(this.locations[pos].X - 20 + 15, this.locations[pos].Y - 100 + 18 * p.getNumHouses());
                 this.Controls.Add(houseImg);
             }
             else if (p.getNumHouses() == 5)
@@ -653,16 +641,36 @@ namespace WindowsFormsApplication2
                 PictureBox houseImg = new PictureBox();
                 houseImg.BackColor = System.Drawing.Color.Transparent;
                 houseImg.Image = global::Monopoly.Properties.Resources.Kuvvat_hotel;
-                houseImg.Location = new System.Drawing.Point(this.locations[p.getPos()].X + 12, this.locations[p.getPos()].Y - 20);
+
                 houseImg.Name = "pictureBox1";
-                houseImg.Size = new System.Drawing.Size(90, 70);
+
                 houseImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 houseImg.TabIndex = 35;
                 houseImg.TabStop = false;
                 houseImg.BringToFront();
-                this.Controls.Add(houseImg);
-            }
+                if (pos < 10 || (pos < 30 && pos > 20))
+                {
+                    houseImg.Size = new System.Drawing.Size(90, 70);
+                    if (pos < 10)
+                        houseImg.Location = new System.Drawing.Point(this.locations[pos].X + 33, this.locations[pos].Y - 28);
+                    else
+                    {
+                        houseImg.Location = new System.Drawing.Point(this.locations[pos].X - 100, this.locations[pos].Y - 20);
+                    }
+                }
+                else
+                {
 
+                    houseImg.Size = new System.Drawing.Size(70, 90);
+                    if (pos < 20 && pos > 10)
+                        houseImg.Location = new System.Drawing.Point(this.locations[pos].X - 20, this.locations[pos].Y + 40);
+                    else
+                        houseImg.Location = new System.Drawing.Point(this.locations[pos].X - 20, this.locations[pos].Y - 100);
+                }
+
+                this.Controls.Add(houseImg);
+                houseImg.BringToFront();
+            }
         }
 
         public void payJailFine()
@@ -703,9 +711,22 @@ namespace WindowsFormsApplication2
             cancel.Location = new System.Drawing.Point(200, 300);
             cancel.Click += new System.EventHandler(manageCancel_Click_1);
 
+            Button select = new Button();
+            select.Text = "Select All";
+            select.Location = new System.Drawing.Point(200, 300);
+            select.Click += new System.EventHandler(manageSelectAll);
+
+
+            Button deselect = new Button();
+            deselect.Text = "Deselect All";
+            deselect.Location = new System.Drawing.Point(200, 270);
+            deselect.Click += new System.EventHandler(manageDeselectAll);
+
             manageList.Controls.Add(morgage);
             manageList.Controls.Add(buyhouse);
             manageList.Controls.Add(cancel);
+            manageList.Controls.Add(select);
+            manageList.Controls.Add(deselect);
             manageList.ShowDialog();
 
         }
@@ -1263,7 +1284,6 @@ namespace WindowsFormsApplication2
             this.chestLabel1.Size = new System.Drawing.Size(78, 38);
             this.chestLabel1.TabIndex = 3;
             this.chestLabel1.Text = "Community\r\n    Chest";
-            this.chestLabel1.Click += new System.EventHandler(this.chest1_Click);
             // 
             // chestLabel2
             // 
