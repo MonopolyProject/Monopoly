@@ -57,6 +57,9 @@
     <Compile Include="Cell.cs" />
     <Compile Include="CellGoToJail.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="CardWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GetOutOfJailFreeCard.cs" />
     <Compile Include="IncomeTaxWindow.cs">
       <SubType>Form</SubType>

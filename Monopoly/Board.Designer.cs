@@ -209,6 +209,7 @@ namespace WindowsFormsApplication2
         public int movePlayer(bool setDice = false)
         {
             System.Diagnostics.Debug.Write(this.language);
+            System.Diagnostics.Debug.Write(this.CommunityChestDeck[0].getName());
             if (!setDice) { this.roll(); }
             List<int> die = this.diceRoll;
 
@@ -302,9 +303,11 @@ namespace WindowsFormsApplication2
                     c = ChanceDeck[0];
                     ChanceDeck.Remove(c);
                 }
+                new CardWindow(c, this).initialize();
                 cc.effect(this.getPlayer(), c, ps, this);
             }
         }
+
         public void determinePlayerLabels()
         {
             if (this.numberOfPlayers < 4)

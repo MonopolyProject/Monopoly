@@ -121,10 +121,10 @@ namespace Monopoly
             deck.Add(new MoneyCard("Distant Uncle passes away, inherit $100", 100));
             deck.Add(new MoneyCard("Collect $50 from stock sales", 50));
             deck.Add(new MoneyCard("Holiday fund matures, collect $100", 100));
-
+            var rnd = new Random();
+            deck = deck.OrderBy(item => rnd.Next()).ToList();
 
             return deck;
-
         }
 
         public static List<Card> populateChance()
@@ -145,9 +145,9 @@ namespace Monopoly
             deck.Add(new GiveMoneyCard("You've been elected Chariman of the board, pay each player $50", -50));
             deck.Add(new MoneyCard("Your building Loan Matures, collect $150", 150));
             deck.Add(new MoneyCard("You won Crossword Competition, collect $100", 100));
-
+            var rnd = new Random();
+            deck = deck.OrderBy(item => rnd.Next()).ToList();
             return deck;
-
         }
 
         public static List<Player> populatePlayers()
