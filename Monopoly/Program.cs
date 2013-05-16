@@ -19,6 +19,7 @@ namespace Monopoly
             Application.SetCompatibleTextRenderingDefault(false);
             Board b = new Board(false);
             b.languageSelect();
+            b.determinePlayerLabels();
             b.updatePlayerLabels();
             Application.Run(b);
         }

@@ -1587,6 +1587,8 @@ namespace WindowsFormsApplication2
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 944);
+            this.Controls.Add(this.player4Label);
+            this.Controls.Add(this.player3Label);
             this.Controls.Add(this.Controlled);
             this.Controls.Add(this.die2text);
             this.Controls.Add(this.die1text);
