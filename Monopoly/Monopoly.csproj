@@ -82,7 +82,6 @@
     <Compile Include="Jail.cs" />
     <Compile Include="FreeParking.cs" />
     <Compile Include="Resource1.Designer.cs" />
-    <Compile Include="Resource1.zh.Designer.cs" />
     <Compile Include="Special.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

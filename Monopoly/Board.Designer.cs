@@ -92,7 +92,7 @@ namespace WindowsFormsApplication2
             Label menu = new Label();
             menu.Width = 100;
             menu.Height = 20;
-            menu.Text = "How Many Players?";
+            menu.Text = Resource1.NumOfPlayers;
             RadioButton radioButton1 = new RadioButton();
             radioButton1.AutoSize = true;
             radioButton1.Location = new System.Drawing.Point(10, 30);
@@ -100,7 +100,7 @@ namespace WindowsFormsApplication2
             radioButton1.Size = new System.Drawing.Size(100, 10);
             radioButton1.TabIndex = 35;
             radioButton1.TabStop = true;
-            radioButton1.Text = "2 Players";
+            radioButton1.Text = Resource1.twoPlayers;
             radioButton1.UseVisualStyleBackColor = true;
             RadioButton radioButton2 = new RadioButton();
             radioButton2.AutoSize = true;
@@ -109,7 +109,7 @@ namespace WindowsFormsApplication2
             radioButton2.Size = new System.Drawing.Size(100, 10);
             radioButton2.TabIndex = 35;
             radioButton2.TabStop = true;
-            radioButton2.Text = "3 Players";
+            radioButton2.Text = Resource1.threePlayers;
             RadioButton radioButton3 = new RadioButton();
             radioButton3.AutoSize = true;
             radioButton3.Location = new System.Drawing.Point(10, 60);
@@ -117,7 +117,7 @@ namespace WindowsFormsApplication2
             radioButton3.Size = new System.Drawing.Size(100, 10);
             radioButton3.TabIndex = 35;
             radioButton3.TabStop = true;
-            radioButton3.Text = "4 Players";
+            radioButton3.Text = Resource1.fourPlayers;
             radioButton3.UseVisualStyleBackColor = true;
 
             RadioButton confirm = new RadioButton();
@@ -127,7 +127,7 @@ namespace WindowsFormsApplication2
             confirm.Size = new System.Drawing.Size(100, 10);
             confirm.TabIndex = 35;
             confirm.TabStop = true;
-            confirm.Text = "Confirm";
+            confirm.Text = Resource1.confirm;
             confirm.UseVisualStyleBackColor = true;
             this.noPlayersMenu.Location = new System.Drawing.Point(5, 5);
             
@@ -153,7 +153,7 @@ namespace WindowsFormsApplication2
             this.nameBox = new TextBox();
             nameBox.Width = 200;
             nameBox.Height = 20;
-            nameBox.Text = String.Format("Enter Player {0}'s Name", activePlayer + 1);
+            nameBox.Text = String.Format(Resource1.enterPlayerName, activePlayer + 1);
             nameBox.Location = new System.Drawing.Point(10, 20);
 
             Button confirm = new Button();
@@ -163,7 +163,7 @@ namespace WindowsFormsApplication2
             confirm.Size = new System.Drawing.Size(100, 10);
             confirm.TabIndex = 35;
             confirm.TabStop = true;
-            confirm.Text = "Confirm";
+            confirm.Text = Resource1.confirm;
             confirm.UseVisualStyleBackColor = true;
             this.noPlayersMenu.Location = new System.Drawing.Point(5, 5);
 
@@ -509,14 +509,14 @@ namespace WindowsFormsApplication2
             controllBoard.Width = 310;
             controllBoard.Height = 110;
             this.controllBoard.StartPosition = FormStartPosition.CenterScreen;
-            controllBoard.Text = "What number you want to roll";
+            controllBoard.Text = Resource1.controlBoard;
             numberToRoll.Text = "";
             numberToRoll.Location = new System.Drawing.Point(5, 10);
             numberToRoll.Width = 200;
             numberToRoll.Select(0, numberToRoll.Text.Length);
 
             Button confirm = new Button();
-            confirm.Text = "Confirm";
+            confirm.Text = Resource1.confirm;
             confirm.Location = new System.Drawing.Point(5, 40);
             confirm.Click += new System.EventHandler(controlled_confirm_Click_1);
             controllBoard.Controls.Add(confirm);
@@ -541,7 +541,7 @@ namespace WindowsFormsApplication2
             propertyList = new Form();
             propertyList.Width = 300;
             propertyList.Height = 600;
-            propertyList.Text = "Select Properties.";
+            propertyList.Text = Resource1.selectProperty;
             List<Property> initialList = this.players[this.activePlayer].deeds;
             properties = new CheckedListBox();
             properties.Width = 300;
@@ -551,21 +551,21 @@ namespace WindowsFormsApplication2
                 properties.Items.Add(initialList[i].getName());
             }
             propertyList.Controls.Add(properties);
-            tradePrice.Text = "Enter the price you offer.";
+            tradePrice.Text = Resource1.tradePrice;
             tradePrice.Location = new System.Drawing.Point(5,305);
             tradePrice.Size = new System.Drawing.Size(290, 350);
             Button confirm = new Button();
-            confirm.Text = "Confirm";
+            confirm.Text = Resource1.confirm;
             confirm.Location = new System.Drawing.Point(5, 450);
             
             confirm.Click += new System.EventHandler(confirm_Click_1);
             Button cancel = new Button();
-            cancel.Text = "Cancel";
+            cancel.Text = Resource1.cancel;
             cancel.Location = new System.Drawing.Point(150, 450);
             cancel.Click += new System.EventHandler(cancel_Click_1);
             Label player1Money = new Label();
             Label player2Money = new Label();
-            player1Money.Text = "Player1: " + this.players[0].getMoney();
+            player1Money.Text = Resource1.player1Trade + this.players[0].getMoney();
             player2Money.Text = "Player2: " + this.players[1].getMoney();
             player1Money.Location = new System.Drawing.Point(50, 370);
             player2Money.Location = new System.Drawing.Point(50, 400);
@@ -585,20 +585,20 @@ namespace WindowsFormsApplication2
             switch (p.addHouse())
             {
                 case -1:
-                    message = "You cannot add more than 1 hotel to a property.";
+                    message = Resource1.message1;
                     break;
                 case -2:
-                    message = p.getName() + " is currently mortgaged. You cannot add houses to mortgaged properties";
+                    message = p.getName() + Resource1.message2;
                     break;
                 case -3:
-                    message = "You do not own a monopoly with the color group associated with " + p.getName() + ". Houses can only be built on monopolies.";
+                    message = Resource1.message3_1 + p.getName() + Resource1.message3_2;
                     break;
                 case -4:
-                    message = "You must build evenly on mononpolies.";
+                    message = Resource1.message4;
                     break;
                 default:
                     player.addMoney(-p.getHouseCost());
-                    message = "Success! House built on " + p.getName();
+                    message = Resource1.message5 + p.getName();
                     updateHouseNumber(p);
                     break;
             }
@@ -684,7 +684,7 @@ namespace WindowsFormsApplication2
             manageList = new Form();
             manageList.Width = 300;
             manageList.Height = 400;
-            manageList.Text = "Select Properties.";
+            manageList.Text = Resource1.selectProperty;
             List<Property> initialList = this.players[this.activePlayer].deeds;
             properties = new CheckedListBox();
             properties.Width = 300;
@@ -697,28 +697,28 @@ namespace WindowsFormsApplication2
 
 
             Button morgage = new Button();
-            morgage.Text = "Morgage";
+            morgage.Text = Resource1.morgage;
             morgage.Location = new System.Drawing.Point(5, 300);
             morgage.Click += new System.EventHandler(manageConfirm_Click_Morgage);
 
             Button buyhouse = new Button();
-            buyhouse.Text = "BuyHouse";
+            buyhouse.Text = Resource1.buyHouse;
             buyhouse.Location = new System.Drawing.Point(5, 330);
             buyhouse.Click += new System.EventHandler(manageConfirm_Click_BuyHouse);
 
             Button cancel = new Button();
-            cancel.Text = "Cancel";
+            cancel.Text = Resource1.cancel;
             cancel.Location = new System.Drawing.Point(200, 300);
             cancel.Click += new System.EventHandler(manageCancel_Click_1);
 
             Button select = new Button();
-            select.Text = "Select All";
+            select.Text = Resource1.selectAll;
             select.Location = new System.Drawing.Point(200, 300);
             select.Click += new System.EventHandler(manageSelectAll);
 
 
             Button deselect = new Button();
-            deselect.Text = "Deselect All";
+            deselect.Text = Resource1.deselectAll;
             deselect.Location = new System.Drawing.Point(200, 270);
             deselect.Click += new System.EventHandler(manageDeselectAll);
 
@@ -973,7 +973,7 @@ namespace WindowsFormsApplication2
             this.marvinGardens.BackColor = System.Drawing.Color.Yellow;
             this.marvinGardens.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.marvinGardens.Location = new System.Drawing.Point(810, 740);
-            this.marvinGardens.Name = "marvinGardens";
+            this.marvinGardens.Name = Resource1.marvinGardens;
             this.marvinGardens.Size = new System.Drawing.Size(90, 70);
             // 
             // ventnorAvenue
@@ -981,7 +981,7 @@ namespace WindowsFormsApplication2
             this.ventnorAvenue.BackColor = System.Drawing.Color.Yellow;
             this.ventnorAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.ventnorAvenue.Location = new System.Drawing.Point(810, 600);
-            this.ventnorAvenue.Name = "ventnorAvenue";
+            this.ventnorAvenue.Name = Resource1.ventnorAvenue;
             this.ventnorAvenue.Size = new System.Drawing.Size(90, 70);
             // 
             // illinoisAvenue
@@ -989,7 +989,7 @@ namespace WindowsFormsApplication2
             this.illinoisAvenue.BackColor = System.Drawing.Color.Red;
             this.illinoisAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.illinoisAvenue.Location = new System.Drawing.Point(810, 390);
-            this.illinoisAvenue.Name = "illinoisAvenue";
+            this.illinoisAvenue.Name = Resource1.illinoisAvenue;
             this.illinoisAvenue.Size = new System.Drawing.Size(90, 70);
             // 
             // indianaAvenue
@@ -997,7 +997,7 @@ namespace WindowsFormsApplication2
             this.indianaAvenue.BackColor = System.Drawing.Color.Red;
             this.indianaAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.indianaAvenue.Location = new System.Drawing.Point(810, 320);
-            this.indianaAvenue.Name = "indianaAvenue";
+            this.indianaAvenue.Name = Resource1.indianaAvenue;
             this.indianaAvenue.Size = new System.Drawing.Size(90, 70);
             // 
             // newYorkAvenue
@@ -1005,7 +1005,7 @@ namespace WindowsFormsApplication2
             this.newYorkAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.newYorkAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.newYorkAvenue.Location = new System.Drawing.Point(740, 90);
-            this.newYorkAvenue.Name = "newYorkAvenue";
+            this.newYorkAvenue.Name = Resource1.newYorkAvenue;
             this.newYorkAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // tennesseeAvenue
@@ -1013,7 +1013,7 @@ namespace WindowsFormsApplication2
             this.tennesseeAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.tennesseeAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.tennesseeAvenue.Location = new System.Drawing.Point(670, 90);
-            this.tennesseeAvenue.Name = "tennesseeAvenue";
+            this.tennesseeAvenue.Name = Resource1.tennesseeAvenue;
             this.tennesseeAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // virginiaAvenue
@@ -1021,7 +1021,7 @@ namespace WindowsFormsApplication2
             this.virginiaAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.virginiaAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.virginiaAvenue.Location = new System.Drawing.Point(391, 90);
-            this.virginiaAvenue.Name = "virginiaAvenue";
+            this.virginiaAvenue.Name = Resource1.virginiaAvenue;
             this.virginiaAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // statesAvenue
@@ -1029,7 +1029,7 @@ namespace WindowsFormsApplication2
             this.statesAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.statesAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.statesAvenue.Location = new System.Drawing.Point(321, 90);
-            this.statesAvenue.Name = "statesAvenue";
+            this.statesAvenue.Name = Resource1.statesAvenue;
             this.statesAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // orientalAvenue
@@ -1261,7 +1261,7 @@ namespace WindowsFormsApplication2
             this.goLabel.Name = "goLabel";
             this.goLabel.Size = new System.Drawing.Size(57, 38);
             this.goLabel.TabIndex = 1;
-            this.goLabel.Text = "GO";
+            this.goLabel.Text = Resource1.go;
             // 
             // parkingLabel
             // 
@@ -1271,7 +1271,7 @@ namespace WindowsFormsApplication2
             this.parkingLabel.Name = "parkingLabel";
             this.parkingLabel.Size = new System.Drawing.Size(88, 60);
             this.parkingLabel.TabIndex = 2;
-            this.parkingLabel.Text = "Free\r\nParking\r\n";
+            this.parkingLabel.Text = Resource1.freeParking;
             this.parkingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chestLabel1
@@ -1283,7 +1283,7 @@ namespace WindowsFormsApplication2
             this.chestLabel1.Name = "chestLabel1";
             this.chestLabel1.Size = new System.Drawing.Size(78, 38);
             this.chestLabel1.TabIndex = 3;
-            this.chestLabel1.Text = "Community\r\n    Chest";
+            this.chestLabel1.Text = Resource1.communityChest;
             // 
             // chestLabel2
             // 
@@ -1294,7 +1294,7 @@ namespace WindowsFormsApplication2
             this.chestLabel2.Name = "chestLabel2";
             this.chestLabel2.Size = new System.Drawing.Size(78, 38);
             this.chestLabel2.TabIndex = 4;
-            this.chestLabel2.Text = "Community\r\nChest";
+            this.chestLabel2.Text = Resource1.communityChest;
             this.chestLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chestLabel3
@@ -1306,7 +1306,7 @@ namespace WindowsFormsApplication2
             this.chestLabel3.Name = "chestLabel3";
             this.chestLabel3.Size = new System.Drawing.Size(78, 38);
             this.chestLabel3.TabIndex = 5;
-            this.chestLabel3.Text = "Community\r\nChest";
+            this.chestLabel3.Text = Resource1.communityChest;
             this.chestLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // waterWorksLabel
@@ -1318,7 +1318,7 @@ namespace WindowsFormsApplication2
             this.waterWorksLabel.Name = "waterWorksLabel";
             this.waterWorksLabel.Size = new System.Drawing.Size(52, 38);
             this.waterWorksLabel.TabIndex = 6;
-            this.waterWorksLabel.Text = "Water\r\nWorks";
+            this.waterWorksLabel.Text = Resource1.waterWork;
             this.waterWorksLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chanceLabel1
@@ -1330,7 +1330,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel1.Name = "chanceLabel1";
             this.chanceLabel1.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel1.TabIndex = 7;
-            this.chanceLabel1.Text = "Chance";
+            this.chanceLabel1.Text = Resource1.chance;
             this.chanceLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railReadLabel
@@ -1342,7 +1342,7 @@ namespace WindowsFormsApplication2
             this.railReadLabel.Name = "railReadLabel";
             this.railReadLabel.Size = new System.Drawing.Size(62, 38);
             this.railReadLabel.TabIndex = 8;
-            this.railReadLabel.Text = "Reading\r\nRailroad";
+            this.railReadLabel.Text = Resource1.readingRailroad;
             this.railReadLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // taxLabel1
@@ -1354,7 +1354,7 @@ namespace WindowsFormsApplication2
             this.taxLabel1.Name = "taxLabel1";
             this.taxLabel1.Size = new System.Drawing.Size(57, 38);
             this.taxLabel1.TabIndex = 9;
-            this.taxLabel1.Text = "Income\r\nTax";
+            this.taxLabel1.Text = Resource1.taxLabel;
             this.taxLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // jailLabel
@@ -1365,7 +1365,7 @@ namespace WindowsFormsApplication2
             this.jailLabel.Name = "jailLabel";
             this.jailLabel.Size = new System.Drawing.Size(63, 38);
             this.jailLabel.TabIndex = 10;
-            this.jailLabel.Text = "Jail";
+            this.jailLabel.Text = Resource1.Jail;
             this.jailLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chanceLabel2
@@ -1377,7 +1377,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel2.Name = "chanceLabel2";
             this.chanceLabel2.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel2.TabIndex = 11;
-            this.chanceLabel2.Text = "Chance";
+            this.chanceLabel2.Text = Resource1.chance;
             this.chanceLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // eCompanyLabel
@@ -1389,7 +1389,7 @@ namespace WindowsFormsApplication2
             this.eCompanyLabel.Name = "eCompanyLabel";
             this.eCompanyLabel.Size = new System.Drawing.Size(63, 38);
             this.eCompanyLabel.TabIndex = 12;
-            this.eCompanyLabel.Text = "Electric\r\nCompany";
+            this.eCompanyLabel.Text = Resource1.electricCompany;
             this.eCompanyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railPennLabel
@@ -1401,7 +1401,7 @@ namespace WindowsFormsApplication2
             this.railPennLabel.Name = "railPennLabel";
             this.railPennLabel.Size = new System.Drawing.Size(88, 38);
             this.railPennLabel.TabIndex = 13;
-            this.railPennLabel.Text = "Pennsylvania\r\nRailroad";
+            this.railPennLabel.Text = Resource1.pennRailroad;
             this.railPennLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railBOLabel
@@ -1413,7 +1413,7 @@ namespace WindowsFormsApplication2
             this.railBOLabel.Name = "railBOLabel";
             this.railBOLabel.Size = new System.Drawing.Size(62, 38);
             this.railBOLabel.TabIndex = 14;
-            this.railBOLabel.Text = "B&&O\r\nRailroad";
+            this.railBOLabel.Text = Resource1.bo;
             this.railBOLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // goToJailLabel
@@ -1425,7 +1425,7 @@ namespace WindowsFormsApplication2
             this.goToJailLabel.Name = "goToJailLabel";
             this.goToJailLabel.Size = new System.Drawing.Size(62, 56);
             this.goToJailLabel.TabIndex = 15;
-            this.goToJailLabel.Text = "Go to\r\nJail";
+            this.goToJailLabel.Text = Resource1.toJ;
             this.goToJailLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railShortLabel
@@ -1437,7 +1437,7 @@ namespace WindowsFormsApplication2
             this.railShortLabel.Name = "railShortLabel";
             this.railShortLabel.Size = new System.Drawing.Size(47, 38);
             this.railShortLabel.TabIndex = 16;
-            this.railShortLabel.Text = "Short\r\nLine";
+            this.railShortLabel.Text = Resource1.shortLine;
             this.railShortLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chanceLabel3
@@ -1449,7 +1449,7 @@ namespace WindowsFormsApplication2
             this.chanceLabel3.Name = "chanceLabel3";
             this.chanceLabel3.Size = new System.Drawing.Size(53, 19);
             this.chanceLabel3.TabIndex = 17;
-            this.chanceLabel3.Text = "Chance";
+            this.chanceLabel3.Text = Resource1.chance;
             this.chanceLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // taxLabel2
@@ -1461,7 +1461,7 @@ namespace WindowsFormsApplication2
             this.taxLabel2.Name = "taxLabel2";
             this.taxLabel2.Size = new System.Drawing.Size(57, 38);
             this.taxLabel2.TabIndex = 18;
-            this.taxLabel2.Text = "Income\r\nTax";
+            this.taxLabel2.Text = Resource1.taxLabel;
             this.taxLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // rollDie
@@ -1490,7 +1490,7 @@ namespace WindowsFormsApplication2
             this.BuyProper.Name = "BuyProper";
             this.BuyProper.Size = new System.Drawing.Size(220, 76);
             this.BuyProper.TabIndex = 23;
-            this.BuyProper.Text = "Buy";
+            this.BuyProper.Text = Resource1.buy;
             this.BuyProper.UseVisualStyleBackColor = true;
             this.BuyProper.Click += new System.EventHandler(this.buy_Click_1);
             // 

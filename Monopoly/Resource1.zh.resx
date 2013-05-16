@@ -153,4 +153,127 @@
   <data name="trade" xml:space="preserve">
     <value>交换产业</value>
   </data>
+  <data name="bo" xml:space="preserve">
+    <value>BO铁路</value>
+  </data>
+  <data name="buyHouse" xml:space="preserve">
+    <value>买房</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="communityChest" xml:space="preserve">
+    <value>社区宝箱</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="controlBoard" xml:space="preserve">
+    <value>输入想摇的点数</value>
+  </data>
+  <data name="deselectAll" xml:space="preserve">
+    <value>取消全选</value>
+  </data>
+  <data name="electricCompany" xml:space="preserve">
+    <value>电力公司</value>
+  </data>
+  <data name="enterPlayerName" xml:space="preserve">
+    <value>输入玩家 {0} 姓名</value>
+  </data>
+  <data name="fourPlayers" xml:space="preserve">
+    <value>四个玩家</value>
+  </data>
+  <data name="freeParking" xml:space="preserve">
+    <value>免费停车</value>
+  </data>
+  <data name="go" xml:space="preserve">
+    <value>起点</value>
+  </data>
+  <data name="illinoisAvenue" xml:space="preserve">
+    <value>伊利诺伊大街</value>
+  </data>
+  <data name="indianaAvenue" xml:space="preserve">
+    <value>印第安纳大街</value>
+  </data>
+  <data name="Jail" xml:space="preserve">
+    <value>监狱</value>
+  </data>
+  <data name="marvinGardens" xml:space="preserve">
+    <value>玛温花园</value>
+  </data>
+  <data name="message1" xml:space="preserve">
+    <value>一块地产只能建一栋宾馆</value>
+  </data>
+  <data name="message2" xml:space="preserve">
+    <value>被抵押，不能再被抵押的地产商施工</value>
+  </data>
+  <data name="message3_1" xml:space="preserve">
+    <value>你没有拥有一条街</value>
+  </data>
+  <data name="message3_2" xml:space="preserve">
+    <value>只有拥有一条街才可以建造房屋</value>
+  </data>
+  <data name="message4" xml:space="preserve">
+    <value>请平均的建造房屋</value>
+  </data>
+  <data name="message5" xml:space="preserve">
+    <value>您已成功建造房屋</value>
+  </data>
+  <data name="morgage" xml:space="preserve">
+    <value>抵押</value>
+  </data>
+  <data name="newYorkAvenue" xml:space="preserve">
+    <value>纽约大街</value>
+  </data>
+  <data name="NumOfPlayers" xml:space="preserve">
+    <value>选择玩家数量</value>
+  </data>
+  <data name="pennRailroad" xml:space="preserve">
+    <value>宾夕法尼亚大道</value>
+  </data>
+  <data name="player1Trade" xml:space="preserve">
+    <value>玩家1</value>
+  </data>
+  <data name="player2Trade" xml:space="preserve">
+    <value>玩家2</value>
+  </data>
+  <data name="readingRailroad" xml:space="preserve">
+    <value>里丁铁路</value>
+  </data>
+  <data name="selectAll" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="selectProperty" xml:space="preserve">
+    <value>选择地产</value>
+  </data>
+  <data name="short" xml:space="preserve">
+    <value>近路</value>
+  </data>
+  <data name="statesAvenue" xml:space="preserve">
+    <value>美洲大街</value>
+  </data>
+  <data name="tennesseeAvenue" xml:space="preserve">
+    <value>田纳西大街</value>
+  </data>
+  <data name="threePlayers" xml:space="preserve">
+    <value>三个玩家</value>
+  </data>
+  <data name="toJ" xml:space="preserve">
+    <value>进监狱</value>
+  </data>
+  <data name="tradePrice" xml:space="preserve">
+    <value>输入交易价格</value>
+  </data>
+  <data name="twoPlayers" xml:space="preserve">
+    <value>两个玩家</value>
+  </data>
+  <data name="ventnorAvenue" xml:space="preserve">
+    <value>温特诺大街</value>
+  </data>
+  <data name="virginiaAvenue" xml:space="preserve">
+    <value>弗吉尼亚大街</value>
+  </data>
+  <data name="waterWork" xml:space="preserve">
+    <value>水利工程</value>
+  </data>
 </root>

@@ -167,5 +167,332 @@ namespace Monopoly {
                 return ResourceManager.GetString("trade", resourceCulture);
             }
         }
+
+        internal static string NumOfPlayers {
+            get
+            {
+                return ResourceManager.GetString("NumOfPlayers", resourceCulture);
+            }
+        }
+
+        internal static string twoPlayers {
+            get
+            {
+                return ResourceManager.GetString("twoPlayers", resourceCulture);
+            }
+        }
+
+        internal static string threePlayers{
+            get
+            {
+                return ResourceManager.GetString("threePlayers", resourceCulture);
+            }
+
+        }
+
+        internal static string fourPlayers
+        {
+            get
+            {
+                return ResourceManager.GetString("fourPlayers", resourceCulture);
+            }
+
+        }
+        internal static string confirm
+        {
+            get
+            {
+                return ResourceManager.GetString("confirm", resourceCulture);
+            }
+
+        }
+        internal static string enterPlayerName
+        {
+            get
+            {
+                return ResourceManager.GetString("enterPlayerName", resourceCulture);
+            }
+
+        }
+        internal static string controlBoard
+        {
+            get
+            {
+                return ResourceManager.GetString("controlBoard", resourceCulture);
+            }
+
+        }
+        internal static string selectProperty
+        {
+            get
+            {
+                return ResourceManager.GetString("selectProperty", resourceCulture);
+            }
+
+        }
+        internal static string tradePrice
+        {
+            get
+            {
+                return ResourceManager.GetString("tradePrice", resourceCulture);
+            }
+
+        }
+        internal static string cancel
+        {
+            get
+            {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+
+        }
+        internal static string message1
+        {
+            get
+            {
+                return ResourceManager.GetString("message1", resourceCulture);
+            }
+
+        }
+        internal static string player1Trade
+        {
+            get
+            {
+                return ResourceManager.GetString("player1Trade", resourceCulture);
+            }
+
+        }
+        internal static string player2Trade
+        {
+            get
+            {
+                return ResourceManager.GetString("player2Trade", resourceCulture);
+            }
+
+        }
+        internal static string message2
+        {
+            get
+            {
+                return ResourceManager.GetString("message2", resourceCulture);
+            }
+
+        }
+        internal static string message3_1
+        {
+            get
+            {
+                return ResourceManager.GetString("message3_1", resourceCulture);
+            }
+
+        }
+        internal static string message3_2
+        {
+            get
+            {
+                return ResourceManager.GetString("message3_2", resourceCulture);
+            }
+
+        }
+        internal static string message4
+        {
+            get
+            {
+                return ResourceManager.GetString("message4", resourceCulture);
+            }
+
+        }
+        internal static string message5
+        {
+            get
+            {
+                return ResourceManager.GetString("message5", resourceCulture);
+            }
+
+        }
+        internal static string morgage
+        {
+            get
+            {
+                return ResourceManager.GetString("morgage", resourceCulture);
+            }
+
+        }
+        internal static string buyHouse
+        {
+            get
+            {
+                return ResourceManager.GetString("buyHouse", resourceCulture);
+            }
+
+        }
+        internal static string selectAll
+        {
+            get
+            {
+                return ResourceManager.GetString("selectAll", resourceCulture);
+            }
+
+        }
+        internal static string deselectAll
+        {
+            get
+            {
+                return ResourceManager.GetString("deselectAll", resourceCulture);
+            }
+
+        }
+        internal static string go
+        {
+            get
+            {
+                return ResourceManager.GetString("go", resourceCulture);
+            }
+
+        }
+        internal static string freeParking
+        {
+            get
+            {
+                return ResourceManager.GetString("freeParking", resourceCulture);
+            }
+
+        }
+        internal static string marvinGardens
+        {
+            get
+            {
+                return ResourceManager.GetString("marvinGardens", resourceCulture);
+            }
+
+        }
+        internal static string ventnorAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("ventnorAvenue", resourceCulture);
+            }
+
+        }
+        internal static string illinoisAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("illinoisAvenue", resourceCulture);
+            }
+
+        }
+        internal static string indianaAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("indianaAvenue", resourceCulture);
+            }
+
+        }
+        internal static string newYorkAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("newYorkAvenue", resourceCulture);
+            }
+
+        }
+        internal static string tennesseeAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("tennesseeAvenue", resourceCulture);
+            }
+
+        }
+        internal static string virginiaAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("virginiaAvenue", resourceCulture);
+            }
+
+        }
+        internal static string statesAvenue
+        {
+            get
+            {
+                return ResourceManager.GetString("statesAvenue", resourceCulture);
+            }
+
+        }
+        internal static string communityChest
+        {
+            get
+            {
+                return ResourceManager.GetString("communityChest", resourceCulture);
+            }
+
+        }
+        internal static string waterWork
+        {
+            get
+            {
+                return ResourceManager.GetString("waterWork", resourceCulture);
+            }
+
+        }
+        internal static string readingRailroad
+        {
+            get
+            {
+                return ResourceManager.GetString("waterWork", resourceCulture);
+            }
+
+        }
+        internal static string Jail
+        {
+            get
+            {
+                return ResourceManager.GetString("Jail", resourceCulture);
+            }
+
+        }
+        internal static string electricCompany
+        {
+            get
+            {
+                return ResourceManager.GetString("electricCompany", resourceCulture);
+            }
+
+        }
+        internal static string pennRailroad
+        {
+            get
+            {
+                return ResourceManager.GetString("pennRailroad", resourceCulture);
+            }
+
+        }
+        internal static string bo
+        {
+            get
+            {
+                return ResourceManager.GetString("bo", resourceCulture);
+            }
+
+        }
+        internal static string shortLine
+        {
+            get
+            {
+                return ResourceManager.GetString("short", resourceCulture);
+            }
+
+        }
+        internal static string toJ
+        {
+            get
+            {
+                return ResourceManager.GetString("toJ", resourceCulture);
+            }
+
+        }
     }
 }

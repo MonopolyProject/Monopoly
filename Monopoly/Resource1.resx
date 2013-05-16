@@ -153,4 +153,127 @@
   <data name="trade" xml:space="preserve">
     <value>Trade</value>
   </data>
+  <data name="bo" xml:space="preserve">
+    <value>B&amp;&amp;O\r\nRailroad</value>
+  </data>
+  <data name="buyHouse" xml:space="preserve">
+    <value>Buy House</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="communityChest" xml:space="preserve">
+    <value>Community\r\n    Chest</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>confirm</value>
+  </data>
+  <data name="controlBoard" xml:space="preserve">
+    <value>What number you want to roll</value>
+  </data>
+  <data name="deselectAll" xml:space="preserve">
+    <value>Deselect All</value>
+  </data>
+  <data name="electricCompany" xml:space="preserve">
+    <value>Electric\r\nCompany</value>
+  </data>
+  <data name="enterPlayerName" xml:space="preserve">
+    <value>Enter Player {0}'s Name</value>
+  </data>
+  <data name="fourPlayers" xml:space="preserve">
+    <value>4 Players</value>
+  </data>
+  <data name="freeParking" xml:space="preserve">
+    <value>Free\r\nParking\r\n</value>
+  </data>
+  <data name="go" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="illinoisAvenue" xml:space="preserve">
+    <value>illinoisAvenue</value>
+  </data>
+  <data name="indianaAvenue" xml:space="preserve">
+    <value>indianaAvenue</value>
+  </data>
+  <data name="Jail" xml:space="preserve">
+    <value>Jail</value>
+  </data>
+  <data name="marvinGardens" xml:space="preserve">
+    <value>marvinGardens</value>
+  </data>
+  <data name="message1" xml:space="preserve">
+    <value>You cannot add more than 1 hotel to a property.</value>
+  </data>
+  <data name="message2" xml:space="preserve">
+    <value>is currently mortgaged. You cannot add houses to mortgaged properties</value>
+  </data>
+  <data name="message3_1" xml:space="preserve">
+    <value>You do not own a monopoly with the color group associated with</value>
+  </data>
+  <data name="message3_2" xml:space="preserve">
+    <value>. Houses can only be built on monopolies.</value>
+  </data>
+  <data name="message4" xml:space="preserve">
+    <value>You must build evenly on mononpolies.</value>
+  </data>
+  <data name="message5" xml:space="preserve">
+    <value>Success! The house has been built on</value>
+  </data>
+  <data name="morgage" xml:space="preserve">
+    <value>Morgage</value>
+  </data>
+  <data name="newYorkAvenue" xml:space="preserve">
+    <value>newYorkAvenue</value>
+  </data>
+  <data name="NumOfPlayers" xml:space="preserve">
+    <value>How Many Players?</value>
+  </data>
+  <data name="pennRailroad" xml:space="preserve">
+    <value>Pennsylvania\r\nRailroad</value>
+  </data>
+  <data name="player1Trade" xml:space="preserve">
+    <value>player1: </value>
+  </data>
+  <data name="player2Trade" xml:space="preserve">
+    <value>player2:</value>
+  </data>
+  <data name="readingRailroad" xml:space="preserve">
+    <value>Reading\r\nRailroad</value>
+  </data>
+  <data name="selectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="selectPorperty" xml:space="preserve">
+    <value>Select Properties.</value>
+  </data>
+  <data name="short" xml:space="preserve">
+    <value>Short\r\nLine</value>
+  </data>
+  <data name="statesAvenue" xml:space="preserve">
+    <value>statesAvenue</value>
+  </data>
+  <data name="tennesseeAvenue" xml:space="preserve">
+    <value>tennesseeAvenue</value>
+  </data>
+  <data name="threePlayers" xml:space="preserve">
+    <value>3 Players</value>
+  </data>
+  <data name="toJ" xml:space="preserve">
+    <value>Go to\r\nJail</value>
+  </data>
+  <data name="tradePrice" xml:space="preserve">
+    <value>Enter the price you offer.</value>
+  </data>
+  <data name="twoPlayers" xml:space="preserve">
+    <value>2 Players</value>
+  </data>
+  <data name="ventnorAvenue" xml:space="preserve">
+    <value>ventnorAvenue</value>
+  </data>
+  <data name="virginiaAvenue" xml:space="preserve">
+    <value>virginiaAvenue</value>
+  </data>
+  <data name="waterWork" xml:space="preserve">
+    <value>Water\r\nWorks</value>
+  </data>
 </root>
