@@ -257,9 +257,9 @@ namespace WindowsFormsApplication2
             if (cell is CardCell)
             {
                 CardCell cc = (CardCell)cell;
-                List<Player> players = this.players;
-                players.Remove(this.getPlayer());
-                cc.effect(this.getPlayer(), this.CommunityChestDeck[0], players, this);
+                List<Player> p = this.players;
+                p.Remove(this.getPlayer());
+                cc.effect(this.getPlayer(), this.CommunityChestDeck[0], p, this);
                 this.CommunityChestDeck.RemoveAt(0);
             }
             else if (cell is Special)
@@ -397,7 +397,7 @@ namespace WindowsFormsApplication2
 
             this.rent();
             this.activePlayer++;
-            this.activePlayer = this.activePlayer % (this.players.Count);
+            this.activePlayer = this.activePlayer % (this.players.Count+1);
             this.rollDie.Enabled = true;
             this.BuyProper.Enabled = false;
             this.TurnEnds.Enabled = false;

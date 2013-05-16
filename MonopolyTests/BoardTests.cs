@@ -40,14 +40,6 @@ namespace MonopolyTests
             Assert.Less(die[1], 6);
             Assert.Greater(die[1], 0);
         }
-
-        [Test()]
-        public void Test ()
-        {
-            Board board = new WindowsFormsApplication2.Board();
-            int position = board.movePlayer();
-            Assert.AreEqual(position, board.getPlayer().getLocation());
-        }
         
         [Test()]
         public void TestBuyDisplay()
