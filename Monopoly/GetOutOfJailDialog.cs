@@ -16,7 +16,12 @@ namespace Monopoly
         {
             InitializeComponent();
         }
-
+        private Player chosenone;
+        public GetOutOfJailDialog(Player chosenone)
+        {
+            InitializeComponent();
+            this.chosenone = chosenone;
+        }
         private void yes_Click(object sender, EventArgs e)
         {
             this.chosenone.setGetOutOfJailFree(false);

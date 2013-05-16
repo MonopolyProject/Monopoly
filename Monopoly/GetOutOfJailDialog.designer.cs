@@ -8,11 +8,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private Player chosenone;
-        public GetOutOfJailDialog(Player chosenone)
-        {
-            this.chosenone = chosenone;
-        }
+
 
 
         /// <summary>

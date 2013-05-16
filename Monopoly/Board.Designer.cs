@@ -30,7 +30,11 @@ namespace WindowsFormsApplication2
         Form noPlayersMenu;
         Form playerCreationMenu;
         TextBox nameBox;
-        
+
+        public List<Player> getPlayers() { return this.players; }
+        public List<Card> getChance() { return this.ChanceDeck; }
+        public List<Card> getCommunity() { return this.CommunityChestDeck; }
+
         private System.ComponentModel.IContainer components = null;
 
         public void languageSelect()
@@ -198,6 +202,14 @@ namespace WindowsFormsApplication2
             else return this.ovalShape4;
         }
 
+        public Microsoft.VisualBasic.PowerPacks.OvalShape getPlayerShape(int p)
+        {
+            if (p == 0) return this.ovalShape1;
+            else if (p == 1) return this.ovalShape2;
+            else if (p == 2) return this.ovalShape3;
+            else return this.ovalShape4;
+        }
+
         public List<int> roll()
         {
             List<int> dice = new List<int>();
@@ -218,6 +230,7 @@ namespace WindowsFormsApplication2
             if (die[0] == die[1])
             {
                 this.getPlayer().doubleCounter++;
+
             }
             else
             {
@@ -283,7 +296,6 @@ namespace WindowsFormsApplication2
             }
             else if (cell is CardCell)
             {
-
                 CardCell cc = (CardCell)cell;
                 List<Player> ps = new List<Player>();
                 ps.AddRange(this.players);
@@ -432,7 +444,7 @@ namespace WindowsFormsApplication2
             updatePlayerLabels();
             if (this.getPlayer().inJail() && this.getPlayer().getOutOfFailFreeCard())
             {
-                new GetOutOfJailDialog().Show();
+                new GetOutOfJailDialog(this.getPlayer()).Show();
             }
         }
 
@@ -877,6 +889,7 @@ namespace WindowsFormsApplication2
             this.Controlled = new System.Windows.Forms.Button();
             this.player3Label = new System.Windows.Forms.Label();
             this.player4Label = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // shapeContainer1
@@ -998,7 +1011,7 @@ namespace WindowsFormsApplication2
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ovalShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.ovalShape4.FillColor = System.Drawing.Color.Black;
+            this.ovalShape4.FillColor = System.Drawing.Color.Green;
             this.ovalShape4.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Percent90;
             this.ovalShape4.Location = new System.Drawing.Point(60, 865);
             this.ovalShape4.Name = "ovalShape4";
@@ -1009,7 +1022,7 @@ namespace WindowsFormsApplication2
             this.marvinGardens.BackColor = System.Drawing.Color.Yellow;
             this.marvinGardens.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.marvinGardens.Location = new System.Drawing.Point(810, 740);
-            
+            this.marvinGardens.Name = "";
             this.marvinGardens.Size = new System.Drawing.Size(90, 70);
             // 
             // ventnorAvenue
@@ -1017,7 +1030,7 @@ namespace WindowsFormsApplication2
             this.ventnorAvenue.BackColor = System.Drawing.Color.Yellow;
             this.ventnorAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.ventnorAvenue.Location = new System.Drawing.Point(810, 600);
-            
+            this.ventnorAvenue.Name = "";
             this.ventnorAvenue.Size = new System.Drawing.Size(90, 70);
             // 
             // illinoisAvenue
@@ -1025,7 +1038,7 @@ namespace WindowsFormsApplication2
             this.illinoisAvenue.BackColor = System.Drawing.Color.Red;
             this.illinoisAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.illinoisAvenue.Location = new System.Drawing.Point(810, 390);
-            
+            this.illinoisAvenue.Name = "";
             this.illinoisAvenue.Size = new System.Drawing.Size(90, 70);
             // 
             // indianaAvenue
@@ -1033,7 +1046,7 @@ namespace WindowsFormsApplication2
             this.indianaAvenue.BackColor = System.Drawing.Color.Red;
             this.indianaAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.indianaAvenue.Location = new System.Drawing.Point(810, 320);
-            
+            this.indianaAvenue.Name = "";
             this.indianaAvenue.Size = new System.Drawing.Size(90, 70);
             // 
             // newYorkAvenue
@@ -1041,7 +1054,7 @@ namespace WindowsFormsApplication2
             this.newYorkAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.newYorkAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.newYorkAvenue.Location = new System.Drawing.Point(740, 90);
-           
+            this.newYorkAvenue.Name = "";
             this.newYorkAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // tennesseeAvenue
@@ -1049,7 +1062,7 @@ namespace WindowsFormsApplication2
             this.tennesseeAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.tennesseeAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.tennesseeAvenue.Location = new System.Drawing.Point(670, 90);
-            
+            this.tennesseeAvenue.Name = "";
             this.tennesseeAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // virginiaAvenue
@@ -1057,7 +1070,7 @@ namespace WindowsFormsApplication2
             this.virginiaAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.virginiaAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.virginiaAvenue.Location = new System.Drawing.Point(391, 90);
-            
+            this.virginiaAvenue.Name = "";
             this.virginiaAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // statesAvenue
@@ -1065,7 +1078,7 @@ namespace WindowsFormsApplication2
             this.statesAvenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.statesAvenue.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
             this.statesAvenue.Location = new System.Drawing.Point(321, 90);
-            
+            this.statesAvenue.Name = "";
             this.statesAvenue.Size = new System.Drawing.Size(70, 90);
             // 
             // orientalAvenue
@@ -1295,9 +1308,8 @@ namespace WindowsFormsApplication2
             this.goLabel.Font = new System.Drawing.Font("Comic Sans MS", 20F);
             this.goLabel.Location = new System.Drawing.Point(105, 839);
             this.goLabel.Name = "goLabel";
-            this.goLabel.Size = new System.Drawing.Size(57, 38);
+            this.goLabel.Size = new System.Drawing.Size(0, 38);
             this.goLabel.TabIndex = 1;
-            
             // 
             // parkingLabel
             // 
@@ -1305,9 +1317,8 @@ namespace WindowsFormsApplication2
             this.parkingLabel.Font = new System.Drawing.Font("Comic Sans MS", 16F);
             this.parkingLabel.Location = new System.Drawing.Point(812, 107);
             this.parkingLabel.Name = "parkingLabel";
-            this.parkingLabel.Size = new System.Drawing.Size(88, 60);
+            this.parkingLabel.Size = new System.Drawing.Size(0, 30);
             this.parkingLabel.TabIndex = 2;
-            
             this.parkingLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chestLabel1
@@ -1317,9 +1328,8 @@ namespace WindowsFormsApplication2
             this.chestLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.chestLabel1.Location = new System.Drawing.Point(96, 689);
             this.chestLabel1.Name = "chestLabel1";
-            this.chestLabel1.Size = new System.Drawing.Size(78, 38);
+            this.chestLabel1.Size = new System.Drawing.Size(0, 19);
             this.chestLabel1.TabIndex = 3;
-            
             // 
             // chestLabel2
             // 
@@ -1328,9 +1338,8 @@ namespace WindowsFormsApplication2
             this.chestLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.chestLabel2.Location = new System.Drawing.Point(596, 119);
             this.chestLabel2.Name = "chestLabel2";
-            this.chestLabel2.Size = new System.Drawing.Size(78, 38);
+            this.chestLabel2.Size = new System.Drawing.Size(0, 19);
             this.chestLabel2.TabIndex = 4;
-            
             this.chestLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chestLabel3
@@ -1340,9 +1349,8 @@ namespace WindowsFormsApplication2
             this.chestLabel3.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.chestLabel3.Location = new System.Drawing.Point(596, 839);
             this.chestLabel3.Name = "chestLabel3";
-            this.chestLabel3.Size = new System.Drawing.Size(78, 38);
+            this.chestLabel3.Size = new System.Drawing.Size(0, 19);
             this.chestLabel3.TabIndex = 5;
-            
             this.chestLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // waterWorksLabel
@@ -1352,9 +1360,8 @@ namespace WindowsFormsApplication2
             this.waterWorksLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.waterWorksLabel.Location = new System.Drawing.Point(827, 689);
             this.waterWorksLabel.Name = "waterWorksLabel";
-            this.waterWorksLabel.Size = new System.Drawing.Size(52, 38);
+            this.waterWorksLabel.Size = new System.Drawing.Size(0, 19);
             this.waterWorksLabel.TabIndex = 6;
-            
             this.waterWorksLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chanceLabel1
@@ -1364,9 +1371,8 @@ namespace WindowsFormsApplication2
             this.chanceLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.chanceLabel1.Location = new System.Drawing.Point(108, 354);
             this.chanceLabel1.Name = "chanceLabel1";
-            this.chanceLabel1.Size = new System.Drawing.Size(53, 19);
+            this.chanceLabel1.Size = new System.Drawing.Size(0, 19);
             this.chanceLabel1.TabIndex = 7;
-            
             this.chanceLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railReadLabel
@@ -1376,9 +1382,8 @@ namespace WindowsFormsApplication2
             this.railReadLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.railReadLabel.Location = new System.Drawing.Point(106, 480);
             this.railReadLabel.Name = "railReadLabel";
-            this.railReadLabel.Size = new System.Drawing.Size(62, 38);
+            this.railReadLabel.Size = new System.Drawing.Size(0, 19);
             this.railReadLabel.TabIndex = 8;
-            
             this.railReadLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // taxLabel1
@@ -1388,9 +1393,8 @@ namespace WindowsFormsApplication2
             this.taxLabel1.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.taxLabel1.Location = new System.Drawing.Point(104, 549);
             this.taxLabel1.Name = "taxLabel1";
-            this.taxLabel1.Size = new System.Drawing.Size(57, 38);
+            this.taxLabel1.Size = new System.Drawing.Size(0, 19);
             this.taxLabel1.TabIndex = 9;
-           
             this.taxLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // jailLabel
@@ -1399,9 +1403,8 @@ namespace WindowsFormsApplication2
             this.jailLabel.Font = new System.Drawing.Font("Comic Sans MS", 20F);
             this.jailLabel.Location = new System.Drawing.Point(105, 111);
             this.jailLabel.Name = "jailLabel";
-            this.jailLabel.Size = new System.Drawing.Size(63, 38);
+            this.jailLabel.Size = new System.Drawing.Size(0, 38);
             this.jailLabel.TabIndex = 10;
-            
             this.jailLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chanceLabel2
@@ -1411,9 +1414,8 @@ namespace WindowsFormsApplication2
             this.chanceLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.chanceLabel2.Location = new System.Drawing.Point(828, 294);
             this.chanceLabel2.Name = "chanceLabel2";
-            this.chanceLabel2.Size = new System.Drawing.Size(53, 19);
+            this.chanceLabel2.Size = new System.Drawing.Size(0, 19);
             this.chanceLabel2.TabIndex = 11;
-            
             this.chanceLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // eCompanyLabel
@@ -1423,9 +1425,8 @@ namespace WindowsFormsApplication2
             this.eCompanyLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.eCompanyLabel.Location = new System.Drawing.Point(253, 118);
             this.eCompanyLabel.Name = "eCompanyLabel";
-            this.eCompanyLabel.Size = new System.Drawing.Size(63, 38);
+            this.eCompanyLabel.Size = new System.Drawing.Size(0, 19);
             this.eCompanyLabel.TabIndex = 12;
-            
             this.eCompanyLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railPennLabel
@@ -1435,9 +1436,8 @@ namespace WindowsFormsApplication2
             this.railPennLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.railPennLabel.Location = new System.Drawing.Point(453, 116);
             this.railPennLabel.Name = "railPennLabel";
-            this.railPennLabel.Size = new System.Drawing.Size(88, 38);
+            this.railPennLabel.Size = new System.Drawing.Size(0, 19);
             this.railPennLabel.TabIndex = 13;
-            
             this.railPennLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railBOLabel
@@ -1447,9 +1447,8 @@ namespace WindowsFormsApplication2
             this.railBOLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.railBOLabel.Location = new System.Drawing.Point(826, 480);
             this.railBOLabel.Name = "railBOLabel";
-            this.railBOLabel.Size = new System.Drawing.Size(62, 38);
+            this.railBOLabel.Size = new System.Drawing.Size(0, 19);
             this.railBOLabel.TabIndex = 14;
-            
             this.railBOLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // goToJailLabel
@@ -1459,9 +1458,8 @@ namespace WindowsFormsApplication2
             this.goToJailLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F);
             this.goToJailLabel.Location = new System.Drawing.Point(827, 831);
             this.goToJailLabel.Name = "goToJailLabel";
-            this.goToJailLabel.Size = new System.Drawing.Size(62, 56);
+            this.goToJailLabel.Size = new System.Drawing.Size(0, 28);
             this.goToJailLabel.TabIndex = 15;
-           
             this.goToJailLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // railShortLabel
@@ -1471,9 +1469,8 @@ namespace WindowsFormsApplication2
             this.railShortLabel.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.railShortLabel.Location = new System.Drawing.Point(474, 839);
             this.railShortLabel.Name = "railShortLabel";
-            this.railShortLabel.Size = new System.Drawing.Size(47, 38);
+            this.railShortLabel.Size = new System.Drawing.Size(0, 19);
             this.railShortLabel.TabIndex = 16;
-           
             this.railShortLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // chanceLabel3
@@ -1483,9 +1480,8 @@ namespace WindowsFormsApplication2
             this.chanceLabel3.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.chanceLabel3.Location = new System.Drawing.Point(402, 848);
             this.chanceLabel3.Name = "chanceLabel3";
-            this.chanceLabel3.Size = new System.Drawing.Size(53, 19);
+            this.chanceLabel3.Size = new System.Drawing.Size(0, 19);
             this.chanceLabel3.TabIndex = 17;
-            
             this.chanceLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // taxLabel2
@@ -1495,9 +1491,8 @@ namespace WindowsFormsApplication2
             this.taxLabel2.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.taxLabel2.Location = new System.Drawing.Point(255, 839);
             this.taxLabel2.Name = "taxLabel2";
-            this.taxLabel2.Size = new System.Drawing.Size(57, 38);
+            this.taxLabel2.Size = new System.Drawing.Size(0, 19);
             this.taxLabel2.TabIndex = 18;
-            
             this.taxLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // rollDie
@@ -1526,7 +1521,6 @@ namespace WindowsFormsApplication2
             this.BuyProper.Name = "BuyProper";
             this.BuyProper.Size = new System.Drawing.Size(220, 76);
             this.BuyProper.TabIndex = 23;
-            
             this.BuyProper.UseVisualStyleBackColor = true;
             this.BuyProper.Click += new System.EventHandler(this.buy_Click_1);
             // 
@@ -1647,11 +1641,22 @@ namespace WindowsFormsApplication2
             this.player4Label.TabIndex = 36;
             this.player4Label.Text = "P4";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(460, 336);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Give Cards";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Board
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 944);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.player4Label);
             this.Controls.Add(this.player3Label);
             this.Controls.Add(this.Controlled);
@@ -1688,7 +1693,7 @@ namespace WindowsFormsApplication2
             this.Text = "GameBoard";
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void rollDie_Click(object sender, EventArgs e)
@@ -1780,6 +1785,7 @@ namespace WindowsFormsApplication2
         private Button Controlled;
         private Label player3Label;
         private Label player4Label;
+        private Button button1;
     }
 
 }

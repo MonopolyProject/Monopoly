@@ -37,6 +37,7 @@ C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopo
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\bin\Debug\nunit.framework.xml
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\WindowsFormsApplication2.Board.resources
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.GetOutOfJailDialog.resources
+C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.GiveCardWindow.resources
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.Properties.Resources.resources
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.Resource1.resources
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.Resource1.zh.resources
