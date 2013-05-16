@@ -252,12 +252,17 @@ namespace WindowsFormsApplication2
             Cell cell = this.cells[position];
             if (cell is Property)
             {
-                this.buyDisplay();
+                Property p = (Property)cell;
+                if (p.getOwner() == banker)
+                {
+                    this.buyDisplay();
+                }
             }
             if (cell is CardCell)
             {
                 CardCell cc = (CardCell)cell;
-                List<Player> p = this.players;
+                List<Player> p = new List<Player>();
+                for(int i = 0; i < this.players.Count; i++) {p.Add(this.players[i]);}
                 p.Remove(this.getPlayer());
                 cc.effect(this.getPlayer(), this.CommunityChestDeck[0], p, this);
                 this.CommunityChestDeck.RemoveAt(0);
@@ -330,6 +335,8 @@ namespace WindowsFormsApplication2
         {
             this.player1Label.Text = this.players[0].getName() + ": $" + this.players[0].getMoney();
             this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
+            this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
+            this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
         }
 
         private void updateDieLabels()
@@ -349,15 +356,7 @@ namespace WindowsFormsApplication2
             {
                 this.payFine.Enabled = true;
             }
-            if (this.cells[this.getPlayer().getLocation()].GetType() != typeof(Special) && this.cells[this.getPlayer().getLocation()].GetType() != typeof(FreeParking))
-            {
-                propertyToAdd = (Property)this.cells[this.getPlayer().getLocation()];
-                System.Diagnostics.Debug.Write(banker.hasDeed(propertyToAdd));
-                if ((!banker.hasDeed(propertyToAdd) && (propertyToAdd.GetType() != typeof(Railroad) && propertyToAdd.GetType() != typeof(Utility))) || this.players[1 - this.activePlayer].hasDeed(propertyToAdd))
-            {
-                this.BuyProper.Enabled = false;
-            }
-            }
+            
 
         }
 
@@ -397,7 +396,7 @@ namespace WindowsFormsApplication2
 
             this.rent();
             this.activePlayer++;
-            this.activePlayer = this.activePlayer % (this.players.Count+1);
+            this.activePlayer = this.activePlayer % (this.players.Count);
             this.rollDie.Enabled = true;
             this.BuyProper.Enabled = false;
             this.TurnEnds.Enabled = false;

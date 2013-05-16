@@ -42,3 +42,7 @@ C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopo
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.exe
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.pdb
 C:\Users\gartzkds\Documents\Visual Studio 2012\Projects\monopoly\Monopoly\Monopoly\obj\Debug\Monopoly.csprojResolveAssemblyReference.cache
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.Resource1.resources
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\Monopoly.Resource1.zh.resources
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\bin\Debug\zh\Monopoly.resources.dll
+C:\Users\lockarbm\Desktop\School\SSpring\SQA\Monopoly\Monopoly\obj\Debug\zh\Monopoly.resources.dll

@@ -90,7 +90,7 @@ namespace WindowsFormsApplication2
             this.playerCreationMenu.Hide();
             this.activePlayer++;
             if (this.activePlayer < this.numberOfPlayers) this.generatePlayers();
-            else this.activePlayer = 0;
+            else { this.activePlayer = 0; System.Diagnostics.Debug.Write(this.players.Count.ToString() + " players"); }
         }
 
         private void rollDie_Click_1(object sender, EventArgs e)

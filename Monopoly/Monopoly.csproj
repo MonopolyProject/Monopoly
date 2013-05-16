@@ -69,6 +69,8 @@
     <Compile Include="MoneyCard.cs" />
     <Compile Include="Jail.cs" />
     <Compile Include="FreeParking.cs" />
+    <Compile Include="Resource1.Designer.cs" />
+    <Compile Include="Resource1.zh.Designer.cs" />
     <Compile Include="Special.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +91,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resource1.resx" />
+    <EmbeddedResource Include="Resource1.zh.resx" />
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
