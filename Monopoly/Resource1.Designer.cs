@@ -494,5 +494,245 @@ namespace Monopoly {
             }
 
         }
+        internal static string aGo
+        {
+            get
+            {
+                return ResourceManager.GetString("aGo", resourceCulture);
+            }
+
+        }
+        internal static string Berror
+        {
+            get
+            {
+                return ResourceManager.GetString("Berror", resourceCulture);
+            }
+
+        }
+        internal static string docF
+        {
+            get
+            {
+                return ResourceManager.GetString("docF", resourceCulture);
+            }
+
+        }
+        internal static string outJ
+        {
+            get
+            {
+                return ResourceManager.GetString("outJ", resourceCulture);
+            }
+
+        }
+        internal static string toJail
+        {
+            get
+            {
+                return ResourceManager.GetString("toJail", resourceCulture);
+            }
+
+        }
+        internal static string bday
+        {
+            get
+            {
+                return ResourceManager.GetString("bday", resourceCulture);
+            }
+
+        }
+        internal static string opNight
+        {
+            get
+            {
+                return ResourceManager.GetString("opNight", resourceCulture);
+            }
+
+        }
+        internal static string inRe
+        {
+            get
+            {
+                return ResourceManager.GetString("inRe", resourceCulture);
+            }
+
+        }
+        internal static string lifeIn
+        {
+            get
+            {
+                return ResourceManager.GetString("lifeIn", resourceCulture);
+            }
+
+        }
+        internal static string hosp
+        {
+            get
+            {
+                return ResourceManager.GetString("hosp", resourceCulture);
+            }
+
+        }
+        internal static string schoolF
+        {
+            get
+            {
+                return ResourceManager.GetString("schoolF", resourceCulture);
+            }
+
+        }
+        internal static string consult
+        {
+            get
+            {
+                return ResourceManager.GetString("consult", resourceCulture);
+            }
+
+        }
+        internal static string assess
+        {
+            get
+            {
+                return ResourceManager.GetString("assess", resourceCulture);
+            }
+
+        }
+        internal static string beau
+        {
+            get
+            {
+                return ResourceManager.GetString("beau", resourceCulture);
+            }
+
+        }
+        internal static string uncle
+        {
+            get
+            {
+                return ResourceManager.GetString("uncle", resourceCulture);
+            }
+
+        }
+        internal static string stock
+        {
+            get
+            {
+                return ResourceManager.GetString("stock", resourceCulture);
+            }
+
+        }
+        internal static string holi
+        {
+            get
+            {
+                return ResourceManager.GetString("holi", resourceCulture);
+            }
+
+        }
+        internal static string poorTax
+        {
+            get
+            {
+                return ResourceManager.GetString("poorTax", resourceCulture);
+            }
+
+        }
+        internal static string divi
+        {
+            get
+            {
+                return ResourceManager.GetString("divi", resourceCulture);
+            }
+
+        }
+        internal static string aIlli
+        {
+            get
+            {
+                return ResourceManager.GetString("aIlli", resourceCulture);
+            }
+
+        }
+        internal static string aNear
+        {
+            get
+            {
+                return ResourceManager.GetString("aNear", resourceCulture);
+            }
+
+        }
+        internal static string aRail
+        {
+            get
+            {
+                return ResourceManager.GetString("aRail", resourceCulture);
+            }
+
+        }
+        internal static string aSt
+        {
+            get
+            {
+                return ResourceManager.GetString("aSt", resourceCulture);
+            }
+
+        }
+        internal static string goJail
+        {
+            get
+            {
+                return ResourceManager.GetString("aSt", resourceCulture);
+            }
+
+        }
+        internal static string repair
+        {
+            get
+            {
+                return ResourceManager.GetString("repair", resourceCulture);
+            }
+
+        }
+        internal static string tRead
+        {
+            get
+            {
+                return ResourceManager.GetString("tRead", resourceCulture);
+            }
+
+        }
+        internal static string walk
+        {
+            get
+            {
+                return ResourceManager.GetString("walk", resourceCulture);
+            }
+
+        }
+        internal static string chair
+        {
+            get
+            {
+                return ResourceManager.GetString("chair", resourceCulture);
+            }
+
+        }
+        internal static string loan
+        {
+            get
+            {
+                return ResourceManager.GetString("loan", resourceCulture);
+            }
+
+        }
+        internal static string cross
+        {
+            get
+            {
+                return ResourceManager.GetString("cross", resourceCulture);
+            }
+
+        }
     }
 }

@@ -26,14 +26,14 @@ namespace WindowsFormsApplication2
 
         private void language_Click_1(object sender, EventArgs e)
         {
-            this.language = "EN";
+            Board.language = "EN";
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             initText();
         }
 
         private void language_Click_2(object sender, EventArgs e)
         {
-            this.language = "CH";
+            Board.language = "CH";
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
             initText();
         }
@@ -50,7 +50,34 @@ namespace WindowsFormsApplication2
             this.rollDie.Text = Resource1.roll;
             this.taxLabel2.Text = Resource1.taxLabel;
             this.chanceLabel3.Text = Resource1.chance;
-            
+            this.controllBoard.Text = Resource1.controlBoard;
+            this.marvinGardens.Name = Resource1.marvinGardens;
+            this.ventnorAvenue.Name = Resource1.ventnorAvenue;
+            this.illinoisAvenue.Name = Resource1.illinoisAvenue;
+            this.indianaAvenue.Name = Resource1.indianaAvenue;
+            this.newYorkAvenue.Name = Resource1.newYorkAvenue;
+            this.tennesseeAvenue.Name = Resource1.tennesseeAvenue;
+            this.virginiaAvenue.Name = Resource1.virginiaAvenue;
+            this.statesAvenue.Name = Resource1.statesAvenue;
+            this.goLabel.Text = Resource1.go;
+            this.parkingLabel.Text = Resource1.freeParking;
+            this.chestLabel1.Text = Resource1.communityChest;
+            this.chestLabel2.Text = Resource1.communityChest;
+            this.chestLabel3.Text = Resource1.communityChest;
+            this.waterWorksLabel.Text = Resource1.waterWork;
+            this.chanceLabel1.Text = Resource1.chance;
+            this.railReadLabel.Text = Resource1.readingRailroad;
+            this.taxLabel1.Text = Resource1.taxLabel;
+            this.jailLabel.Text = Resource1.Jail;
+            this.chanceLabel2.Text = Resource1.chance;
+            this.eCompanyLabel.Text = Resource1.electricCompany;
+            this.railPennLabel.Text = Resource1.pennRailroad;
+            this.railBOLabel.Text = Resource1.bo;
+            this.goToJailLabel.Text = Resource1.toJ;
+            this.railShortLabel.Text = Resource1.shortLine;
+            this.chanceLabel3.Text = Resource1.chance;
+            this.taxLabel2.Text = Resource1.taxLabel;
+            this.BuyProper.Text = Resource1.buy;
             this.BuyProper.Enabled = false;
             this.TurnEnds.Enabled = false;
             this.payFine.Enabled = false;

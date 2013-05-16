@@ -148,13 +148,40 @@
     <value>Roll</value>
   </data>
   <data name="taxLabel" xml:space="preserve">
-    <value>Income\r\nTax</value>
+    <value>IncomeTax</value>
   </data>
   <data name="trade" xml:space="preserve">
     <value>Trade</value>
   </data>
+  <data name="aGo" xml:space="preserve">
+    <value>Advance to GO: Collect $200</value>
+  </data>
+  <data name="aIlli" xml:space="preserve">
+    <value>Advance to Illinois Avenue, collect $200 if you pass GO</value>
+  </data>
+  <data name="aNear" xml:space="preserve">
+    <value>Advance to nearest Utility. If owned, pay 10x rolled otherwise you may buy the property, collect $200 if you pass GO</value>
+  </data>
+  <data name="aRail" xml:space="preserve">
+    <value>Advance to nearest Railroad. If owned, pay 2x rent otherwise you may buy the property, collect $200 if you pass GO</value>
+  </data>
+  <data name="assess" xml:space="preserve">
+    <value>You are assessed for Street Repairs: pay $40/house and $115/hotel</value>
+  </data>
+  <data name="aSt" xml:space="preserve">
+    <value>Advance to St. Charles Place, collect $200 if you pass GO</value>
+  </data>
+  <data name="bday" xml:space="preserve">
+    <value>It's your birthday, each player pays you $10</value>
+  </data>
+  <data name="beau" xml:space="preserve">
+    <value>Won second prize in Beauty Contest, collect $10</value>
+  </data>
+  <data name="Berror" xml:space="preserve">
+    <value>Bank Error in your Favor: Collect $7</value>
+  </data>
   <data name="bo" xml:space="preserve">
-    <value>B&amp;&amp;O\r\nRailroad</value>
+    <value>B&amp;&amp;ORailroad</value>
   </data>
   <data name="buyHouse" xml:space="preserve">
     <value>Buy House</value>
@@ -162,20 +189,35 @@
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="chair" xml:space="preserve">
+    <value>You've been elected Chariman of the board, pay each player $50</value>
+  </data>
   <data name="communityChest" xml:space="preserve">
-    <value>Community\r\n    Chest</value>
+    <value>Community    Chest</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>confirm</value>
   </data>
+  <data name="consult" xml:space="preserve">
+    <value>Receive $25 consultancy fee</value>
+  </data>
   <data name="controlBoard" xml:space="preserve">
     <value>What number you want to roll</value>
+  </data>
+  <data name="cross" xml:space="preserve">
+    <value>You won Crossword Competition, collect $100</value>
   </data>
   <data name="deselectAll" xml:space="preserve">
     <value>Deselect All</value>
   </data>
+  <data name="divi" xml:space="preserve">
+    <value>Bank pays you dividend of $50</value>
+  </data>
+  <data name="docF" xml:space="preserve">
+    <value>Doctor's Fee: pay $50</value>
+  </data>
   <data name="electricCompany" xml:space="preserve">
-    <value>Electric\r\nCompany</value>
+    <value>ElectricCompany</value>
   </data>
   <data name="enterPlayerName" xml:space="preserve">
     <value>Enter Player {0}'s Name</value>
@@ -184,10 +226,19 @@
     <value>4 Players</value>
   </data>
   <data name="freeParking" xml:space="preserve">
-    <value>Free\r\nParking\r\n</value>
+    <value>FreeParking</value>
   </data>
   <data name="go" xml:space="preserve">
     <value>Go</value>
+  </data>
+  <data name="goJail" xml:space="preserve">
+    <value>Go directly to Jail. Do not pass GO, do not collect $200</value>
+  </data>
+  <data name="holi" xml:space="preserve">
+    <value>Holiday fund matures, collect $100</value>
+  </data>
+  <data name="hosp" xml:space="preserve">
+    <value>Pay Hospital fees of $100</value>
   </data>
   <data name="illinoisAvenue" xml:space="preserve">
     <value>illinoisAvenue</value>
@@ -195,8 +246,17 @@
   <data name="indianaAvenue" xml:space="preserve">
     <value>indianaAvenue</value>
   </data>
+  <data name="inRe" xml:space="preserve">
+    <value>Income Tax refund, collect $20</value>
+  </data>
   <data name="Jail" xml:space="preserve">
     <value>Jail</value>
+  </data>
+  <data name="lifeIn" xml:space="preserve">
+    <value>Life Insurance Matures, collect $100</value>
+  </data>
+  <data name="loan" xml:space="preserve">
+    <value>Your building Loan Matures, collect $150</value>
   </data>
   <data name="marvinGardens" xml:space="preserve">
     <value>marvinGardens</value>
@@ -228,8 +288,14 @@
   <data name="NumOfPlayers" xml:space="preserve">
     <value>How Many Players?</value>
   </data>
+  <data name="opNight" xml:space="preserve">
+    <value>Grand Opera Night, each player pays you $50</value>
+  </data>
+  <data name="outJ" xml:space="preserve">
+    <value>Get out of jail free</value>
+  </data>
   <data name="pennRailroad" xml:space="preserve">
-    <value>Pennsylvania\r\nRailroad</value>
+    <value>PennsylvaniaRailroad</value>
   </data>
   <data name="player1Trade" xml:space="preserve">
     <value>player1: </value>
@@ -237,8 +303,17 @@
   <data name="player2Trade" xml:space="preserve">
     <value>player2:</value>
   </data>
+  <data name="poorTax" xml:space="preserve">
+    <value>Pay poor tax of $15</value>
+  </data>
   <data name="readingRailroad" xml:space="preserve">
-    <value>Reading\r\nRailroad</value>
+    <value>ReadingRailroad</value>
+  </data>
+  <data name="repair" xml:space="preserve">
+    <value>Make repairs on all properties, pay $25/house and $100/hotel</value>
+  </data>
+  <data name="schoolF" xml:space="preserve">
+    <value>Pay school fees of $50</value>
   </data>
   <data name="selectAll" xml:space="preserve">
     <value>Select All</value>
@@ -247,10 +322,16 @@
     <value>Select Properties.</value>
   </data>
   <data name="short" xml:space="preserve">
-    <value>Short\r\nLine</value>
+    <value>ShortLine</value>
   </data>
   <data name="statesAvenue" xml:space="preserve">
     <value>statesAvenue</value>
+  </data>
+  <data name="stock" xml:space="preserve">
+    <value>Collect $50 from stock sales</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
   <data name="tennesseeAvenue" xml:space="preserve">
     <value>tennesseeAvenue</value>
@@ -259,13 +340,22 @@
     <value>3 Players</value>
   </data>
   <data name="toJ" xml:space="preserve">
-    <value>Go to\r\nJail</value>
+    <value>Go toJail</value>
+  </data>
+  <data name="toJail" xml:space="preserve">
+    <value>Go to Jail. Do not pass GO, do not collect $200</value>
   </data>
   <data name="tradePrice" xml:space="preserve">
     <value>Enter the price you offer.</value>
   </data>
+  <data name="tRead" xml:space="preserve">
+    <value>Take a trip on the Reading Railroad, collect $200 if you pass GO</value>
+  </data>
   <data name="twoPlayers" xml:space="preserve">
     <value>2 Players</value>
+  </data>
+  <data name="uncle" xml:space="preserve">
+    <value>Distant Uncle passes away, inherit $100</value>
   </data>
   <data name="ventnorAvenue" xml:space="preserve">
     <value>ventnorAvenue</value>
@@ -273,7 +363,10 @@
   <data name="virginiaAvenue" xml:space="preserve">
     <value>virginiaAvenue</value>
   </data>
+  <data name="walk" xml:space="preserve">
+    <value>Take a walk on Boardwalk</value>
+  </data>
   <data name="waterWork" xml:space="preserve">
-    <value>Water\r\nWorks</value>
+    <value>WaterWorks</value>
   </data>
 </root>

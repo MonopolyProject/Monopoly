@@ -153,6 +153,33 @@
   <data name="trade" xml:space="preserve">
     <value>交换产业</value>
   </data>
+  <data name="aGo" xml:space="preserve">
+    <value>提前出发：$200</value>
+  </data>
+  <data name="aIlli" xml:space="preserve">
+    <value>直接走到伊利诺伊大街通过起点$200</value>
+  </data>
+  <data name="aNear" xml:space="preserve">
+    <value>走到最近的产如果你有10x</value>
+  </data>
+  <data name="aRail" xml:space="preserve">
+    <value>走到最近的铁路</value>
+  </data>
+  <data name="assess" xml:space="preserve">
+    <value>道路维修，每栋房子$40，每栋宾馆$115</value>
+  </data>
+  <data name="aSt" xml:space="preserve">
+    <value>走到圣查理大街</value>
+  </data>
+  <data name="bday" xml:space="preserve">
+    <value>生日快乐，每人给你$10</value>
+  </data>
+  <data name="beau" xml:space="preserve">
+    <value>选美大赛2等奖$10</value>
+  </data>
+  <data name="Berror" xml:space="preserve">
+    <value>银行故障：收取$7</value>
+  </data>
   <data name="bo" xml:space="preserve">
     <value>BO铁路</value>
   </data>
@@ -162,17 +189,32 @@
   <data name="cancel" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="chair" xml:space="preserve">
+    <value>当选主席，给每个玩家$50</value>
+  </data>
   <data name="communityChest" xml:space="preserve">
     <value>社区宝箱</value>
   </data>
   <data name="confirm" xml:space="preserve">
     <value>确定</value>
   </data>
+  <data name="consult" xml:space="preserve">
+    <value>收到$25咨询费</value>
+  </data>
   <data name="controlBoard" xml:space="preserve">
     <value>输入想摇的点数</value>
   </data>
+  <data name="cross" xml:space="preserve">
+    <value>$100填字游戏奖金</value>
+  </data>
   <data name="deselectAll" xml:space="preserve">
     <value>取消全选</value>
+  </data>
+  <data name="divi" xml:space="preserve">
+    <value>银行付给你$50</value>
+  </data>
+  <data name="docF" xml:space="preserve">
+    <value>医生费用：缴纳$50</value>
   </data>
   <data name="electricCompany" xml:space="preserve">
     <value>电力公司</value>
@@ -189,14 +231,32 @@
   <data name="go" xml:space="preserve">
     <value>起点</value>
   </data>
+  <data name="goJail" xml:space="preserve">
+    <value>直接进监狱</value>
+  </data>
+  <data name="holi" xml:space="preserve">
+    <value>节假日，得到$100奖金</value>
+  </data>
+  <data name="hosp" xml:space="preserve">
+    <value>医院费用$100</value>
+  </data>
   <data name="illinoisAvenue" xml:space="preserve">
     <value>伊利诺伊大街</value>
   </data>
   <data name="indianaAvenue" xml:space="preserve">
     <value>印第安纳大街</value>
   </data>
+  <data name="inRe" xml:space="preserve">
+    <value>退换所得税：$20</value>
+  </data>
   <data name="Jail" xml:space="preserve">
     <value>监狱</value>
+  </data>
+  <data name="lifeIn" xml:space="preserve">
+    <value>人寿保险：得到$100</value>
+  </data>
+  <data name="loan" xml:space="preserve">
+    <value>房屋出租$150</value>
   </data>
   <data name="marvinGardens" xml:space="preserve">
     <value>玛温花园</value>
@@ -228,6 +288,12 @@
   <data name="NumOfPlayers" xml:space="preserve">
     <value>选择玩家数量</value>
   </data>
+  <data name="opNight" xml:space="preserve">
+    <value>歌剧晚会：每人付$50</value>
+  </data>
+  <data name="outJ" xml:space="preserve">
+    <value>免费出狱</value>
+  </data>
   <data name="pennRailroad" xml:space="preserve">
     <value>宾夕法尼亚大道</value>
   </data>
@@ -237,8 +303,17 @@
   <data name="player2Trade" xml:space="preserve">
     <value>玩家2</value>
   </data>
+  <data name="poorTax" xml:space="preserve">
+    <value>缴纳贫穷税$15</value>
+  </data>
   <data name="readingRailroad" xml:space="preserve">
     <value>里丁铁路</value>
+  </data>
+  <data name="repair" xml:space="preserve">
+    <value>维修所有的地产</value>
+  </data>
+  <data name="schoolF" xml:space="preserve">
+    <value>学校费用$50</value>
   </data>
   <data name="selectAll" xml:space="preserve">
     <value>全选</value>
@@ -252,6 +327,9 @@
   <data name="statesAvenue" xml:space="preserve">
     <value>美洲大街</value>
   </data>
+  <data name="stock" xml:space="preserve">
+    <value>出售股票获利$50</value>
+  </data>
   <data name="tennesseeAvenue" xml:space="preserve">
     <value>田纳西大街</value>
   </data>
@@ -261,17 +339,29 @@
   <data name="toJ" xml:space="preserve">
     <value>进监狱</value>
   </data>
+  <data name="toJail" xml:space="preserve">
+    <value>进监狱，不能过起点</value>
+  </data>
   <data name="tradePrice" xml:space="preserve">
     <value>输入交易价格</value>
   </data>
+  <data name="tRead" xml:space="preserve">
+    <value>直接走到里丁铁路</value>
+  </data>
   <data name="twoPlayers" xml:space="preserve">
     <value>两个玩家</value>
+  </data>
+  <data name="uncle" xml:space="preserve">
+    <value>远房叔父去世，继承$100</value>
   </data>
   <data name="ventnorAvenue" xml:space="preserve">
     <value>温特诺大街</value>
   </data>
   <data name="virginiaAvenue" xml:space="preserve">
     <value>弗吉尼亚大街</value>
+  </data>
+  <data name="walk" xml:space="preserve">
+    <value>在比克大街上溜达</value>
   </data>
   <data name="waterWork" xml:space="preserve">
     <value>水利工程</value>

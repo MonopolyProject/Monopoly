@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using WindowsFormsApplication2;
+using System.Threading;
+using System.Globalization;
 
 namespace Monopoly
 {
@@ -103,24 +106,32 @@ namespace Monopoly
 
         public static List<Card> populateCommunity()
         {
+            if (Board.language == "EN")
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("zh-CN");
+            }
             List<Card> deck = new List<Card>();
-            deck.Add(new MoveCard("Advance to GO: Collect $200", 0, true));
-            deck.Add(new MoneyCard("Bank Error in your Favor: Collect $75", 75));
-            deck.Add(new MoneyCard("Doctor's Fee: pay $50", 50));
-            deck.Add(new GetOutOfJailFreeCard("Get Out of Jail Free"));
-            deck.Add(new MoveCard("Go to Jail. Do not pass GO, do not collect $200", 10, false));
-            deck.Add(new GiveMoneyCard("It's your birthday, each player pays you $10", 10));
-            deck.Add(new GiveMoneyCard("Grand Opera Night, each player pays you $50", 50));
-            deck.Add(new MoneyCard("Income Tax refund, collect $20", 20));
-            deck.Add(new MoneyCard("Life Insurance Matures, collect $100", 100));
-            deck.Add(new MoneyCard("Pay Hospital fees of $100", -100));
-            deck.Add(new MoneyCard("Pay school fees of $50", -50));
-            deck.Add(new MoneyCard("Receive $25 consultancy fee", 25));
-            deck.Add(new RepairCard("You are assessed for Street Repairs: pay $40/house and $115/hotel", 40, 115));
-            deck.Add(new MoneyCard("Won second prize in Beauty Contest, collect $10", 10));
-            deck.Add(new MoneyCard("Distant Uncle passes away, inherit $100", 100));
-            deck.Add(new MoneyCard("Collect $50 from stock sales", 50));
-            deck.Add(new MoneyCard("Holiday fund matures, collect $100", 100));
+            deck.Add(new MoveCard(Resource1.aGo, 0, true));
+            deck.Add(new MoneyCard(Resource1.Berror, 75));
+            deck.Add(new MoneyCard(Resource1.docF, 50));
+            deck.Add(new GetOutOfJailFreeCard(Resource1.outJ));
+            deck.Add(new MoveCard(Resource1.toJail, 10, false));
+            deck.Add(new GiveMoneyCard(Resource1.bday, 10));
+            deck.Add(new GiveMoneyCard(Resource1.opNight, 50));
+            deck.Add(new MoneyCard(Resource1.inRe, 20));
+            deck.Add(new MoneyCard(Resource1.lifeIn, 100));
+            deck.Add(new MoneyCard(Resource1.hosp, -100));
+            deck.Add(new MoneyCard(Resource1.schoolF, -50));
+            deck.Add(new MoneyCard(Resource1.consult, 25));
+            deck.Add(new RepairCard(Resource1.assess, 40, 115));
+            deck.Add(new MoneyCard(Resource1.beau, 10));
+            deck.Add(new MoneyCard(Resource1.uncle, 100));
+            deck.Add(new MoneyCard(Resource1.stock, 50));
+            deck.Add(new MoneyCard(Resource1.holi, 100));
             var rnd = new Random();
             deck = deck.OrderBy(item => rnd.Next()).ToList();
 
@@ -130,21 +141,21 @@ namespace Monopoly
         public static List<Card> populateChance()
         {
             List<Card> deck = new List<Card>();
-            deck.Add(new MoneyCard("Pay poor tax of $15", -15));
-            deck.Add(new MoneyCard("Bank pays you dividend of $50", 50));
-            deck.Add(new MoveCard("Advance to GO, collect $200", 0, true));
-            deck.Add(new MoveCard("Advance to Illinois Avenue, collect $200 if you pass GO", 24, true));
-            deck.Add(new NearestUtilityCard("Advance to nearest Utility. If owned, pay 10x rolled otherwise you may buy the property, collect $200 if you pass GO"));
-            deck.Add(new NearestRailroadCard("Advance to nearest Railroad. If owned, pay 2x rent otherwise you may buy the property, collect $200 if you pass GO"));
-            deck.Add(new MoveCard("Advance to St. Charles Place, collect $200 if you pass GO", 11, true));
-            deck.Add(new GetOutOfJailFreeCard("Get out of Jail Free"));
-            deck.Add(new MoveCard("Go directly to Jail. Do not pass GO, do not collect $200", 10, false));
-            deck.Add(new RepairCard("Make repairs on all properties, pay $25/house and $100/hotel", 25, 110));
-            deck.Add(new MoveCard("Take a trip on the Reading Railroad, collect $200 if you pass GO", 5, true));
-            deck.Add(new MoveCard("Take a walk on Boardwalk", 39, true));
-            deck.Add(new GiveMoneyCard("You've been elected Chariman of the board, pay each player $50", -50));
-            deck.Add(new MoneyCard("Your building Loan Matures, collect $150", 150));
-            deck.Add(new MoneyCard("You won Crossword Competition, collect $100", 100));
+            deck.Add(new MoneyCard(Resource1.poorTax, -15));
+            deck.Add(new MoneyCard(Resource1.divi, 50));
+            deck.Add(new MoveCard(Resource1.aGo, 0, true));
+            deck.Add(new MoveCard(Resource1.aIlli, 24, true));
+            deck.Add(new NearestUtilityCard(Resource1.aNear));
+            deck.Add(new NearestRailroadCard(Resource1.aRail));
+            deck.Add(new MoveCard(Resource1.aSt, 11, true));
+            deck.Add(new GetOutOfJailFreeCard(Resource1.outJ));
+            deck.Add(new MoveCard(Resource1.goJail, 10, false));
+            deck.Add(new RepairCard(Resource1.repair, 25, 110));
+            deck.Add(new MoveCard(Resource1.tRead, 5, true));
+            deck.Add(new MoveCard(Resource1.walk, 39, true));
+            deck.Add(new GiveMoneyCard(Resource1.chair, -50));
+            deck.Add(new MoneyCard(Resource1.loan, 150));
+            deck.Add(new MoneyCard(Resource1.cross, 100));
             var rnd = new Random();
             deck = deck.OrderBy(item => rnd.Next()).ToList();
             return deck;
