@@ -54,7 +54,7 @@ namespace MonopolyTests
             board.movePlayer(true);
             Assert.AreEqual(initialMoney - 50, tester.getMoney());
             tester.move(5);
-            Assert.False(tester.isInJail);
+            Assert.False(tester.inJail());
             Assert.AreEqual(15, tester.getLocation());
         }
         [Test]
@@ -72,7 +72,7 @@ namespace MonopolyTests
             roll.Add(1);
             board.setDiceRoll(roll);
             board.movePlayer(true);
-            Assert.False(tester.isInJail);
+            Assert.False(tester.inJail());
             Assert.AreEqual(12, tester.getLocation());
         }
     }

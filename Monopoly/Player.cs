@@ -14,7 +14,7 @@ namespace Monopoly
         int location;
         int payForRound;
         bool getOutOfJailFree = false;
-        public bool isInJail = false;
+        private bool isInJail = false;
         public List<Property> deeds = new List<Property>();
         public int doubleCounter = 0;
         public int inJailCounter = 0;
@@ -29,9 +29,10 @@ namespace Monopoly
                 this.addMoney(200);
                 passGo = false;
             }
-            this.location += distance;
-            if (passGo && this.location > 40) { this.addMoney(200); }
-            this.location = this.location % 40;
+                this.location += distance;
+                if (passGo && this.location > 40) { this.addMoney(200); }
+                this.location = this.location % 40;
+            
             if (this.location == 10) { this.isInJail = true; } else { this.isInJail = false; }
             return this.location;
         }
@@ -96,6 +97,17 @@ namespace Monopoly
         public void payJailFine()
         {
             this.addMoney(-50);
+            this.isInJail = false;
+        }
+
+        public bool inJail()
+        {
+            return this.isInJail;
+        }
+
+        public void goToJail(bool b = true)
+        {
+            this.isInJail = b;
         }
 
         public void win()

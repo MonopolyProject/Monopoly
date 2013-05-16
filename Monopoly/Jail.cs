@@ -17,12 +17,12 @@ namespace Monopoly
         {
             if (landedOn.inJailCounter == 2)
             {
-                landedOn.isInJail = false;
+                landedOn.goToJail();
                 landedOn.inJailCounter = 0;
                 landedOn.payJailFine();
             }
             else{
-                landedOn.isInJail = true;
+                landedOn.goToJail();
             }
         }
     }

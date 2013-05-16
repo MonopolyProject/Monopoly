@@ -221,14 +221,14 @@ namespace WindowsFormsApplication2
                 this.getPlayer().doubleCounter = 0;
             }
 
-            if (this.getPlayer().isInJail && this.getPlayer().doubleCounter == 0)
+            if (this.getPlayer().inJail() && this.getPlayer().doubleCounter == 0)
             {
                 this.getPlayer().inJailCounter++;
                 this.TurnEnds.Enabled = true;
                 this.rollDie.Enabled = false;
                 this.payFine.Enabled = true;
                 ((Jail)this.cells[10]).effect(this.getPlayer());
-                this.getPlayer().isInJail = true;
+                this.getPlayer().goToJail();
                 return 10;
             }
             else
@@ -237,10 +237,10 @@ namespace WindowsFormsApplication2
                 {
                     System.Diagnostics.Debug.Write("3 Doubles -> Jail");
                     this.getPlayer().move(-this.getPlayer().getLocation() + 10);
-                    this.getPlayer().isInJail = true;
+                    this.getPlayer().goToJail();
                     return 10;
                 }
-                this.getPlayer().isInJail = false;
+                this.getPlayer().goToJail(false);
                 this.getPlayer().inJailCounter = 0;
                 this.getPlayer().move(die[0] + die[1]);
                 this.updatePlayerPosition();
@@ -344,12 +344,7 @@ namespace WindowsFormsApplication2
             
             this.BuyProper.Enabled = true;
             this.TurnEnds.Enabled = true;
-            this.rollDie.Enabled = false;
-            if (this.players[this.activePlayer].getLocation() == 10)
-            {
-                this.payFine.Enabled = true;
-            }
-            
+            this.rollDie.Enabled = false;        
 
         }
 
@@ -388,6 +383,7 @@ namespace WindowsFormsApplication2
         {
 
             this.rent();
+            int player = this.activePlayer;
             this.activePlayer++;
             this.activePlayer = this.activePlayer % (this.players.Count);
             this.rollDie.Enabled = true;
@@ -396,10 +392,19 @@ namespace WindowsFormsApplication2
             this.payFine.Enabled = false;
             if (this.getPlayer().getMoney() <= 0)
             {
-                this.players.Remove(this.getPlayer());
+                removePlayer(player);
             }
             if (this.players.Count == 1) { this.players[0].win(); }
             updatePlayerLabels();
+        }
+
+        public void removePlayer(int i) {
+            System.Diagnostics.Debug.Write("player lost");
+            this.players.Remove(this.players[i]);
+            if (i == 0) { this.player1Label.Dispose(); this.ovalShape1.Dispose(); }
+            if (i == 1) { this.player2Label.Dispose(); this.ovalShape2.Dispose(); }
+            if (i == 2) { this.player3Label.Dispose(); this.ovalShape3.Dispose(); }
+            if (i == 3) { this.player4Label.Dispose(); this.ovalShape4.Dispose(); }
         }
 
         public void rent()
@@ -660,7 +665,7 @@ namespace WindowsFormsApplication2
         public void payJailFine()
         {
             this.getPlayer().payJailFine();
-            this.getPlayer().isInJail = false;
+            System.Diagnostics.Debug.Write("boardfine\n");
         }
 
         public void manageProperties()
@@ -1528,6 +1533,7 @@ namespace WindowsFormsApplication2
             this.payFine.TabIndex = 31;
             this.payFine.Text = "Pay Fine";
             this.payFine.UseVisualStyleBackColor = true;
+            this.payFine.Click += new System.EventHandler(this.payFine_Click_1);
             // 
             // die1text
             // 

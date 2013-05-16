@@ -52,6 +52,10 @@ namespace WindowsFormsApplication2
             this.rollDie.Text = Resource1.roll;
             this.taxLabel2.Text = Resource1.taxLabel;
             this.chanceLabel3.Text = Resource1.chance;
+            
+            this.BuyProper.Enabled = false;
+            this.TurnEnds.Enabled = false;
+            this.payFine.Enabled = false;
         }
 
         private void language_Confirm(object sender, EventArgs e)
@@ -181,10 +185,12 @@ namespace WindowsFormsApplication2
         {
             this.propertyList.Close();
         }
-        private void payfine_Click_1(object sender, EventArgs e)
+
+        private void payFine_Click_1(object sender, EventArgs e)
         {
             this.payJailFine();
         }
+
 
         private void controlled_confirm_Click_1(object sender, EventArgs e)
         {
