@@ -58,6 +58,9 @@
     <Compile Include="CellGoToJail.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="GetOutOfJailFreeCard.cs" />
+    <Compile Include="IncomeTaxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="NearestUtilityCard.cs" />
     <Compile Include="NearestRailroadCard.cs" />
     <Compile Include="Populators.cs" />
@@ -94,7 +97,6 @@
     <EmbeddedResource Include="Resource1.resx" />
     <EmbeddedResource Include="Resource1.zh.resx" />
     <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

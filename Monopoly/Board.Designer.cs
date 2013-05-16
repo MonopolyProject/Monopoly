@@ -34,6 +34,9 @@ namespace WindowsFormsApplication2
         public void languageSelect()
         {
             this.languageMenu = new Form();
+            this.languageMenu.Width = 100;
+            this.languageMenu.Height = 200;
+            this.languageMenu.StartPosition = FormStartPosition.CenterScreen;
             Label menu = new Label();
             menu.Width = 100;
             menu.Height = 20;
@@ -83,6 +86,9 @@ namespace WindowsFormsApplication2
         public void noPlayersSelect()
         {
             this.noPlayersMenu = new Form();
+            this.noPlayersMenu.Width = 125;
+            this.noPlayersMenu.Height = 200;
+            this.noPlayersMenu.StartPosition = FormStartPosition.CenterScreen;
             Label menu = new Label();
             menu.Width = 100;
             menu.Height = 20;
@@ -141,6 +147,9 @@ namespace WindowsFormsApplication2
         public void generatePlayers()
         {
             this.playerCreationMenu = new Form();
+            this.playerCreationMenu.Width = 250;
+            this.playerCreationMenu.Height = 125;
+            this.playerCreationMenu.StartPosition = FormStartPosition.CenterScreen;
             this.nameBox = new TextBox();
             nameBox.Width = 200;
             nameBox.Height = 20;
@@ -271,42 +280,8 @@ namespace WindowsFormsApplication2
             {
                 if (cell is IncomeTax)
                 {
-                    IncomeTax tax = (IncomeTax)cell;
-                    Form f = new Form();
-                    Button b1 = new Button();
-                    b1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                    b1.Location = new Point(21, 50);
-                    b1.Size = new Size(82, 31);
-                    b1.Text = "$200";
-                    b1.UseVisualStyleBackColor = true;
-                    b1.Click += new EventHandler(incomeTaxDefault);
-
-
-                    Button b2 = new Button();
-                    b2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                    b2.Location = new Point(306, 50);
-                    b2.Size = new Size(82, 31);
-                    b2.Text = "10%";
-                    b2.Click += new EventHandler(incomeTaxTenPercent);
-
-                    Label l = new Label();
-                    l.AutoSize = true;
-                    l.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                    l.Location = new Point(17, 19);
-                    l.Size = new Size(381, 20);
-                    l.Text = "Do you want to pay $200 or 10% of your total worth? ";
-
-                    f.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-                    f.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                    f.ClientSize = new System.Drawing.Size(400, 93);
-                    f.Controls.Add(l);
-                    f.Controls.Add(b2);
-                    f.Controls.Add(b1);
-                    f.Text = "Income Tax";
-                    f.ResumeLayout(false);
-                    f.PerformLayout();
-                    f.Visible = true;
-
+                    new IncomeTaxWindow(this.getPlayer(), (IncomeTax)cell, this).initialize();
+                    this.updatePlayerLabels();
                 }
                 else
                     ((Special)cell).effect(this.getPlayer());
@@ -330,15 +305,33 @@ namespace WindowsFormsApplication2
                 cc.effect(this.getPlayer(), c, ps, this);
             }
         }
-
-        private void updatePlayerLabels()
+        public void determinePlayerLabels()
         {
-            this.player1Label.Text = this.players[0].getName() + ": $" + this.players[0].getMoney();
-            this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
-            this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
-            this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
+            if (this.numberOfPlayers < 4)
+            {
+                this.player4Label.Hide();
+            }
+            if (this.numberOfPlayers < 3)
+            {
+                this.player3Label.Hide();
+            }
         }
 
+        public void updatePlayerLabels()
+        {
+            try
+            {
+                this.player1Label.Text = this.players[0].getName() + ": $" + this.players[0].getMoney();
+                this.player2Label.Text = this.players[1].getName() + ": $" + this.players[1].getMoney();
+                this.player3Label.Text = this.players[2].getName() + ": $" + this.players[2].getMoney();
+                this.player4Label.Text = this.players[3].getName() + ": $" + this.players[3].getMoney();
+            }
+            catch
+            {
+
+            }
+
+        }
         private void updateDieLabels()
         {
             this.die1text.Text = this.diceRoll[0] + "";
@@ -502,13 +495,16 @@ namespace WindowsFormsApplication2
         public void controlledRoll()
         {
             controllBoard.Width = 300;
-            controllBoard.Height = 400;
-            
+            controllBoard.Height = 110;
+            this.controllBoard.StartPosition = FormStartPosition.CenterScreen;
             numberToRoll.Text = "What number you want to roll";
             numberToRoll.Location = new System.Drawing.Point(5, 10);
+            numberToRoll.Width = 200;
+            numberToRoll.Select(0, numberToRoll.Text.Length);
+
             Button confirm = new Button();
             confirm.Text = "Confirm";
-            confirm.Location = new System.Drawing.Point(5, 250);
+            confirm.Location = new System.Drawing.Point(5, 40);
             confirm.Click += new System.EventHandler(controlled_confirm_Click_1);
             controllBoard.Controls.Add(confirm);
             controllBoard.Controls.Add(numberToRoll);
@@ -814,6 +810,8 @@ namespace WindowsFormsApplication2
             this.die1text = new System.Windows.Forms.Label();
             this.die2text = new System.Windows.Forms.Label();
             this.Controlled = new System.Windows.Forms.Button();
+            this.player3Label = new System.Windows.Forms.Label();
+            this.player4Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // shapeContainer1
@@ -1564,6 +1562,26 @@ namespace WindowsFormsApplication2
             this.Controlled.UseVisualStyleBackColor = true;
             this.Controlled.Click += new System.EventHandler(this.controlled_roll_Click_1);
             // 
+            // player3Label
+            // 
+            this.player3Label.AutoSize = true;
+            this.player3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player3Label.Location = new System.Drawing.Point(525, 9);
+            this.player3Label.Name = "player3Label";
+            this.player3Label.Size = new System.Drawing.Size(39, 26);
+            this.player3Label.TabIndex = 35;
+            this.player3Label.Text = "P3";
+            // 
+            // player4Label
+            // 
+            this.player4Label.AutoSize = true;
+            this.player4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.player4Label.Location = new System.Drawing.Point(735, 9);
+            this.player4Label.Name = "player4Label";
+            this.player4Label.Size = new System.Drawing.Size(39, 26);
+            this.player4Label.TabIndex = 36;
+            this.player4Label.Text = "P4";
+            // 
             // Board
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1693,6 +1711,8 @@ namespace WindowsFormsApplication2
         private Label die1text;
         private Label die2text;
         private Button Controlled;
+        private Label player3Label;
+        private Label player4Label;
     }
 
 }
