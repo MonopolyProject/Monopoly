@@ -40,13 +40,14 @@ namespace WindowsFormsApplication2
         public void languageSelect()
         {
             this.languageMenu = new Form();
-            this.languageMenu.Width = 100;
-            this.languageMenu.Height = 200;
+            this.languageMenu.Width = 300;
+            this.languageMenu.Height = 150;
             this.languageMenu.StartPosition = FormStartPosition.CenterScreen;
-            Label menu = new Label();
-            menu.Width = 100;
-            menu.Height = 20;
-            menu.Text = "Select a Language";
+            this.languageMenu.Text = "Select a Language";
+         //   Label menu = new Label();
+           // menu.Width = 100;
+           // menu.Height = 20;
+           // menu.Text = "Select a Language";
             RadioButton radioButton1 = new RadioButton();
             radioButton1.AutoSize = true;
             radioButton1.Location = new System.Drawing.Point(10, 30);
@@ -82,10 +83,11 @@ namespace WindowsFormsApplication2
             radioButton2.Click += new System.EventHandler(language_Click_2);
             confirm.Click += new System.EventHandler(language_Confirm);
 
-            this.languageMenu.Controls.Add(menu);
+         //   this.languageMenu.Controls.Add(menu);
             this.languageMenu.Controls.Add(radioButton1);
             this.languageMenu.Controls.Add(radioButton2);
             this.languageMenu.Controls.Add(confirm);
+            this.languageMenu.AutoSize = true;
             languageMenu.ShowDialog();
         }
 
@@ -96,7 +98,7 @@ namespace WindowsFormsApplication2
             this.noPlayersMenu.Height = 200;
             this.noPlayersMenu.StartPosition = FormStartPosition.CenterScreen;
             Label menu = new Label();
-            menu.Width = 100;
+            menu.Width = 200;
             menu.Height = 20;
             menu.Text = Resource1.NumOfPlayers;
             RadioButton radioButton1 = new RadioButton();
@@ -1656,7 +1658,7 @@ namespace WindowsFormsApplication2
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(987, 944);
-            this.Controls.Add(this.button1);
+           // this.Controls.Add(this.button1);///////////////////////////////////////////////////////////////////////////////////DEBUG GIVE CARDS
             this.Controls.Add(this.player4Label);
             this.Controls.Add(this.player3Label);
             this.Controls.Add(this.Controlled);
@@ -1689,11 +1691,13 @@ namespace WindowsFormsApplication2
             this.Controls.Add(this.parkingLabel);
             this.Controls.Add(this.goLabel);
             this.Controls.Add(this.shapeContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Board";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameBoard";
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void rollDie_Click(object sender, EventArgs e)
@@ -1786,6 +1790,7 @@ namespace WindowsFormsApplication2
         private Label player3Label;
         private Label player4Label;
         private Button button1;
+        
     }
 
 }

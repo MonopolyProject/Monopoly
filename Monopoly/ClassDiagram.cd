@@ -86,10 +86,75 @@
   </Class>
   <Class Name="WindowsFormsApplication2.Board" Collapsed="true">
     <Position X="11.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Populators" Type="Monopoly.Populators" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12" Y="1.191" />
+        <Point X="12" Y="3.125" />
+        <Point X="10.5" Y="3.125" />
+        <Point X="10.5" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Player" Type="Monopoly.Player" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12" Y="1.191" />
+        <Point X="12" Y="3.125" />
+        <Point X="13.531" Y="3.125" />
+        <Point X="13.531" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Card" Type="Monopoly.Card" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12" Y="1.191" />
+        <Point X="12" Y="1.566" />
+        <Point X="20.5" Y="1.566" />
+        <Point X="20.5" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="IncomeTaxWindow" Type="Monopoly.IncomeTaxWindow" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="1.062" />
+        <Point X="21.256" Y="1.062" />
+        <Point X="21.256" Y="2.562" />
+        <Point X="22.25" Y="2.562" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CardWindow" Type="Monopoly.CardWindow" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="0.875" />
+        <Point X="25.25" Y="0.875" />
+        <Point X="25.25" Y="1.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GiveCardWindow" Type="Monopoly.GiveCardWindow" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="0.688" />
+        <Point X="27" Y="0.688" />
+        <Point X="27" Y="1" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetOutOfJailDialog" Type="Monopoly.GetOutOfJailDialog" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="0.5" />
+        <Point X="28.188" Y="0.5" />
+        <Point X="28.188" Y="0.438" />
+        <Point X="29" Y="0.438" />
+        <Point X="29" Y="0.5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>wZIUSjDVBeClJ06h/2jC6GmmJwBXOiPU+GIN2+mKb4U=</HashCode>
+      <HashCode>4JJUSjDVjeClJ06h/2jK6GmmZwBfeiPU+HIN3+mKb4U=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cell" />
+      <Property Name="Populators" />
+      <Property Name="Player" />
+      <Property Name="Card" />
+      <Property Name="IncomeTaxWindow" />
+      <Property Name="CardWindow" />
+      <Property Name="GiveCardWindow" />
+      <Property Name="GetOutOfJailDialog" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Monopoly.NearestRailroadCard">
     <Position X="21.5" Y="6" Width="1.5" />
@@ -108,7 +173,7 @@
   <Class Name="Monopoly.Player">
     <Position X="12.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IgIQABAAAAAAQICAoAACAQSDCAAAAQEASEAEAIAAEAA=</HashCode>
+      <HashCode>IgIQABAAAAAAQICAoAACAQSDCAAAAQEASUIEAIAAEAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -152,6 +217,34 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAACAABQAA=</HashCode>
       <FileName>Utility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monopoly.CardWindow">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAACAAAAAACAAQAAAAAAAAA=</HashCode>
+      <FileName>CardWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monopoly.GetOutOfJailDialog">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAEADAIAACEAAQAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>GetOutOfJailDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monopoly.GiveCardWindow">
+    <Position X="26.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAACCACAJAAAACAAAACAAAAAQRAAQAAQBgAAAA=</HashCode>
+      <FileName>GiveCardWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monopoly.IncomeTaxWindow">
+    <Position X="22.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAQAAAEAAAAAAAAAAAAAAQAAAIAgAAA=</HashCode>
+      <FileName>IncomeTaxWindow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

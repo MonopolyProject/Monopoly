@@ -21,6 +21,94 @@ namespace WindowsFormsApplication2
             if (test) this.players = Populators.populatePlayers();
         }
 
+        public Monopoly.Cell Cell
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.Populators Populators
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.Player Player
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.Card Card
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.IncomeTaxWindow IncomeTaxWindow
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.CardWindow CardWindow
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.GiveCardWindow GiveCardWindow
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Monopoly.GetOutOfJailDialog GetOutOfJailDialog
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         private void language_Click_1(object sender, EventArgs e)
         {
             this.language = "en-US";
@@ -49,7 +137,7 @@ namespace WindowsFormsApplication2
             this.Trade.Text = Resource1.trade;
             this.TurnEnds.Text = Resource1.endTurn;
             this.rollDie.Text = Resource1.roll;
-            this.taxLabel2.Text = Resource1.taxLabel;
+            this.taxLabel2.Text = Resource1.luxuryTax;
             this.chanceLabel3.Text = Resource1.chance;
             this.controllBoard.Text = Resource1.controlBoard;
             this.marvinGardens.Name = Resource1.marvinGardens;
@@ -68,7 +156,7 @@ namespace WindowsFormsApplication2
             this.waterWorksLabel.Text = Resource1.waterWork;
             this.chanceLabel1.Text = Resource1.chance;
             this.railReadLabel.Text = Resource1.readingRailroad;
-            this.taxLabel1.Text = Resource1.taxLabel;
+            this.taxLabel1.Text = Resource1.incomeTax;
             this.jailLabel.Text = Resource1.Jail;
             this.chanceLabel2.Text = Resource1.chance;
             this.eCompanyLabel.Text = Resource1.electricCompany;
@@ -77,7 +165,7 @@ namespace WindowsFormsApplication2
             this.goToJailLabel.Text = Resource1.toJ;
             this.railShortLabel.Text = Resource1.shortLine;
             this.chanceLabel3.Text = Resource1.chance;
-            this.taxLabel2.Text = Resource1.taxLabel;
+            this.taxLabel2.Text = Resource1.luxuryTax;
             this.BuyProper.Text = Resource1.buy;
             this.BuyProper.Enabled = false;
             this.TurnEnds.Enabled = false;

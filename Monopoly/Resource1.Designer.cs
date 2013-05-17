@@ -153,12 +153,20 @@ namespace Monopoly {
         /// <summary>
         ///   Looks up a localized string similar to Income\r\nTax.
         /// </summary>
-        internal static string taxLabel {
+        internal static string incomeTax {
             get {
-                return ResourceManager.GetString("taxLabel", resourceCulture);
+                return ResourceManager.GetString("incomeTax", resourceCulture);
             }
         }
-        
+
+        internal static string luxuryTax
+        {
+            get
+            {
+                return ResourceManager.GetString("luxuryTax", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Trade.
         /// </summary>
@@ -442,7 +450,7 @@ namespace Monopoly {
         {
             get
             {
-                return ResourceManager.GetString("waterWork", resourceCulture);
+                return ResourceManager.GetString("readingRailroad", resourceCulture);
             }
 
         }

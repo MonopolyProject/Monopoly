@@ -147,8 +147,8 @@
   <data name="roll" xml:space="preserve">
     <value>Roll</value>
   </data>
-  <data name="taxLabel" xml:space="preserve">
-    <value>IncomeTax</value>
+  <data name="incomeTax" xml:space="preserve">
+    <value>Income Tax</value>
   </data>
   <data name="trade" xml:space="preserve">
     <value>Trade</value>
@@ -368,5 +368,8 @@
   </data>
   <data name="waterWork" xml:space="preserve">
     <value>WaterWorks</value>
+  </data>
+  <data name="luxuryTax" xml:space="preserve">
+    <value>Luxury Tax</value>
   </data>
 </root>
