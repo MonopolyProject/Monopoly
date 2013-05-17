@@ -28,7 +28,7 @@ namespace Monopoly
             int loc = p.getLocation();
             p.move(-p.getLocation() + this.newLocation, false);
             if (loc > p.getLocation() && this.passGo) { p.addMoney(200); }
-            b.updatePlayerPosition();
+            if( b != null) b.updatePlayerPosition();
         }
     }
 }

@@ -13,9 +13,9 @@ namespace WindowsFormsApplication2
         public List<Point> locations = Populators.populateLocations();
         public String language;
         private List<Player> players = new List<Player>();
-        private List<Cell> cells;
-        private List<Card> CommunityChestDeck;
-        private List<Card> ChanceDeck;
+        private List<Cell> cells =  Populators.populateCells(banker);
+        private List<Card> CommunityChestDeck = Populators.populateCommunity();
+        private List<Card> ChanceDeck  = Populators.populateChance();
         public int numberOfPlayers;
         private int activePlayer = 0;
         CheckedListBox properties;
